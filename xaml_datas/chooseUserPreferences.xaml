@@ -1,0 +1,32 @@
+﻿<Window x:Class="PlanCheck.xaml_datas.chooseUserPreferences"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:PlanCheck.xaml_datas"
+        mc:Ignorable="d"
+        Title="Préférences Utilisateur" Height="1200" Width="700">
+    <ScrollViewer VerticalScrollBarVisibility="Auto">
+        <Grid  Style="{x:Null}"  Margin="40,0,0,25">
+
+            <ItemsControl  Style="{x:Null}"  x:Name="itemsControl" ItemsSource="{Binding MaListe}">
+                <ItemsControl.ItemTemplate>
+                    <DataTemplate>
+                        <!-- Utilisation de CheckBox pour chaque élément de la liste -->
+                        <CheckBox  Style="{x:Null}"  Content="{Binding}" />
+                    </DataTemplate>
+                </ItemsControl.ItemTemplate>
+            </ItemsControl>
+          
+            <Button  Style="{x:Null}"  x:Name="tous" Content="Tous" HorizontalAlignment="Left" Margin="500,100,0,0" VerticalAlignment="Top" Click="tous_Click" Height="27" Width="89" FontSize="12" />
+            <Button  Style="{x:Null}"   x:Name="aucun" Content="Aucun" HorizontalAlignment="Left" Margin="500,130,0,0" VerticalAlignment="Top" Click="aucun_Click" Height="27" Width="89" FontSize="12" />
+
+            <!-- Button  Style="{x:Null}"  x:Name="medecin" Content="Médecin" ToolTip="Liste recommandée pour les médecins" HorizontalAlignment="Left" Margin="500,180,0,0" VerticalAlignment="Top" Click="medecin_Click" Height="27" Width="89" FontSize="12" / -->
+            <!-- Button  Style="{x:Null}"   x:Name="dosimetriste" Content="Dosimétriste" ToolTip="Liste recommandée pour les dosimétristes" HorizontalAlignment="Left" Margin="500,210,0,0" VerticalAlignment="Top" Click="dosimetriste_Click" Height="27" Width="89" FontSize="12" / -->
+            
+            <Button  Style="{x:Null}"  x:Name="close" Content="OK" HorizontalAlignment="Left" Margin="500,300,0,0" VerticalAlignment="Top" Click="close_Click" Height="27" Width="89" FontSize="12" Background="#FF9DE47E" />
+
+
+        </Grid>
+    </ScrollViewer>
+</Window>
