@@ -17,7 +17,7 @@ using PlanCheck.Languages;
 namespace PlanCheck.xaml_datas
 {
     /// <summary>
-    /// Logique d'interaction pour chooseNonFEplanWindow.xaml
+    /// Logique d'interaction pour chooseNonFEplanWindow.xaml hhh
     /// </summary>
 
     /*
