@@ -10,7 +10,7 @@ using System.Windows.Navigation;
 using System.Drawing;
 using System.Globalization;
 using PlanCheck.Users;
-
+using PlanCheck.Languages;
 
 namespace PlanCheck
 {
@@ -35,8 +35,8 @@ namespace PlanCheck
 
         public void Check()
         {
+            MessageBox.Show("toto \n"+ResourceHelper.GetMessage("generalError"));
 
-            
             if (_pinfo.actualUserPreference.userWantsTheTest("currentCourseStatus"))
             {
                 #region IS ACTUAL COURSE "EN COURS" ? 

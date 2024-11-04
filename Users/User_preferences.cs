@@ -14,6 +14,7 @@ namespace PlanCheck.Users
         private List<(string, bool, string)> userPrefsList;
         private static string userListFilePath = String.Empty;
         private static string newsFilePath = String.Empty;
+      
         public bool userWantsTheTest(string testName)
         {
 
@@ -164,7 +165,7 @@ namespace PlanCheck.Users
                         File.Copy(filePath, Userfile, true);
                     }
                     File.Delete(filePath);
-                    MessageBox.Show("Votre fichier de préférence a été mis à jour pour la mise en place nouveaux tests. Vérifier vos préférences.");
+                    //MessageBox.Show("Votre fichier de préférence a été mis à jour pour la mise en place nouveaux tests. Vérifier vos préférences.");
                 }
 
             }
@@ -227,8 +228,8 @@ namespace PlanCheck.Users
 
 
             userListFilePath = userid + "_prefs.csv";
-
             userListFilePath = Directory.GetCurrentDirectory() + @"\plancheck_data\users\UserPrefs\" + userListFilePath;
+
 
             // This file contains yes for all test. All the new tests are here. 
             newsFilePath = Directory.GetCurrentDirectory() + @"\plancheck_data\users\UserPrefs\newsPrefs.csv";
@@ -258,6 +259,12 @@ namespace PlanCheck.Users
             if (File.Exists(userListFilePath))
                 getUserPrefFromFile(userListFilePath);
 
+
+   
+            
+
+
+
         }
         //   GET, SET
         public List<(string, bool, string)> userPreferencesList
@@ -282,7 +289,7 @@ namespace PlanCheck.Users
                 userPrefsList.Add((targetString, newValue, text2));
             }
         }
-
+ 
 
     }
 }

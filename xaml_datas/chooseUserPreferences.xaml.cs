@@ -13,12 +13,13 @@ using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using VMS.TPS.Common.Model.API;
 using VMS.TPS.Common.Model.Types;
+using PlanCheck.Languages;
 namespace PlanCheck.xaml_datas
 {
     /// <summary>
     /// Logique d'interaction pour chooseNonFEplanWindow.xaml
     /// </summary>
-    
+
     /*
      * POUR AJOUTER UN TEST
      * CREER LE TEST DANS LE CODE AVEC UN TEST IF USER WANT THE TEST (NOM DU TEST)
@@ -35,12 +36,28 @@ namespace PlanCheck.xaml_datas
             _pinfo = pinfo;
             _ctx = ctx;
 
+
+
             InitializeComponent();
 
 
+            List<string> languageList = new List<string>();
+            languageList.Add("Français");
+            languageList.Add("English");
+
+
+            foreach (String s in languageList)
+            {
+                cbLang.Items.Add(s);
+            }
+            if (getUserLanguage.myLang == "FR")
+                cbLang.SelectedIndex = 0;
+            if (getUserLanguage.myLang == "UK")
+                cbLang.SelectedIndex = 1;
+
 
             MaListe = new List<string>();
-            foreach ((string text, bool valeurBool,string text2) in _pinfo.actualUserPreference.userPreferencesList)
+            foreach ((string text, bool valeurBool, string text2) in _pinfo.actualUserPreference.userPreferencesList)
             {
                 MaListe.Add(text2);
             }
@@ -90,7 +107,7 @@ namespace PlanCheck.xaml_datas
 
 
                 bool userPreferenceForThisTest = _pinfo.actualUserPreference.userPreferencesList.FirstOrDefault(x => x.Item3 == checkBox.Content.ToString()).Item2;
-                
+
                 checkBox.IsChecked = userPreferenceForThisTest;   // set the checkbox status with the user pref
 
                 // checkbox label name : checkBox.Content.ToString()
@@ -108,8 +125,8 @@ namespace PlanCheck.xaml_datas
             }
         }
 
-       
-      
+
+
 
         private void tous_Click(object sender, RoutedEventArgs e)
         {
@@ -152,41 +169,22 @@ namespace PlanCheck.xaml_datas
             this.Close();
         }
 
-       /* private void medecin_Click(object sender, RoutedEventArgs e)
+
+
+
+        private void cbLang_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            int i = 0;
-            List<int> medecinList = new List<int>() {4,5,6,7,21,24,27,28,29,30,31,58,59,60 };
+            //  MessageBox.Show("Language is");
+            string selectedOption = cbLang.SelectedItem.ToString();
+            string codedLang = String.Empty;
+            if (selectedOption == "Français")
+                codedLang = "FR";
+            if (selectedOption == "English")
+                codedLang = "UK";
+            getUserLanguage.myLang = codedLang;
+            ResourceHelper.SetLanguage(codedLang);
 
-
-            foreach (var item in itemsControl.Items)
-            {
-                i++;
-                var container = itemsControl.ItemContainerGenerator.ContainerFromItem(item) as FrameworkElement;
-                var checkBox = FindChild<CheckBox>(container, null);
-                if (medecinList.Contains(i))
-                    checkBox.IsChecked = true;
-                else
-                    checkBox.IsChecked = false;
-            }
         }
-
-        private void dosimetriste_Click(object sender, RoutedEventArgs e)
-        {
-            int i = 0;
-            List<int> dosiList = new List<int>() { 2,4,5,6,7,8,9,10,11,12,13,14,15,16,19,21,22,23,26,31,32,34,36,37,38,39,40,41,42,43,44,45,49,52,53,54,55,56,57,58,59,60,61,62 };
-
-
-            foreach (var item in itemsControl.Items)
-            {
-                i++;
-                var container = itemsControl.ItemContainerGenerator.ContainerFromItem(item) as FrameworkElement;
-                var checkBox = FindChild<CheckBox>(container, null);
-                if (dosiList.Contains(i))
-                    checkBox.IsChecked = true;
-                else
-                    checkBox.IsChecked = false;
-            }
-        }*/
     }
 }
 

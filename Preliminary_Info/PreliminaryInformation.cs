@@ -570,6 +570,7 @@ namespace PlanCheck
             _ctx = ctx;
             _aplanisloaded = aPlanIsLoaded;
             _actualUserPreference = new User_preference(_ctx.CurrentUser.Id);
+            
             myPlanReportIsFound = false;
 
             if (_ctx.Patient.Name != null)

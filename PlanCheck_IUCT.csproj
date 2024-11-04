@@ -7,7 +7,7 @@
     <OutputType>library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>PlanCheck</RootNamespace>
-    <AssemblyName>PlanCheck_99_0000.esapi</AssemblyName>
+    <AssemblyName>PlanCheck_99_0031.esapi</AssemblyName>
     <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
     <TargetFrameworkProfile>
     </TargetFrameworkProfile>
@@ -228,6 +228,18 @@
     <Compile Include="Excel_reader\read_check_protocole.cs" />
     <Compile Include="Excel_reader\NTO.cs" />
     <Compile Include="gateway\Gateway.cs" />
+    <Compile Include="Languages\getUserLanguage.cs" />
+    <Compile Include="Languages\RessourceHelper.cs" />
+    <Compile Include="Messages.fr.Designer.cs">
+      <DependentUpon>Messages.fr.resx</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="Messages.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Messages.resx</DependentUpon>
+    </Compile>
     <Compile Include="pdfReader\eclipseReportData.cs" />
     <Compile Include="pdfReader\tomoReportData.cs" />
     <Compile Include="pdfReader\planningPdfReportReader.cs" />
@@ -330,6 +342,27 @@
   <ItemGroup>
     <WCFMetadata Include="Connected Services\" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Resource Include="xaml_datas\img\teachman.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="xaml_datas\img\flag.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="xaml_datas\img\ball.jpeg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="xaml_datas\img\FLAG2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Messages.fr.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Messages.fr.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Messages.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Messages.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -17,6 +17,8 @@ using System.Net.NetworkInformation;
 using System.Runtime.InteropServices;
 using System.Windows.Navigation;
 using Excel = Microsoft.Office.Interop.Excel;
+using PlanCheck.Languages;
+
 // Do "Add reference" in reference manager --> COM tab --> Microsoft Excel 16 object...
 
 [assembly: AssemblyVersion("99.0.0.0")]
@@ -31,6 +33,9 @@ namespace VMS.TPS
         [MethodImpl(MethodImplOptions.NoInlining)]
         public void Execute(ScriptContext context)
         {
+
+            getUserLanguage.init(context.CurrentUser.Id);
+            ResourceHelper.SetLanguage(getUserLanguage.myLang);
 
             #region check if a plan with dose is loaded, no verification plan allowed
 
@@ -75,6 +80,10 @@ namespace VMS.TPS
         {
             
             PreliminaryInformation pinfo = new PreliminaryInformation(context,planIsLoaded);    //Get Plan information...      
+
+            
+           // Example of multilingual message 
+           // MessageBox.Show(ResourceHelper.GetMessage("generalError"));
 
             var window = new MainWindow(pinfo, context,planIsLoaded); // create window
             

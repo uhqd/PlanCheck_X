@@ -7,19 +7,34 @@
         mc:Ignorable="d"
         Title="PlanCheck"                
         WindowState="Maximized"
-        Style="{x:Null}" >
+        Style="{x:Null}" 
+        Background="White">
     <!-- Title="PlanCheck " Height="900" Width="1400" /-->
 
 
     <!-- Background="#331122ff" /-->
     <Grid Style="{x:Null}" >
+        <Grid.RowDefinitions>
+            <RowDefinition Height="110" />
+            <RowDefinition Height="*" />
+           
+        </Grid.RowDefinitions>
+
+        <StackPanel Grid.Row="0">
+            <StackPanel.Background>
+                <ImageBrush ImageSource="img/FLAG2.png" Stretch="None" AlignmentX="Right" />
+            </StackPanel.Background>
+            <!-- Contenu du StackPanel -->
+        </StackPanel>
+
         <!-- Grid.Background>
-            <ImageBrush ImageSource="\\srv015\SF_COM\SIMON_LU\scriptsEclipse\00004-plancheck\xaml_datas\logo.png" Stretch="Uniform" />
+            <ImageBrush ImageSource="\\srv015\SF_COM\SIMON_LU\scriptsEclipse\00004-plancheck\xaml_datas\logo.png" Stretch="Uniform" ee />
         </Grid.Background -->
 
-        <ScrollViewer Style="{x:Null}"  Grid.Column ="1">
+        <ScrollViewer Style="{x:Null}" Grid.Row="1">
 
             <StackPanel Style="{x:Null}"  Orientation="Vertical">
+                
                 <StackPanel Style="{x:Null}" >
                     <DockPanel Style="{x:Null}" >
                         <StackPanel Style="{x:Null}"  Width="1000">
@@ -146,7 +161,7 @@
                 </StackPanel>
 
                 <StackPanel Style="{x:Null}" Height="60">
-                    <!-- ADD A SPACING -->
+                    
                 </StackPanel>
                 <StackPanel Style="{x:Null}" Height="90" Width="805">
                     <Button Style="{x:Null}"  x:Name="exportPDF_button" Content="PDF" Visibility="Hidden" FontSize="16" FontFamily="Bauhaus" Margin="0,2,0,0"  Click="exportPDF_button_Click" Width="100" Height="30" Background="LightGray" VerticalAlignment="Top" HorizontalAlignment="Right" ToolTip="Export des résultats en pdf.  Ce fichier est généré par défaut. Cliquer seulemnt pour le regénérer" />
