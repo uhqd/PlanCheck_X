@@ -8,7 +8,7 @@ using VMS.TPS.Common.Model.API;
 using VMS.TPS.Common.Model.Types;
 using System.Windows;
 using System.Windows.Navigation;
-
+using PlanCheck.Languages;
 
 
 
@@ -42,19 +42,19 @@ namespace PlanCheck
                 Item_Result prescriptionVolumes = new Item_Result();
                 if (_ctx.PlanSetup.RTPrescription.Status == "Approved")
                 {
-                    prescriptionVolumes.MeasuredValue = "Approuvée: ";
+                    prescriptionVolumes.MeasuredValue = ResourceHelper.GetMessage("String150") + ": ";
                     prescriptionVolumes.setToTRUE();
                 }
                 else
                 {
-                    prescriptionVolumes.MeasuredValue = "Non approuvée: ";
+                    prescriptionVolumes.MeasuredValue = ResourceHelper.GetMessage("String151") + ": ";
 
                     //                    prescriptionVolumes.Label = " Prescription non approuvée (" + targetNumber + " cible(s))";
                     prescriptionVolumes.setToFALSE();
                 }
                 int targetNumber = 0;
                 //prescriptionVolumes.MeasuredValue = "";
-                prescriptionVolumes.Infobulle = "information : liste des cibles de la prescription\n";
+                prescriptionVolumes.Infobulle = ResourceHelper.GetMessage("String152") + "\n";
                 foreach (var target in _ctx.PlanSetup.RTPrescription.Targets) //boucle sur les différents niveaux de dose de la prescription
                 {
                     targetNumber++;
@@ -64,8 +64,8 @@ namespace PlanCheck
                 }
 
                 prescriptionVolumes.ExpectedValue = "info";
-                prescriptionVolumes.Label = " Approbation de la prescription pour " + targetNumber + " cible(s) : ";
-                
+                prescriptionVolumes.Label = " " + ResourceHelper.GetMessage("String153") + " " + targetNumber + " " + ResourceHelper.GetMessage("String154") + " : ";
+
 
                 this._result.Add(prescriptionVolumes);
             }
@@ -108,7 +108,7 @@ namespace PlanCheck
                     {
                         myDosePerFraction = _pinfo.tprd.Trd.prescriptionDosePerFraction;
                         nFraction = _pinfo.tprd.Trd.prescriptionNumberOfFraction;
-                        fractionation.Infobulle = "Données récupées du rapport Aria Documents Dosimétrie Tomotherapy du plan : " + _pinfo.tprd.Trd.planName;
+                        fractionation.Infobulle = ResourceHelper.GetMessage("String155") + " : " + _pinfo.tprd.Trd.planName;
                     }
                 }
                 if (((_pinfo.isTOMO) && (_pinfo.planReportIsFound)) || (!_pinfo.isTOMO))
@@ -116,24 +116,24 @@ namespace PlanCheck
 
 
                     diffDose = Math.Abs(nPrescribedDosePerFraction - myDosePerFraction);
-                    fractionation.MeasuredValue = "Plan : " + nFraction + " x " + myDosePerFraction.ToString("0.00") + " Gy - Prescrits : " + nPrescribedNFractions + " x " + nPrescribedDosePerFraction.ToString("0.00") + " Gy";
+                    fractionation.MeasuredValue = "Plan : " + nFraction + " x " + myDosePerFraction.ToString("0.00") + " " + ResourceHelper.GetMessage("String156") + " : " + nPrescribedNFractions + " x " + nPrescribedDosePerFraction.ToString("0.00") + " Gy";
                     if ((nPrescribedNFractions == nFraction) && (diffDose < 0.005))
                         fractionation.setToTRUE();
                     else
                         fractionation.setToFALSE();
 
-                    fractionation.Infobulle += "\n\nLe 'nombre de fractions' et la 'dose par fraction' du plan doivent\nêtre conformes à la plus forte prescription (" + _ctx.PlanSetup.RTPrescription.Id +
+                    fractionation.Infobulle += "\n\n" + ResourceHelper.GetMessage("String157") + "\n" + ResourceHelper.GetMessage("String158") + " (" + _ctx.PlanSetup.RTPrescription.Id +
                         ") : " + nPrescribedNFractions.ToString() + " x " + nPrescribedDosePerFraction.ToString("N2") + " Gy.";
 
                 }
                 else
                 {
                     fractionation.setToINFO();
-                    fractionation.MeasuredValue = "Pas de rapport de plan Tomotherapy dans Aria Documents";
-                    fractionation.Infobulle = "Pas de rapport de plan Tomotherapy dans Aria Documents";
+                    fractionation.MeasuredValue = ResourceHelper.GetMessage("String159");
+                    fractionation.Infobulle = ResourceHelper.GetMessage("String159");
                 }
 
-                fractionation.Label = "Fractionnement de la cible principale (" + PrescriptionName + ")";
+                fractionation.Label = ResourceHelper.GetMessage("String160") + " (" + PrescriptionName + ")";
                 this._result.Add(fractionation);
             }
             #endregion
@@ -146,15 +146,15 @@ namespace PlanCheck
                     Item_Result percentage = new Item_Result();
                     double myTreatPercentage = _ctx.PlanSetup.TreatmentPercentage;
                     myTreatPercentage = 100 * myTreatPercentage;
-                    percentage.Label = "Pourcentage de traitement";
+                    percentage.Label = ResourceHelper.GetMessage("String161");
                     percentage.ExpectedValue = _rcp.prescriptionPercentage;
                     percentage.MeasuredValue = myTreatPercentage.ToString() + "%";
                     if (percentage.ExpectedValue == percentage.MeasuredValue)
                         percentage.setToTRUE();
                     else
                         percentage.setToFALSE();
-                    percentage.Infobulle = "Le pourcentage de traitement (onglet Dose) doit être en accord avec";
-                    percentage.Infobulle += "\nla valeur de pourcentage du check-protocol " + _rcp.protocolName + " (" + _rcp.prescriptionPercentage + ")";
+                    percentage.Infobulle = ResourceHelper.GetMessage("String162");
+                    percentage.Infobulle += "\n" + ResourceHelper.GetMessage("String163") + " " + _rcp.protocolName + " (" + _rcp.prescriptionPercentage + ")";
                     this._result.Add(percentage);
                 }
             #endregion
@@ -163,7 +163,7 @@ namespace PlanCheck
             if (_pinfo.actualUserPreference.userWantsTheTest("normalisation"))
             {
                 Item_Result normalisation = new Item_Result();
-                normalisation.Label = "Mode de normalisation du plan";
+                normalisation.Label = ResourceHelper.GetMessage("String164");
                 if (!_pinfo.isTOMO)
                 {
 
@@ -183,14 +183,14 @@ namespace PlanCheck
                     }
                     if (normalisation.MeasuredValue.Contains("point"))
                     {
-                        if (normalisation.MeasuredValue.Contains("100% au point de référence"))
+                        if (normalisation.MeasuredValue.Contains(ResourceHelper.GetMessage("String165")))
                         {
-                            if (normalisation.ExpectedValue.Contains("100% au point de référence"))
+                            if (normalisation.ExpectedValue.Contains(ResourceHelper.GetMessage("String165")))
                                 normalisation.setToTRUE();
                             else
                                 normalisation.setToFALSE();
 
-                            if (normalisation.MeasuredValue.Contains("principal"))
+                            if (normalisation.MeasuredValue.Contains(ResourceHelper.GetMessage("String175")))
                                 normalisation.MeasuredValue += " (" + _ctx.PlanSetup.PrimaryReferencePoint.Id + ")";
 
                         }
@@ -200,13 +200,13 @@ namespace PlanCheck
                         }
                     }
 
-                    if (normalisation.MeasuredValue == "Aucune normalisation de plan")
+                    if (normalisation.MeasuredValue == ResourceHelper.GetMessage("String166"))
                         normalisation.setToWARNING();
 
 
 
 
-                    normalisation.Infobulle = "Le mode de normalisation (onglet Dose) doit être en accord avec le check-protocol. Cet item est en WARNING si Aucune normalisation";
+                    normalisation.Infobulle = ResourceHelper.GetMessage("String167");
                     //normalisation.Infobulle += "\nPour la TOMO l'item est mis en INFO";
 
 
@@ -216,7 +216,7 @@ namespace PlanCheck
                     if (_pinfo.planReportIsFound)
                     {
                         normalisation.MeasuredValue = _pinfo.tprd.Trd.prescriptionMode;
-                        normalisation.Infobulle = "attendue : Median";
+                        normalisation.Infobulle = ResourceHelper.GetMessage("String168");
                         if (_pinfo.tprd.Trd.prescriptionMode.Contains("Median"))
                         {
 
@@ -230,7 +230,7 @@ namespace PlanCheck
                     }
                     else
                     {
-                        normalisation.MeasuredValue = "Pas de rapport de dosimétrie Tomotherapy dans ARIA documents";
+                        normalisation.MeasuredValue = ResourceHelper.GetMessage("String169");
                         normalisation.setToWARNING();
                     }
                 }
@@ -245,7 +245,7 @@ namespace PlanCheck
             if (_pinfo.actualUserPreference.userWantsTheTest("prescriptionName"))
             {
                 Item_Result prescriptionName = new Item_Result();
-                prescriptionName.Label = "Nom de la prescription";
+                prescriptionName.Label = ResourceHelper.GetMessage("String170");
                 prescriptionName.MeasuredValue = _ctx.PlanSetup.RTPrescription.Id;
 
                 String planName = String.Concat(_ctx.PlanSetup.Id.Where(c => !Char.IsWhiteSpace(c))); // remove spaces
@@ -259,13 +259,13 @@ namespace PlanCheck
                 }
                 else
                 {
-                    prescriptionName.MeasuredValue += " (différent du nom du plan)";
+                    prescriptionName.MeasuredValue += " "+ ResourceHelper.GetMessage("String171");
                     prescriptionName.setToINFO();
                 }
-                prescriptionName.Infobulle = "La prescription et le plan doivent avoir le même nom";
-                prescriptionName.Infobulle += "\nIl est recommandé de mettre ce nom en commentaire du course\n";
+                prescriptionName.Infobulle = ResourceHelper.GetMessage("String172");
+                prescriptionName.Infobulle += "\n"+ ResourceHelper.GetMessage("String173") + "\n";
                 if (_ctx.Course.Comment == _ctx.PlanSetup.RTPrescription.Id)
-                    prescriptionName.Infobulle += "C'est le cas pour ce course";
+                    prescriptionName.Infobulle += ResourceHelper.GetMessage("String174");
                 this._result.Add(prescriptionName);
             }
             #endregion

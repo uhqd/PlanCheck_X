@@ -8,7 +8,7 @@ using VMS.TPS.Common.Model.API;
 using VMS.TPS.Common.Model.Types;
 using System.Windows;
 using System.Windows.Navigation;
-
+using PlanCheck.Languages;
 
 namespace PlanCheck
 {
@@ -29,7 +29,7 @@ namespace PlanCheck
 
         private List<Item_Result> _result = new List<Item_Result>();
         // private PreliminaryInformation _pinfo;
-        private string _title = "Faisceaux";
+        private string _title = ResourceHelper.GetMessage("Beams");
 
 
 
@@ -122,7 +122,7 @@ namespace PlanCheck
                 if ((!_pinfo.isTOMO) && (!_pinfo.isHALCYON)) // not checked if mono energy machine
                 {
                     Item_Result energy = new Item_Result();
-                    energy.Label = "Energie";
+                    energy.Label = ResourceHelper.GetMessage("Energy");// "Energie";
                     energy.ExpectedValue = "NA";
 
 
@@ -130,8 +130,8 @@ namespace PlanCheck
                     if ((_rcp.energy == "") || (_rcp.energy == null)) // no energy specified in check-protocol
                     {
                         energy.setToINFO();
-                        energy.MeasuredValue = "Energie non vérifiée";
-                        energy.Infobulle = "Aucune énergie spécifiée dans le protocole:" + _rcp.protocolName;
+                        energy.MeasuredValue = energy.Label = ResourceHelper.GetMessage("energyNotChecked");
+                        energy.Infobulle = ResourceHelper.GetMessage("noEnergyInProtocol") + ":" + _rcp.protocolName;
                     }
                     else
                     {
@@ -143,10 +143,10 @@ namespace PlanCheck
                                 energyList.Add(b.EnergyModeDisplayName);
 
                         distinctEnergyList = energyList.Distinct().ToList(); // remove doublons
-                        energy.MeasuredValue += "Energies : ";
+                        energy.MeasuredValue += ResourceHelper.GetMessage("Energy") + " : ";
                         foreach (string distinctEnergy in distinctEnergyList)
                             energy.MeasuredValue += distinctEnergy + " ";
-                        energy.Infobulle = "Valeur spécifiée dans le check-protocol : " + _rcp.energy;
+                        energy.Infobulle = ResourceHelper.GetMessage("SpecifiedValueInProtocol") + " : " + _rcp.energy;
                         if (distinctEnergyList.Count > 1)
                         {
                             energy.setToWARNING();
@@ -178,7 +178,7 @@ namespace PlanCheck
                         double maxDoseRateEnergy = 0.0;
                         string s = string.Empty;
                         Item_Result doseRate = new Item_Result();
-                        doseRate.Label = "Débit de dose pour QA";
+                        doseRate.Label = ResourceHelper.GetMessage("doseRateLabel");// "Débit de dose pour QA";
                         doseRate.ExpectedValue = "NA";
                         string textOut = string.Empty;
 
@@ -288,7 +288,7 @@ namespace PlanCheck
 
                                 s += b.Id + " " + d.ToString("F2") + "%% ";
 
-                                doseRate.Infobulle = "Dernier bin de l'histogramme de débit de dose" + binStart + "-" + binEnd + " UM/min ";
+                                doseRate.Infobulle = ResourceHelper.GetMessage("lastBin") +  binStart + "-" + binEnd + " UM/min ";//"Dernier bin de l'histogramme de débit de dose" 
 
 
                             }
@@ -306,10 +306,10 @@ namespace PlanCheck
                         {
 
                             Item_Result lowSteps = new Item_Result();
-                            lowSteps.Label = "CP trop lents (< 1 deg/s)";
+                            lowSteps.Label = ResourceHelper.GetMessage("tooSlowCps");//  "CP trop lents (< 1 deg/s)";
                             double ratio = 100.0 * Convert.ToDouble(nLowStepDetected) / Convert.ToDouble(nTotalSteps);
                             lowSteps.MeasuredValue = nLowStepDetected.ToString() + " / " + nTotalSteps.ToString() + " (" + ratio.ToString("F1") + "%)";
-                            lowSteps.Infobulle = "Nombre de CP ayant une vitesse < 1 deg/s";
+                            lowSteps.Infobulle = ResourceHelper.GetMessage("numberOfSlowCPs");
 
                             if (nLowStepDetected > 1)
                                 lowSteps.setToWARNING();
@@ -328,7 +328,7 @@ namespace PlanCheck
                 if (!_pinfo.isTOMO)
                 {
                     Item_Result toleranceTable = new Item_Result();
-                    toleranceTable.Label = "Table de tolérance";
+                    toleranceTable.Label = ResourceHelper.GetMessage("TableOfTolerances");
                     toleranceTable.ExpectedValue = "NA";
 
 
@@ -366,30 +366,32 @@ namespace PlanCheck
                     {
                         toleranceTable.setToTRUE();
                         toleranceTable.MeasuredValue = _rcp.toleranceTable;
-                        toleranceTable.Infobulle = "Tous les champs ont bien la table de tolérance spécifiée dans le check-protocol:\n";
+                        toleranceTable.Infobulle = ResourceHelper.GetMessage("goodTable") + ":\n";
                     }
                     else
                     {
                         toleranceTable.setToFALSE();
-                        toleranceTable.MeasuredValue = "Table de tolérances des champs à revoir (voir détail)";
-                        toleranceTable.Infobulle += "\n\nCertains des chams suivants n'ont pas la bonne table de tolérance\n";
+                        toleranceTable.MeasuredValue = ResourceHelper.GetMessage("reviewTolTable");// Table de tolérances des champs à revoir (voir détail)";
+                        toleranceTable.Infobulle += "\n\n"+ResourceHelper.GetMessage("wrongTolerancesForSomeFields")+"\n";//\n\nCertains des chams suivants n'ont pas la bonne table de tolérance\n";
 
                     }
                     if (_rcp.toleranceTable == "") // if no table specidfied in RCP
                     {
 
-                        toleranceTable.MeasuredValue = "Table de tolérances unique  (voir détail) ";
-                        toleranceTable.Infobulle = "Pas de table de tolérance spécifiée dans le check-protocol " + _rcp.protocolName;
+                        //toleranceTable.MeasuredValue = "Table de tolérances unique  (voir détail) ";
+                        toleranceTable.Infobulle = ResourceHelper.GetMessage("noToleranceTableinCP") + " " + _rcp.protocolName; //  "Pas de table de tolérance spécifiée dans le check-protocol " + _rcp.protocolName;
                         if (allSame)
                         {
-                            toleranceTable.Infobulle += "\nUnse seule table de tolérance est utilisée pour tous les faisceaux\n";
-                            toleranceTable.MeasuredValue = "Table de tolérances unique  (voir détail) ";
+
+
+                            toleranceTable.Infobulle += "\n"+ResourceHelper.GetMessage("uniqueToleranceTable")+"\n"; //"\nUnse seule table de tolérance est utilisée pour tous les faisceaux\n";
+                            toleranceTable.MeasuredValue = ResourceHelper.GetMessage("uniqueTableDetail"); //"Table de tolérances unique  (voir détail) ";
                             toleranceTable.setToTRUE();
                         }
                         else
                         {
-                            toleranceTable.Infobulle += "\nPlusieurs tables de tolérance utilisées pour les faisceaux\n";
-                            toleranceTable.MeasuredValue = "Table de tolérances différentes  (voir détail) ";
+                            toleranceTable.Infobulle += "\n"+ ResourceHelper.GetMessage("severaTolTable")+"\n";// "\nPlusieurs tables de tolérance utilisées pour les faisceaux\n";
+                            toleranceTable.MeasuredValue = ResourceHelper.GetMessage("differentToleranceTables");//  "Table de tolérances différentes  (voir détail) ";
                             toleranceTable.setToFALSE();
                         }
 
@@ -399,8 +401,8 @@ namespace PlanCheck
 
                     if (_pinfo.isTOMO)
                     {
-                        toleranceTable.Infobulle += "\nNon vérifié pour les tomos\n";
-                        toleranceTable.MeasuredValue = "Tomo (pas de table de tolérance)";
+                        toleranceTable.Infobulle += "\n" + ResourceHelper.GetMessage("unchekForTomo") + "\n"; //"Non vérifié pour les tomos\n";
+                        toleranceTable.MeasuredValue = ResourceHelper.GetMessage("TomoNoToleranceTable)");  //"Tomo (pas de table de tolérance)";
                         toleranceTable.setToINFO();
                     }
                     this._result.Add(toleranceTable);
@@ -417,9 +419,9 @@ namespace PlanCheck
 
 
                     List<String> fieldTooSmallList = new List<String>();
-                    fieldTooSmall.Label = "Champs trop petits";
+                    fieldTooSmall.Label = ResourceHelper.GetMessage("tooSmallFields");//Champs trop petits";
                     fieldTooSmall.ExpectedValue = "NA";
-                    fieldTooSmall.Infobulle = "Les champs doivent avoir une dimension adaptée au PTV";
+                    fieldTooSmall.Infobulle = ResourceHelper.GetMessage("adaptFieldToPTV");// "Les champs doivent avoir une dimension adaptée au PTV";
                     String targetName = _ctx.PlanSetup.TargetVolumeID;
                     Structure target = null;
                     double surfaceZX = 0;
@@ -464,22 +466,22 @@ namespace PlanCheck
                     if (giveup)
                     {
                         fieldTooSmall.setToINFO();
-                        fieldTooSmall.MeasuredValue = "Test non réalisé";
-                        fieldTooSmall.Infobulle += "\n\nCe test n'est pas réalisé pour les Tomos ou si le plan n'a pas de volume cible";
+                        fieldTooSmall.MeasuredValue = ResourceHelper.GetMessage("undotest");//"Test non réalisé";
+                        fieldTooSmall.Infobulle += "\n\n" + ResourceHelper.GetMessage("thisTestNotForTomo");//Ce test n'est pas réalisé pour les Tomos ou si le plan n'a pas de volume cible";
                     }
                     else
                     {
                         if (listOfWrongBeam == null)
                         {
                             fieldTooSmall.setToTRUE();
-                            fieldTooSmall.MeasuredValue = "Dimensions des Jaws correctes";
-                            fieldTooSmall.Infobulle += "\n\nTous les champs ou Control Points ont des dimensions de machoîres cohérentes par rapport au volume cible";
+                            fieldTooSmall.MeasuredValue = ResourceHelper.GetMessage("correctJaws"); //"Dimensions des Jaws correctes";
+                            fieldTooSmall.Infobulle += "\n\n"+ ResourceHelper.GetMessage("allCPcorrectJaws");  //Tous les champs ou Control Points ont des dimensions de machoîres cohérentes par rapport au volume cible";
                         }
                         else
                         {
                             fieldTooSmall.setToWARNING();
-                            fieldTooSmall.MeasuredValue = "Un ou plusieurs champs trop petits";
-                            fieldTooSmall.Infobulle += "\n\nAu moins un champ ou un Control Point a des dimensions de machoîres trop petites par rapport au volume cible" + listOfWrongBeam;
+                            fieldTooSmall.MeasuredValue = ResourceHelper.GetMessage("oneFieldTooSmall"); // "Un ou plusieurs champs trop petits";
+                            fieldTooSmall.Infobulle += "\n\n"+ ResourceHelper.GetMessage("oneFieldTooSmallDetail") + listOfWrongBeam; //Au moins un champ ou un Control Point a des dimensions de machoîres trop petites par rapport au volume cible" + listOfWrongBeam;
                         }
 
 
@@ -495,9 +497,9 @@ namespace PlanCheck
                 if (_pinfo.isHALCYON) // if  HALCYON XxY must be < 20x20
                 {
                     Item_Result maxPositionMLCHalcyon = new Item_Result();
-                    maxPositionMLCHalcyon.Label = "Lames MLC Halcyon < 10 cm";
+                    maxPositionMLCHalcyon.Label = ResourceHelper.GetMessage("labelMLCHalcyon"); //"Lames MLC Halcyon < 10 cm";
                     maxPositionMLCHalcyon.ExpectedValue = "NA";
-                    maxPositionMLCHalcyon.Infobulle = "Les lames du MLC pour l'Halcyon doivent être < 100 mm (tolérance 5 mm)";
+                    maxPositionMLCHalcyon.Infobulle = ResourceHelper.GetMessage("detailsMLCHalcyon"); //"Les lames du MLC pour l'Halcyon doivent être < 100 mm (tolérance 5 mm)";
 
                     // List<String> mlcTooLarge = new List<String>();
                     double thisleafnotok = 0;
@@ -567,13 +569,13 @@ namespace PlanCheck
                     {
                         //MessageBox.Show("i = " + i.ToString());
                         maxPositionMLCHalcyon.setToINFO();
-                        maxPositionMLCHalcyon.MeasuredValue = "Au moins une lame MLC > 100 mm (" + thisleafnotok + ")";
+                        maxPositionMLCHalcyon.MeasuredValue = ResourceHelper.GetMessage("atleastALeafSup100") +" (" + thisleafnotok + ")"; //"Au moins une lame MLC > 100 mm
                         maxPositionMLCHalcyon.Infobulle += "\nBeam: " + beamNotOk + " cp: " + cpNotOk + "/" + totalNumberofCP + " leaf: " + leafNumbernotOK;
                     }
                     else
                     {
                         maxPositionMLCHalcyon.setToTRUE();
-                        maxPositionMLCHalcyon.MeasuredValue = "Toutes les lames MLC < 100 mm";
+                        maxPositionMLCHalcyon.MeasuredValue = ResourceHelper.GetMessage("allLeavesOK");// "Toutes les lames MLC < 100 mm";
                     }
                     this._result.Add(maxPositionMLCHalcyon);
 
@@ -587,14 +589,14 @@ namespace PlanCheck
                 if (_pinfo.isNOVA)
                 {
                     Item_Result novaSBRT = new Item_Result();
-                    novaSBRT.Label = "NOVA SBRT ou NOVA";
+                    novaSBRT.Label = ResourceHelper.GetMessage("novaornovasbrt");//   "NOVA SBRT ou NOVA";
                     novaSBRT.MeasuredValue = _pinfo.machine;
                     if (_pinfo.treatmentType == "VMAT")
                     {
 
 
-                        novaSBRT.Infobulle = "Pour les Nova en VMAT, la machine NOVA SBRT doit être utilisée si X ou Y < 7 cm,\n";
-                        novaSBRT.Infobulle += "sauf pour les prostate sans Ganglions (NOVA SBRT dans tous les cas)";
+                        novaSBRT.Infobulle = ResourceHelper.GetMessage("novaornovasbrtdetail1") + ",\n"; //"Pour les Nova en VMAT, la machine NOVA SBRT doit être utilisée si X ou Y < 7 cm,\n";
+                        novaSBRT.Infobulle += ResourceHelper.GetMessage("novaornovasbrtdetail2");// "sauf pour les prostate sans Ganglions (NOVA SBRT dans tous les cas)";
 
 
                         bool aFieldIsSmall = false;
@@ -646,7 +648,7 @@ namespace PlanCheck
                         {
 
                             //MessageBox.Show("n loc HA " + nLocHA);
-                            if(_pinfo.nLocHA == 1)
+                            if (_pinfo.nLocHA == 1)
                                 mustBeSBRT = true;
                             else
                                 mustBeSBRT = false;
@@ -662,7 +664,7 @@ namespace PlanCheck
 
                         if (_pinfo.machine == "NOVA SBRT")
                             isSBRT = true;
-                        novaSBRT.MeasuredValue = "NOVA SBRT ou NOVA: " + _pinfo.machine;
+                        novaSBRT.MeasuredValue = ResourceHelper.GetMessage("novaornovasbrt") + ": " +  _pinfo.machine;
                         if (isSBRT == mustBeSBRT)
                         {
                             novaSBRT.setToTRUE();
@@ -676,15 +678,15 @@ namespace PlanCheck
 
                         }
                         if (isProstateWithoutNodes)
-                            novaSBRT.Infobulle += "\nCe plan : Prostate sans gg --> NOVA SBRT";
+                            novaSBRT.Infobulle += "\n" + ResourceHelper.GetMessage("thisPlanProstateNoGG");// Ce plan : Prostate sans gg --> NOVA SBRT";
                         else if (aFieldIsSmall)
-                            novaSBRT.Infobulle += "\nCe plan : X ou Y < 7 cm --> NOVA SBRT";
+                            novaSBRT.Infobulle += "\n" + ResourceHelper.GetMessage("ThisPlanLess7");//"\nCe plan : X ou Y < 7 cm --> NOVA SBRT";
                         else
-                            novaSBRT.Infobulle += "\nCe plan : X et Y > 7 cm --> NOVA";
+                            novaSBRT.Infobulle += "\n" + ResourceHelper.GetMessage("ThisPlanMore7");//"\nCe plan : X et Y > 7 cm --> NOVA";
                     }
                     else
                     {
-                        novaSBRT.Infobulle = "Nova non VMAT : machine NOVA SBRT interdite";
+                        novaSBRT.Infobulle = ResourceHelper.GetMessage("novaNoVMAT");//"Nova non VMAT : machine NOVA SBRT interdite";
                         if (_pinfo.machine == "NOVA SBRT")
                         {
                             novaSBRT.setToFALSE();
@@ -727,7 +729,7 @@ namespace PlanCheck
                     else
                         tomoParamsFieldWidth.setToINFO();
 
-                    tomoParamsFieldWidth.Infobulle = "Attendu : 5.0 cm";
+                    tomoParamsFieldWidth.Infobulle = ResourceHelper.GetMessage("expected") + " : 5.0 cm";
 
 
                     if ((_pinfo.tprd.Trd.gantryPeriod < 52.0) && (_pinfo.tprd.Trd.gantryPeriod > 12.0))
@@ -735,7 +737,7 @@ namespace PlanCheck
                     else
                         tomoParamsGantryPeriod.setToWARNING();
 
-                    tomoParamsGantryPeriod.Infobulle = "Attendu (s) : 12 < x < 52 ";
+                    tomoParamsGantryPeriod.Infobulle = ResourceHelper.GetMessage("expected") + " : 12 < x < 52 ";
 
 
                     if ((_pinfo.tprd.Trd.pitch < 0.44) && (_pinfo.tprd.Trd.pitch > 0.4))
@@ -743,20 +745,20 @@ namespace PlanCheck
                     else
                         tomoParamsPitch.setToINFO();
 
-                    tomoParamsPitch.Infobulle = "Attendu : 0.4 < x < 0.44";
+                    tomoParamsPitch.Infobulle = ResourceHelper.GetMessage("expected") + " : 0.4 < x < 0.44";
 
                     if ((_pinfo.tprd.Trd.modulationFactor < 3.5) && (_pinfo.tprd.Trd.modulationFactor > 2.0))
                         tomoParamsModulationFactor.setToTRUE();
                     else
                         tomoParamsModulationFactor.setToINFO();
 
-                    tomoParamsModulationFactor.Infobulle = "Attendu : 2 < x < 3.5";
+                    tomoParamsModulationFactor.Infobulle = ResourceHelper.GetMessage("expected") + " : 2 < x < 3.5";
 
                     Item_Result blockedOAR = new Item_Result();
-                    blockedOAR.Label = "Blocage OAR";
-                    blockedOAR.MeasuredValue = _pinfo.tprd.Trd.blockedOAR.Count + " OAR bloqués (voir détail)";
+                    blockedOAR.Label = ResourceHelper.GetMessage("blocOAR");
+                    blockedOAR.MeasuredValue = _pinfo.tprd.Trd.blockedOAR.Count + " " + ResourceHelper.GetMessage("OARsAreblocked");// OAR bloqués (voir détail)";
                     blockedOAR.setToINFO();
-                    blockedOAR.Infobulle = "Liste des OAR bloqués en EXIT ONLY\n";
+                    blockedOAR.Infobulle = ResourceHelper.GetMessage("listOARblocked") + "\n";// Liste des OAR bloqués en EXIT ONLY\n";
                     foreach (string blocOAR in _pinfo.tprd.Trd.blockedOAR)
                         blockedOAR.Infobulle += "\n" + blocOAR;
 
@@ -777,7 +779,7 @@ namespace PlanCheck
                 if (_rcp.protocolName == "sein" && _pinfo.treatmentType == "IMRT")
                 {
                     Item_Result gantryAngleBreastIMRT = new Item_Result();
-                    gantryAngleBreastIMRT.Label = "Angles de bras en IMRT du sein";
+                    gantryAngleBreastIMRT.Label = ResourceHelper.GetMessage("beamAngleBreastLabel");//  "Angles de bras en IMRT du sein";
                     gantryAngleBreastIMRT.ExpectedValue = "";
 
                     bool isCorrect = false;
@@ -785,15 +787,15 @@ namespace PlanCheck
                     if (isCorrect)
                     {
                         gantryAngleBreastIMRT.setToTRUE();
-                        gantryAngleBreastIMRT.MeasuredValue = "7 deg. entre les différents champs";
+                        gantryAngleBreastIMRT.MeasuredValue = ResourceHelper.GetMessage("7deg");// "7 deg. entre les différents champs";
                     }
                     else
                     {
                         gantryAngleBreastIMRT.setToFALSE();
-                        gantryAngleBreastIMRT.MeasuredValue = "7 deg. entre les différents champs : non respecté";
+                        gantryAngleBreastIMRT.MeasuredValue = ResourceHelper.GetMessage("7deg") + " " + ResourceHelper.GetMessage("notTrue");// "7 deg. entre les différents champs : non respecté";
 
                     }
-                    gantryAngleBreastIMRT.Infobulle = "Les différents champs intenes doivent être séparés de 7 degrés (idem externes)";
+                    gantryAngleBreastIMRT.Infobulle = ResourceHelper.GetMessage("7degDetails");// "Les différents champs intenes doivent être séparés de 7 degrés (idem externes)";
 
                     this._result.Add(gantryAngleBreastIMRT);
 

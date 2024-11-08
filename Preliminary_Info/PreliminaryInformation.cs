@@ -20,7 +20,7 @@ using VMS.OIS.ARIAExternal.WebServices.Documents.Contracts;
 using VMS.TPS.Common.Model.Types;
 using PlanCheck.xaml_datas;
 using System.Globalization;
-
+using PlanCheck.Languages;
 
 namespace PlanCheck
 {
@@ -199,20 +199,21 @@ namespace PlanCheck
 
                     if (_tempTprd.Erd.approDate == paDate)
                     {
-                        // MessageBox.Show("ok  " + _ctx.PlanSetup.PlanningApprovalDate.ToString() + " " + _tempTprd.Erd.approDate.ToString());
+                       
 
                         myPlanReportIsFound = true;
                         returnCode = 4;
-                        eclipseReportMessage = "ok";
+                        eclipseReportMessage = ResourceHelper.GetMessage("ok");
 
                     }
                     else
                     {
-                        //  MessageBox.Show(" pas ok  " + _ctx.PlanSetup.PlanningApprovalDate.ToString() + " " + _tempTprd.Erd.approDate.ToString());
+                        
 
 
                         returnCode = 3;
-                        eclipseReportMessage = "Date d'approbation du plan différente de la date d'approbation du plan dans le rapport de Dosi.";
+                        eclipseReportMessage = ResourceHelper.GetMessage("approbationDateDiffers"); 
+
                     }
                 }
                 catch { returnCode = 3; }
@@ -238,7 +239,9 @@ namespace PlanCheck
             }
             catch
             {
-                MessageBox.Show("La connexion à Aria Documents a échoué. Les documents ne peuvent pas être récupérés");
+                MessageBox.Show(ResourceHelper.GetMessage("ariaConnexionFailed"));
+                //MessageBox.Show("La connexion à Aria Documents a échoué. Les documents ne peuvent pas être récupérés");
+
                 DocumentAriaIsConnected = false;
             }
 
@@ -505,19 +508,19 @@ namespace PlanCheck
         }
         private string Check_mlc_type(PlanSetup plan)
         {
-            string technique = "Technique non reconnue (ni RA, ni DCA)";
+            string technique = ResourceHelper.GetMessage("notAKnownTechnique");
 
             if (plan.Beams.Any(b => (b.MLCPlanType == VMS.TPS.Common.Model.Types.MLCPlanType.ArcDynamic)))
             {
-                technique = "Arctherapie dynamique (DCA)";
+                technique = ResourceHelper.GetMessage("DCA");
             }
             if (plan.Beams.Any(b => (b.MLCPlanType == VMS.TPS.Common.Model.Types.MLCPlanType.VMAT)))
             {
-                technique = "Modulation d'intensite";
+                technique = ResourceHelper.GetMessage("IMRT");
             }
             if (plan.Beams.Any(b => (b.MLCPlanType == VMS.TPS.Common.Model.Types.MLCPlanType.Static)))
             {
-                technique = "RTC";
+                technique = ResourceHelper.GetMessage("RTC");
             }
 
             return technique;
@@ -596,8 +599,8 @@ namespace PlanCheck
             }
             else
             {
-                _coursename = "Pas de course chargé";
-                _planname = "Pas de plan chargé";
+                _coursename = ResourceHelper.GetMessage("noCouse");
+                _planname = ResourceHelper.GetMessage("noPlan"); 
             }
             _plancreator = GetUser("creator", iuct_users);
             _currentuser = GetUser("currentuser", iuct_users);
@@ -674,7 +677,8 @@ namespace PlanCheck
                         catch
                         {
                             nLoalisationHA = 1;
-                            MessageBox.Show("Plancheck n'a pas trouvé le nombre de locs dans le nom du plan: " + _ctx.PlanSetup.Id);
+                            string s = ResourceHelper.GetMessage("noLocNumber") + _ctx.PlanSetup.Id;
+                            MessageBox.Show(s);
                         }
 
                     }
@@ -711,7 +715,8 @@ namespace PlanCheck
                 }
 
                 if ((isTOMO) && (!planReportIsFound))
-                    MessageBox.Show("Pas de rapport de plan Tomotherapy dans Aria Documents\nPlanChek n'a pas trouvé un document Dosimétrie TOMO ayant la même dose max que le plan DTO");// + isTOMO.ToString() + planReportIsFound.ToString());
+                    ResourceHelper.displayMessage("noTomoReport");
+                   
             }
             #endregion
 

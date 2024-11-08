@@ -6,7 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using VMS.TPS.Common.Model.API;
 using System.Windows;
-
+using PlanCheck.Languages;
 namespace PlanCheck
 {
     internal class Check_contours
@@ -255,18 +255,18 @@ namespace PlanCheck
             {
                 #region APPROVE ?  
                 Item_Result approbationStatus = new Item_Result();
-                approbationStatus.Label = "Approbation du groupe de structures";
+                approbationStatus.Label = ResourceHelper.GetMessage("approStructLabel");// "Approbation du groupe de structures";
                 approbationStatus.ExpectedValue = "...";
-                approbationStatus.Infobulle = "Les structures doivent être approuvées";
+                approbationStatus.Infobulle = ResourceHelper.GetMessage("structMustBeApproved"); //"Les structures doivent être approuvées";
                 if (_ctx.StructureSet.Structures.First().ApprovalHistory.First().ApprovalStatus.ToString() == "Approved")
                 {
                     approbationStatus.setToTRUE();
-                    approbationStatus.MeasuredValue = "Approuvé";
+                    approbationStatus.MeasuredValue = ResourceHelper.GetMessage("approved"); //"Approuvé";
                 }
                 else
                 {
                     approbationStatus.setToWARNING();
-                    approbationStatus.MeasuredValue = "Non Approuvé";
+                    approbationStatus.MeasuredValue = ResourceHelper.GetMessage("notApproved"); //""Non Approuvé";
                 }
 
 
@@ -281,7 +281,7 @@ namespace PlanCheck
                 if (!_pinfo.isTOMO)
                 {
                     Item_Result couchStructExist = new Item_Result();
-                    couchStructExist.Label = "Structures de table";
+                    couchStructExist.Label = ResourceHelper.GetMessage("coucStruct");// "Structures de table";
                     couchStructExist.ExpectedValue = "EN COURS";
 
                     List<string> missingCouchStructures = new List<string>();
@@ -342,8 +342,9 @@ namespace PlanCheck
                     if ((wrongHUCouchStructures.Count == 0) && (missingCouchStructures.Count == 0))
                     {
                         couchStructExist.setToTRUE();
-                        couchStructExist.MeasuredValue = "Présentes et UH correctes " + _rcp.myCouchExpectedStructures.Count.ToString() + "/" + _rcp.myCouchExpectedStructures.Count.ToString();
-                        couchStructExist.Infobulle = "Structures de tables attendues pour le protocole " + _rcp.protocolName + " :\n";
+                        couchStructExist.MeasuredValue = ResourceHelper.GetMessage("presentandcorrHU") + " " + _rcp.myCouchExpectedStructures.Count.ToString() + "/" + _rcp.myCouchExpectedStructures.Count.ToString();
+                        couchStructExist.Infobulle = ResourceHelper.GetMessage("expectedStruc") + " " + _rcp.protocolName + " :\n";
+
                         foreach (expectedStructure es in _rcp.myCouchExpectedStructures) // foreach couch element in the xls protocol file
                         {
                             couchStructExist.Infobulle += " - " + es.Name + "\n";
@@ -352,20 +353,20 @@ namespace PlanCheck
                     else
                     {
                         couchStructExist.setToWARNING();
-                        couchStructExist.MeasuredValue = missingCouchStructures.Count + " struct. absentes, vides ou UH incorrectes (voir infobulle)";
+                        couchStructExist.MeasuredValue = missingCouchStructures.Count + " " + ResourceHelper.GetMessage("absentStruct1");
                         if (missingCouchStructures.Count > 0)
-                            couchStructExist.Infobulle = missingCouchStructures.Count + " structures attendues pour le protocole " + _rcp.protocolName + " absentes ou vides dans le plan :\n";
+                            couchStructExist.Infobulle = missingCouchStructures.Count + " " + ResourceHelper.GetMessage("absentStruct2") + " " + _rcp.protocolName + " " + ResourceHelper.GetMessage("absentStruct3") + " : \n";
                         foreach (string ms in missingCouchStructures)
                             couchStructExist.Infobulle += " - " + ms + "\n";
                         if (wrongHUCouchStructures.Count > 0)
-                            couchStructExist.Infobulle += wrongHUCouchStructures.Count + " structures avec UH incorrectes :\n";
+                            couchStructExist.Infobulle += wrongHUCouchStructures.Count + " " + ResourceHelper.GetMessage("absentStruct4") + "\n";
                         foreach (string ms in wrongHUCouchStructures)
                             couchStructExist.Infobulle += " - " + ms + "\n";
 
                         if (mandatoryMissingCouchStructures.Count > 0)
                         {
                             couchStructExist.setToFALSE();
-                            couchStructExist.Infobulle += "\n" + mandatoryMissingCouchStructures.Count + " structure(s) de table obligatoire(s) absente(s) : \n";
+                            couchStructExist.Infobulle += "\n" + mandatoryMissingCouchStructures.Count + " " + ResourceHelper.GetMessage("absentStruct5") + " : \n";
                             foreach (string ms in mandatoryMissingCouchStructures)
                                 couchStructExist.Infobulle += " - " + ms + "\n";
                         }
@@ -383,7 +384,7 @@ namespace PlanCheck
                 if (!_pinfo.isTOMO)
                 {
                     Item_Result correctCouch = new Item_Result();
-                    correctCouch.Label = "Table correcte";
+                    correctCouch.Label = ResourceHelper.GetMessage("correctCouchLabel");//  "Table correcte";
                     correctCouch.ExpectedValue = "EN COURS";
 
                     Structure s = _ctx.StructureSet.Structures.FirstOrDefault(p => p.Id.Equals("CouchSurface", StringComparison.OrdinalIgnoreCase));
@@ -395,8 +396,8 @@ namespace PlanCheck
                             correctCouch.MeasuredValue = testingString;
                             if (_pinfo.isHALCYON)
                             {
-                                correctCouch.Infobulle = "Le commentaire de la structure CouchSurface doit être TABLE HALCYON";
-                                correctCouch.Infobulle += "\nNote : la table Exact moyenne et la table Halcyon sont les mêmes...\n";
+                                correctCouch.Infobulle = ResourceHelper.GetMessage("couchDetail1") + "\n";
+                                correctCouch.Infobulle += ResourceHelper.GetMessage("couchDetail2") + "\n";
 
                                 if (testingString.ToUpper().Contains("HALCYON"))
                                     correctCouch.setToTRUE();
@@ -405,10 +406,10 @@ namespace PlanCheck
                             }
                             if (_pinfo.isNOVA)
                             {
-                                correctCouch.Infobulle = "Le commentaire de la structure CouchSurface doit être TABLE EXACT\n";
-                                correctCouch.Infobulle += "En principe, il faut la table épaisse pour les plans prostate, rectum, etc.,\n";
-                                correctCouch.Infobulle += "la table fine pour la tête...\n";
-                                correctCouch.Infobulle += "\nNote : la table Exact moyenne et la table Halcyon sont les mêmes...\n";
+                                correctCouch.Infobulle = ResourceHelper.GetMessage("couchDetail3") + " \n";// Le commentaire de la structure CouchSurface doit être TABLE EXACT\n";
+                                correctCouch.Infobulle += ResourceHelper.GetMessage("couchDetail4") + " \n";// "En principe, il faut la table épaisse pour les plans prostate, rectum, etc.,\n";
+                                correctCouch.Infobulle += ResourceHelper.GetMessage("couchDetail5") + " \n";//"la table fine pour la tête...\n";
+                                correctCouch.Infobulle += ResourceHelper.GetMessage("couchDetail6") + " \n";//"\nNote : la table Exact moyenne et la table Halcyon sont les mêmes...\n";
                                 if (testingString.ToUpper().Contains("EXACT"))
                                     correctCouch.setToTRUE();
                                 else
@@ -428,7 +429,7 @@ namespace PlanCheck
                 #region CLINICAL STRUCTURES 
 
                 Item_Result clinicalStructuresItem = new Item_Result();
-                clinicalStructuresItem.Label = "Structures cliniques";
+                clinicalStructuresItem.Label = ResourceHelper.GetMessage("clinStruct1");// "Structures cliniques";
                 clinicalStructuresItem.ExpectedValue = "EN COURS";
 
 
@@ -467,8 +468,8 @@ namespace PlanCheck
                 if ((wrongHUClinicalStructures.Count == 0) && (missingClinicalStructures.Count == 0))
                 {
                     clinicalStructuresItem.setToTRUE();
-                    clinicalStructuresItem.MeasuredValue = "Présentes et UH correctes " + _rcp.myClinicalExpectedStructures.Count.ToString() + "/" + _rcp.myClinicalExpectedStructures.Count.ToString();
-                    clinicalStructuresItem.Infobulle = "Structures attendues pour le protocole " + _rcp.protocolName + " :\n";
+                    clinicalStructuresItem.MeasuredValue = ResourceHelper.GetMessage("clinStruct2") + " " + _rcp.myClinicalExpectedStructures.Count.ToString() + "/" + _rcp.myClinicalExpectedStructures.Count.ToString();
+                    clinicalStructuresItem.Infobulle = ResourceHelper.GetMessage("clinStruct3") + " " + _rcp.protocolName + " :\n";
                     foreach (expectedStructure es in _rcp.myClinicalExpectedStructures)
                     {
                         clinicalStructuresItem.Infobulle += " - " + es.Name + "\n";
@@ -480,20 +481,20 @@ namespace PlanCheck
                     if (wrongHUClinicalStructures.Count > 0)
                         clinicalStructuresItem.setToWARNING();
 
-                    clinicalStructuresItem.MeasuredValue = missingClinicalStructures.Count + " struct. absentes, vides ou UH incorrectes (voir infobulle)";
+                    clinicalStructuresItem.MeasuredValue = missingClinicalStructures.Count + " " + ResourceHelper.GetMessage("clinStruct4");
                     if (missingClinicalStructures.Count > 0)
-                        clinicalStructuresItem.Infobulle = missingClinicalStructures.Count + "structure(s) attendue(s) pour le protocole " + _rcp.protocolName + " absentes ou vides dans le plan :\n";
+                        clinicalStructuresItem.Infobulle = missingClinicalStructures.Count + " " + ResourceHelper.GetMessage("clinStruct5") + " " + _rcp.protocolName + " " + ResourceHelper.GetMessage("clinStruct6") + " :\n";
                     foreach (string ms in missingClinicalStructures)
                         clinicalStructuresItem.Infobulle += " - " + ms + "\n";
                     if (wrongHUClinicalStructures.Count > 0)
-                        clinicalStructuresItem.Infobulle += wrongHUClinicalStructures.Count + " structure(s) avec UH incorrectes :\n";
+                        clinicalStructuresItem.Infobulle += wrongHUClinicalStructures.Count + " " + ResourceHelper.GetMessage("clinStruct7") + " :\n";
                     foreach (string ms in wrongHUClinicalStructures)
                         clinicalStructuresItem.Infobulle += " - " + ms + "\n";
 
                     if (mandatoryMissingClinicalStructures.Count > 0)
                     {
                         clinicalStructuresItem.setToWARNING();
-                        clinicalStructuresItem.Infobulle += mandatoryMissingClinicalStructures.Count + " structure(s) obligatoire(s) manquante(s) :\n";
+                        clinicalStructuresItem.Infobulle += mandatoryMissingClinicalStructures.Count + " " + ResourceHelper.GetMessage("clinStruct8") + " :\n";
                         foreach (string ms in mandatoryMissingClinicalStructures)
                             clinicalStructuresItem.Infobulle += " - " + ms + "\n";
                     }
@@ -510,7 +511,7 @@ namespace PlanCheck
                 #region OPT STRUCTURES 
 
                 Item_Result optStructuresItem = new Item_Result();
-                optStructuresItem.Label = "Structures d'optimisation";
+                optStructuresItem.Label = ResourceHelper.GetMessage("optStruct1");// "Structures d'optimisation";
                 optStructuresItem.ExpectedValue = "EN COURS";
 
 
@@ -552,8 +553,8 @@ namespace PlanCheck
                 if ((wrongHUOptStructures.Count == 0) && (missingOptStructures.Count == 0))
                 {
                     optStructuresItem.setToTRUE();
-                    optStructuresItem.MeasuredValue = "Présentes et UH correctes " + _rcp.myOptExpectedStructures.Count.ToString() + "/" + _rcp.myOptExpectedStructures.Count.ToString();
-                    optStructuresItem.Infobulle = "Structures attendues pour le protocole " + _rcp.protocolName + " :\n";
+                    optStructuresItem.MeasuredValue = ResourceHelper.GetMessage("clinStruct2") + " " + _rcp.myOptExpectedStructures.Count.ToString() + "/" + _rcp.myOptExpectedStructures.Count.ToString();
+                    optStructuresItem.Infobulle = ResourceHelper.GetMessage("clinStruct3") + " " + _rcp.protocolName + " :\n";
                     foreach (expectedStructure es in _rcp.myOptExpectedStructures)
                     {
                         optStructuresItem.Infobulle += " - " + es.Name + "\n";
@@ -562,20 +563,20 @@ namespace PlanCheck
                 else
                 {
                     optStructuresItem.setToINFO();
-                    optStructuresItem.MeasuredValue = missingOptStructures.Count + " struct. absentes, vides ou UH incorrectes (voir infobulle)";
+                    optStructuresItem.MeasuredValue = missingOptStructures.Count + " " + ResourceHelper.GetMessage("clinStruct4");
                     if (missingOptStructures.Count > 0)
-                        optStructuresItem.Infobulle = missingOptStructures.Count + " structure(s) attendue(s) pour le protocole " + _rcp.protocolName + " absentes ou vides dans le plan :\n";
+                        optStructuresItem.Infobulle = missingOptStructures.Count + " " + ResourceHelper.GetMessage("clinStruct5") + " " + _rcp.protocolName + " " + ResourceHelper.GetMessage("clinStruct6") + " :\n";
                     foreach (string ms in missingOptStructures)
                         optStructuresItem.Infobulle += " - " + ms + "\n";
                     if (wrongHUOptStructures.Count > 0)
-                        optStructuresItem.Infobulle += wrongHUOptStructures.Count + " structure(s) avec UH incorrectes :\n";
+                        optStructuresItem.Infobulle += wrongHUOptStructures.Count + " " + ResourceHelper.GetMessage("clinStruct7") + " :\n";
                     foreach (string ms in wrongHUOptStructures)
                         optStructuresItem.Infobulle += " - " + ms + "\n";
 
                     if (mandatoryMissingOptStructures.Count > 0)
                     {
                         optStructuresItem.setToWARNING();
-                        optStructuresItem.Infobulle += mandatoryMissingOptStructures.Count + "structure(s) obligatoire(s) manquante(s) : \n";
+                        optStructuresItem.Infobulle += mandatoryMissingOptStructures.Count + " " + ResourceHelper.GetMessage("clinStruct8") + " :\n";
                         foreach (string ms in mandatoryMissingOptStructures)
                             optStructuresItem.Infobulle += " - " + ms + "\n";
                     }
@@ -593,7 +594,7 @@ namespace PlanCheck
                 List<string> fixedHUVolumeList = new List<string>();
 
                 Item_Result fixedHUVolume = new Item_Result();
-                fixedHUVolume.Label = "Structures avec HU forcées";
+                fixedHUVolume.Label = ResourceHelper.GetMessage("forcedHUlabel");
                 fixedHUVolume.ExpectedValue = "EN COURS";
 
                 double myHU = 0.0;
@@ -646,17 +647,17 @@ namespace PlanCheck
                 }
                 if (fixedHUVolumeList.Count > 0)
                 {
-                    fixedHUVolume.Infobulle = "Structure avec HU forcées (autres que celles vérifiées dans les tests précédents) : \n";
+                    fixedHUVolume.Infobulle = ResourceHelper.GetMessage("forcedHU1") + " : \n"; // "Structure avec HU forcées (autres que celles vérifiées dans les tests précédents)"+" : \n";
                     foreach (string ms in fixedHUVolumeList)
                         fixedHUVolume.Infobulle += ms + "\n";
-                    fixedHUVolume.MeasuredValue = fixedHUVolumeList.Count.ToString() + " structure(s) avec HU forcées";
+                    fixedHUVolume.MeasuredValue = fixedHUVolumeList.Count.ToString() + " " + ResourceHelper.GetMessage("forcedHU2");
                     fixedHUVolume.setToINFO();
                 }
                 else
                 {
                     fixedHUVolume.setToTRUE();
-                    fixedHUVolume.Infobulle = "Aucune autre structure avec HU forcées (autres que celles testées dans la liste des structures de tables, cliniques et optim.)";
-                    fixedHUVolume.MeasuredValue = "Aucune autre structure avec HU forcées";
+                    fixedHUVolume.Infobulle = ResourceHelper.GetMessage("forcedHU3");// "Aucune autre structure avec HU forcées (autres que celles testées dans la liste des structures de tables, cliniques et optim.)";
+                    fixedHUVolume.MeasuredValue = ResourceHelper.GetMessage("forcedHU4");// "Aucune autre structure avec HU forcées";
                 }
 
                 this._result.Add(fixedHUVolume);
@@ -671,7 +672,7 @@ namespace PlanCheck
                 List<string> anormalVolumeList = new List<string>();
                 List<string> normalVolumeList = new List<string>();
                 Item_Result anormalVolumeItem = new Item_Result();
-                anormalVolumeItem.Label = "Volume des structures";
+                anormalVolumeItem.Label = ResourceHelper.GetMessage("structVolume1"); //"Volume des structures";xxxx
                 anormalVolumeItem.ExpectedValue = "EN COURS";
 
 
@@ -693,7 +694,7 @@ namespace PlanCheck
                                 }
                                 else
                                 {
-                                    anormalVolumeList.Add(struct1.Id + " (" + volume.ToString("F2") + " cc. Attendu: " + volumeMinimum + "-" + volumeMaximum + ")");
+                                    anormalVolumeList.Add(struct1.Id + " (" + volume.ToString("F2") + " cc. " + ResourceHelper.GetMessage("structVolume2") + ": " + volumeMinimum + "-" + volumeMaximum + ")");
 
                                 }
                             }
@@ -709,29 +710,29 @@ namespace PlanCheck
                 {
                     anormalVolumeItem.setToWARNING();
                     if (anormalVolumeList.Count == 0)
-                        anormalVolumeItem.MeasuredValue = "Aucun volume anormal détecté";
+                        anormalVolumeItem.MeasuredValue = ResourceHelper.GetMessage("structVolume3");
                     else if (anormalVolumeList.Count == 1)
-                        anormalVolumeItem.MeasuredValue = "1 volume anormal détecté";
+                        anormalVolumeItem.MeasuredValue = ResourceHelper.GetMessage("structVolume4");
                     else
-                        anormalVolumeItem.MeasuredValue = anormalVolumeList.Count.ToString() + " volumes anormaux détectés";
+                        anormalVolumeItem.MeasuredValue = anormalVolumeList.Count.ToString() + " " + ResourceHelper.GetMessage("structVolume5");
 
-                    anormalVolumeItem.Infobulle = "Les volumes de ces " + anormalVolumeList.Count + " structures ne sont\npas dans l'intervalle habituel\n";
+                    anormalVolumeItem.Infobulle = ResourceHelper.GetMessage("structVolume6") + " " + anormalVolumeList.Count + " " + ResourceHelper.GetMessage("structVolume7") + "\n";
                     foreach (string avs in anormalVolumeList)
                         anormalVolumeItem.Infobulle += " - " + avs + "\n";
                 }
                 else if (normalVolumeList.Count > 0)
                 {
                     anormalVolumeItem.setToTRUE();
-                    anormalVolumeItem.MeasuredValue = normalVolumeList.Count + " volumes de structures vérifiés";
-                    anormalVolumeItem.Infobulle = "Les volumes de ces " + normalVolumeList.Count + " structures sont\ndans l'intervalle habituel\n";
+                    anormalVolumeItem.MeasuredValue = normalVolumeList.Count + " " + ResourceHelper.GetMessage("structVolume8");
+                    anormalVolumeItem.Infobulle = ResourceHelper.GetMessage("structVolume6") + " " + normalVolumeList.Count + " " + ResourceHelper.GetMessage("structVolume9") + "\n";
                     foreach (string avs in normalVolumeList)
                         anormalVolumeItem.Infobulle += " - " + avs + "\n";
                 }
                 else
                 {
                     anormalVolumeItem.setToINFO();
-                    anormalVolumeItem.MeasuredValue = "Aucune analyse de volumes de structures";
-                    anormalVolumeItem.Infobulle = "Les structures présentes n'ont pas une valeur de volume (cc) attendu\n";
+                    anormalVolumeItem.MeasuredValue = ResourceHelper.GetMessage("structVolume10");
+                    anormalVolumeItem.Infobulle = ResourceHelper.GetMessage("structVolume11") + "\n";
                 }
 
                 this._result.Add(anormalVolumeItem);
@@ -745,7 +746,7 @@ namespace PlanCheck
                 /* Check if a structrure has the expected number of parts e.g. if a slice is missing */
 
                 Item_Result shapeAnalyser = new Item_Result();
-                shapeAnalyser.Label = "Nombre de parties des structures";
+                shapeAnalyser.Label = ResourceHelper.GetMessage("NumberStruct1");
                 shapeAnalyser.ExpectedValue = "wip...";
 
 
@@ -756,35 +757,26 @@ namespace PlanCheck
 
                 foreach (Structure struct1 in _ctx.StructureSet.Structures)
                 {
-                    /*
-                    foreach (expectedStructure es in allStructures)
-                {
-
-                    Structure struct1 = _ctx.StructureSet.Structures.FirstOrDefault(x => x.Id == es.Name); // find a structure in ss with the same name
-                        */
 
                     if (struct1 != null)
                         if (!struct1.IsEmpty)
                         {
 
-                            // if (es.expectedNumberOfPart != 9999) // expected number of parts exists
-                            //{
-                            //                            MessageBox.Show("analyse du nombre de parties de " + struct1.Id);
                             try
                             {
                                 int n = struct1.GetNumberOfSeparateParts();
                                 bool nExpectedPartsisOk = nPartsIsOk(struct1.Id, n, _ctx.Patient.Sex);
 
-                                //if (n != es.expectedNumberOfPart)
+                                
                                 if (nExpectedPartsisOk)
                                 {
-                                    correctStructs.Add(struct1.Id + " :\t\t" + n + " parties)");
-                                    //                                uncorrectStructs.Add(es.Name + " comporte " + n + " parties (attendu : " + es.expectedNumberOfPart + ")");
+                                    correctStructs.Add(struct1.Id + " :\t\t" + n + " "+ ResourceHelper.GetMessage("NumberStruct2") + ")");
+                                  
                                 }
                                 else
                                 {
-                                    uncorrectStructs.Add(struct1.Id + " :\t\t" + n + " parties)");
-                                    //correctStructs.Add(es.Name + " comporte " + n + " parties (attendu : " + es.expectedNumberOfPart + ")");
+                                    uncorrectStructs.Add(struct1.Id + " :\t\t" + n + " " + ResourceHelper.GetMessage("NumberStruct2") + ")");
+                                  
                                 }
                             }
                             catch
@@ -792,15 +784,15 @@ namespace PlanCheck
                                 //none
                             }
 
-                            //}
+                           
 
                         }
                 }
                 if (uncorrectStructs.Count > 0)
                 {
                     shapeAnalyser.setToWARNING();
-                    shapeAnalyser.MeasuredValue = uncorrectStructs.Count + " structures avec un nombres de parties incorrect";
-                    shapeAnalyser.Infobulle = "Les " + uncorrectStructs.Count + " structures suivantes ont un de nombre de parties non-conforme :\n";
+                    shapeAnalyser.MeasuredValue = uncorrectStructs.Count + " "+ ResourceHelper.GetMessage("NumberStruct3");
+                    shapeAnalyser.Infobulle =  uncorrectStructs.Count + " "+ ResourceHelper.GetMessage("NumberStruct4") + " :\n";
                     foreach (string s in uncorrectStructs)
                         shapeAnalyser.Infobulle += s + "\n";
                 }
@@ -808,8 +800,8 @@ namespace PlanCheck
                 {
                     shapeAnalyser.setToTRUE();
 
-                    shapeAnalyser.MeasuredValue = correctStructs.Count + " structures vérifiées";
-                    shapeAnalyser.Infobulle = "Les structures ont un de nombre de parties conforme ou aucun nombre particulier de parties n'est attendu\n";
+                    shapeAnalyser.MeasuredValue = correctStructs.Count + " " + ResourceHelper.GetMessage("NumberStruct5");
+                    shapeAnalyser.Infobulle = ResourceHelper.GetMessage("NumberStruct6") + "\n";
                     //                   foreach (string s in correctStructs)
                     //                     shapeAnalyser.Infobulle += s + "\n";
 
@@ -817,8 +809,8 @@ namespace PlanCheck
                 else
                 {
                     shapeAnalyser.setToINFO();
-                    shapeAnalyser.MeasuredValue = " Aucune analyse du nombres de parties des structures";
-                    shapeAnalyser.Infobulle = "Les structures présentes n'ont pas de valeurs attendues de nombre de parties dans le check-protocol\n";
+                    shapeAnalyser.MeasuredValue = " " + ResourceHelper.GetMessage("NumberStruct7");
+                    shapeAnalyser.Infobulle = ResourceHelper.GetMessage("NumberStruct8") + "\n";
                 }
 
 
@@ -832,7 +824,7 @@ namespace PlanCheck
                 #region Missing slices
 
                 Item_Result missingSlicesItem = new Item_Result();
-                missingSlicesItem.Label = "Contours manquants";
+                missingSlicesItem.Label = ResourceHelper.GetMessage("MissingContours1");
                 missingSlicesItem.ExpectedValue = "wip...";
 
                 int m = 0;
@@ -848,12 +840,12 @@ namespace PlanCheck
                                 nAnalysedStructures++;
                                 m = getNumberOfMissingSlices(s, _ctx.StructureSet);
                                 if (m > 0)
-                                    structureswithAGap.Add(m.ToString() + " contour(s) manquantes pour la structure : " + s.Id);
+                                    structureswithAGap.Add(m.ToString() + " " + ResourceHelper.GetMessage("MissingContours2") + " : " + s.Id);
                             }
                 }
                 if (structureswithAGap.Count > 0)
                 {
-                    missingSlicesItem.MeasuredValue = structureswithAGap.Count + " structures présentent des contours manquants";
+                    missingSlicesItem.MeasuredValue = structureswithAGap.Count + " " + ResourceHelper.GetMessage("MissingContours3");
                     missingSlicesItem.setToWARNING();
                     foreach (string s in structureswithAGap)
                         missingSlicesItem.Infobulle += s + "\n";
@@ -861,9 +853,9 @@ namespace PlanCheck
                 }
                 else
                 {
-                    missingSlicesItem.MeasuredValue = "Aucune coupe non-contourée détectée";
+                    missingSlicesItem.MeasuredValue = ResourceHelper.GetMessage("MissingContours4");
                     missingSlicesItem.setToTRUE();
-                    missingSlicesItem.Infobulle = nAnalysedStructures.ToString() + " structures analysées. Aucune coupe non-contourée détectée";
+                    missingSlicesItem.Infobulle = nAnalysedStructures.ToString() + " " + ResourceHelper.GetMessage("MissingContours5");
                 }
                 this._result.Add(missingSlicesItem);
 
@@ -873,7 +865,7 @@ namespace PlanCheck
             {
                 #region Laterality
                 Item_Result laterality = new Item_Result();
-                laterality.Label = "Latéralité";
+                laterality.Label = ResourceHelper.GetMessage("Laterality1");
                 laterality.ExpectedValue = "wip...";
 
                 List<string> goodLaterality = new List<string>();
@@ -932,25 +924,25 @@ namespace PlanCheck
 
                 if (badLaterality.Count > 0)
                 {
-                    laterality.MeasuredValue = badLaterality.Count + " struct. avec mauvaise latéralité (voir détail)";
+                    laterality.MeasuredValue = badLaterality.Count + " "+ ResourceHelper.GetMessage("Laterality2");
                     laterality.setToFALSE();
 
-                    laterality.Infobulle = badLaterality.Count + " structure(s) sont attendues à gauche ou à droite et semblent du mauvais côté : \n";
+                    laterality.Infobulle = badLaterality.Count + " "+ ResourceHelper.GetMessage("Laterality3") + " : \n";
                     foreach (string s in badLaterality)
                         laterality.Infobulle += " - " + s + "\n";
                 }
                 else
                 {
-                    laterality.MeasuredValue = "Vérifiée pour " + goodLaterality.Count() + " structure(s)";
+                    laterality.MeasuredValue = ResourceHelper.GetMessage("Laterality4") + " " + goodLaterality.Count() + " "+ ResourceHelper.GetMessage("Laterality5");
                     laterality.setToTRUE();
 
-                    laterality.Infobulle = goodLaterality.Count() + " structures sont attendues à gauche ou à droite et semblent du bon côté : \n";
+                    laterality.Infobulle = goodLaterality.Count() + " "+ ResourceHelper.GetMessage("Laterality6") + " : \n";
                     foreach (string s in goodLaterality)
                         laterality.Infobulle += " - " + s + "\n";
 
                     if (goodLaterality.Count == 0)
                     {
-                        laterality.Infobulle = "Aucune structure n'a une latéralité (G ou D) attendue dans le check-protocol\n";
+                        laterality.Infobulle = ResourceHelper.GetMessage("Laterality7") + "\n";
                     }
 
                 }
@@ -963,7 +955,7 @@ namespace PlanCheck
             {
                 #region A PTV for each CTV/GTV
                 Item_Result aPTVforEveryone = new Item_Result();
-                aPTVforEveryone.Label = "GTV/CTV/ITV sans PTV";
+                aPTVforEveryone.Label = ResourceHelper.GetMessage("missingPTV1");// "GTV/CTV/ITV sans PTV";
                 aPTVforEveryone.ExpectedValue = "wip...";
 
                 List<string> CTVandGTVs = new List<string>();
@@ -1055,21 +1047,21 @@ namespace PlanCheck
                 if (CTVwithoutAnyPTV.Count() > 0) // at least one GTV/CTV has no PTV
                 {
                     aPTVforEveryone.setToFALSE();
-                    aPTVforEveryone.MeasuredValue = CTVwithoutAnyPTV.Count.ToString() + " GTV/CTV/ITV(s) n'ont pas de PTV (ou un PTV trop petit)";
-                    aPTVforEveryone.Infobulle = "Ces " + CTVwithoutAnyPTV.Count + " GTV/CTV n'ont pas de PTV : \n";
+                    aPTVforEveryone.MeasuredValue = CTVwithoutAnyPTV.Count.ToString() + " "+ ResourceHelper.GetMessage("missingPTV2");
+                    aPTVforEveryone.Infobulle = CTVwithoutAnyPTV.Count + " "+ ResourceHelper.GetMessage("missingPTV3") + " : \n";
                     foreach (string s in CTVwithoutAnyPTV)
                         aPTVforEveryone.Infobulle += " - " + s + "\n";
                 }
                 else
                 {
                     aPTVforEveryone.setToTRUE();
-                    aPTVforEveryone.MeasuredValue = CTVwithPTV.Count.ToString() + " GTV/CTV/ITV(s) détectés avec PTV";
-                    aPTVforEveryone.Infobulle = "Ces " + CTVwithPTV.Count + " GTV/CTV/ITV(s) ont tous un PTV : \n";
+                    aPTVforEveryone.MeasuredValue = CTVwithPTV.Count.ToString() + " "+ ResourceHelper.GetMessage("missingPTV4");
+                    aPTVforEveryone.Infobulle = CTVwithPTV.Count + " "+ ResourceHelper.GetMessage("missingPTV5") + " : \n";
                     foreach (string s in CTVwithPTV)
                         aPTVforEveryone.Infobulle += " - " + s + "\n";
                 }
 
-                aPTVforEveryone.Infobulle += "\n\nUn GTV/CTV/ITV doit avoir une structure dont le nom contient 'PTV' et donc chacune des  6 dimensions (X+, X-, ...) est supérieure à celle du GTV/CTV \n";
+                aPTVforEveryone.Infobulle += "\n\n"+ ResourceHelper.GetMessage("missingPTV6") + " \n";
 
 
 

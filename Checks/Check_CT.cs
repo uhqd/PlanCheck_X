@@ -11,7 +11,7 @@ using System.Windows;
 using VMS.TPS.Common.Model.Types;
 using System.Windows.Navigation;
 using System.Drawing;
-
+using PlanCheck.Languages;
 
 
 
@@ -20,7 +20,7 @@ namespace PlanCheck
 {
     internal class Check_CT
     {
-        public Check_CT(PreliminaryInformation pinfo, ScriptContext ctx, read_check_protocol rcp,bool aPlanIsLoaded)  //Constructor
+        public Check_CT(PreliminaryInformation pinfo, ScriptContext ctx, read_check_protocol rcp, bool aPlanIsLoaded)  //Constructor
         {
 
             _rcp = rcp;
@@ -100,7 +100,7 @@ namespace PlanCheck
                 is3 = true;
             if (threeOrSix == 6)
                 is6 = true;
-           
+
             bool iSChecked = true;
             String msg = String.Empty;
             double checkSumSerie00 = -99999.0;
@@ -131,7 +131,7 @@ namespace PlanCheck
             int i1 = xSizeAverage / 2;
             int j1 = ySizeAverage / 2;
 
-          //  MessageBox.Show("Index x y z for " + ctx.Image.Id + " " + i1 + " " + j1 + " " + centralImageIndex);
+            //  MessageBox.Show("Index x y z for " + ctx.Image.Id + " " + i1 + " " + j1 + " " + centralImageIndex);
             double checkSumAvergageSerie = ctx.Image.VoxelToDisplayValue(myPlane[i1, j1]);
             double checkSumAvergageSerieB = ctx.Image.VoxelToDisplayValue(myPlane[i1 + 4, j1 + 4]);
 
@@ -278,11 +278,11 @@ namespace PlanCheck
 
 
             int xPhaseSize, yPhaseSize, k, m;
-           //MessageBox.Show("there is one " + thereIsOneSeriesForPhase);
+            //MessageBox.Show("there is one " + thereIsOneSeriesForPhase);
             if (thereIsOneSeriesForPhase)
             {
 
-                
+
 
                 if (is6)
                 {
@@ -305,7 +305,7 @@ namespace PlanCheck
                     yPhaseSize = im16.YSize;
                     k = xPhaseSize / 2;
                     m = yPhaseSize / 2;
-                   // MessageBox.Show("Index x y z for " + im16.Id + " " + k + " " + m + " " + centralImageIndex);
+                    // MessageBox.Show("Index x y z for " + im16.Id + " " + k + " " + m + " " + centralImageIndex);
                     checkSumSerie16 = im16.VoxelToDisplayValue(myPlane16[k, m]);
                     checkSumSerie16B = im16.VoxelToDisplayValue(myPlane16[k + 4, m + 4]);
                     CheckAVEMessage += im16.Id + " A: " + checkSumSerie16.ToString("F2") + "\tB:" + checkSumSerie16B.ToString("F2") + "\n";
@@ -315,7 +315,7 @@ namespace PlanCheck
                 if (is6 || is3)
                 {
 
-                  //  MessageBox.Show("procees 33 ");
+                    //  MessageBox.Show("procees 33 ");
                     int[,] myPlane33 = new int[im33.XSize, im33.YSize];
                     im33.GetVoxels(centralImageIndex, myPlane33);
                     xPhaseSize = im33.XSize;
@@ -471,15 +471,11 @@ namespace PlanCheck
                 #region days since CT
 
                 Item_Result CT_age = new Item_Result();
-                CT_age.Label = "Ancienneté du CT (jours)";
+                CT_age.Label = ResourceHelper.GetMessage("String35");
                 CT_age.ExpectedValue = "12";
-
                 int nDays = (myToday - (DateTime)_context.Image.Series.HistoryDateTime).Days;
-                // _context.Image.Series.export
                 CT_age.MeasuredValue = nDays.ToString();
-                //CT_age.Comparator = "<";
-                CT_age.Infobulle = "Le CT doit avoir moins de 12 jours. Warning si > 10 jours, ERREUR si > 30";
-                //CT_age.ResultStatus = testing.CompareDatas(CT_age.ExpectedValue, CT_age.MeasuredValue, CT_age.Comparator);
+                CT_age.Infobulle = ResourceHelper.GetMessage("String36");
                 CT_age.setToTRUE();
                 if (nDays > 12)
                     CT_age.setToWARNING();
@@ -497,36 +493,36 @@ namespace PlanCheck
                 if ((!_pinfo.isTOMO))
                 {
                     Item_Result origin = new Item_Result();
-                    origin.Label = "Origine modifiée";
+                    origin.Label = ResourceHelper.GetMessage("String37");
                     origin.ExpectedValue = "sans objet";
                     var image = _context.PlanSetup.StructureSet.Image;
                     if (!image.HasUserOrigin)
                     {
                         origin.setToFALSE();
-                        origin.MeasuredValue = "Origine non modifiée";
-                        origin.Infobulle = "L'origine est confondue avec l'origine DICOM. Ce qui signifie que l'origine n'a pas été placée. A vérifier.";
+                        origin.MeasuredValue = ResourceHelper.GetMessage("String38");
+                        origin.Infobulle = ResourceHelper.GetMessage("String39");
                     }
                     else
                     {
                         origin.setToTRUE();
-                        origin.MeasuredValue = "Origine modifiée";
-                        origin.Infobulle = "L'origine n'est pas confondue avec l'origine DICOM.";
+                        origin.MeasuredValue = ResourceHelper.GetMessage("String37");
+                        origin.Infobulle = ResourceHelper.GetMessage("String40");
                     }
 
                     this._result.Add(origin);
                 }
                 #endregion
             }
-         
+
             if (_pinfo.actualUserPreference.userWantsTheTest("sliceThickness"))
             {
                 #region Epaisseur de coupes
                 Item_Result sliceThickness = new Item_Result();
-                sliceThickness.Label = "Epaisseur de coupes (mm)";
+                sliceThickness.Label = ResourceHelper.GetMessage("String41");
                 sliceThickness.ExpectedValue = _rcp.CTslicewidth.ToString();// "2.5";//XXXXX TO GET         
                 sliceThickness.MeasuredValue = _context.Image.ZRes.ToString();
                 //sliceThickness.Comparator = "=";
-                sliceThickness.Infobulle = "L'épaisseur de coupe doit être " + sliceThickness.ExpectedValue + " mm comme spécfifié dans le fichier check-protocol: " + _rcp.protocolName;
+                sliceThickness.Infobulle = ResourceHelper.GetMessage("String42") + " " + sliceThickness.ExpectedValue + " " + ResourceHelper.GetMessage("String43") + ": " + _rcp.protocolName;
 
                 if (_rcp.CTslicewidth == _context.Image.ZRes)
                     sliceThickness.setToTRUE();
@@ -538,12 +534,12 @@ namespace PlanCheck
 
                 #endregion
             }
-           
+
             if (_pinfo.actualUserPreference.userWantsTheTest("HUcurve") && _AplanIsloaded)
             {
                 #region courbe HU
                 Item_Result HUcurve = new Item_Result();
-                HUcurve.Label = "Courbe HU";
+                HUcurve.Label = ResourceHelper.GetMessage("String44");
 
                 if (!_pinfo.isTOMO)
                 {
@@ -559,7 +555,7 @@ namespace PlanCheck
                     HUcurve.ExpectedValue = expectedHUcurve;
                     HUcurve.MeasuredValue = courbeHU;
                     HUcurve.Comparator = "=";
-                    HUcurve.Infobulle = "La courbe doit être CT130246  sauf si âge patient < 14";
+                    HUcurve.Infobulle = ResourceHelper.GetMessage("String45") + ": " + expectedHUcurve;
                     HUcurve.ResultStatus = testing.CompareDatas(HUcurve.ExpectedValue, HUcurve.MeasuredValue, HUcurve.Comparator);
                 }
                 else if (_pinfo.planReportIsFound) // tomo with a report
@@ -567,16 +563,16 @@ namespace PlanCheck
 
                     HUcurve.MeasuredValue = _pinfo.tprd.Trd.HUcurve;
 
-                    HUcurve.ExpectedValue = "";
+                    HUcurve.ExpectedValue = "CT130246";
                     if (HUcurve.MeasuredValue.Contains("CT130246"))
                         HUcurve.setToTRUE();
                     else
                         HUcurve.setToFALSE();
-                    HUcurve.Infobulle = "Pour Tomotherapy la courbe doit être " + HUcurve.ExpectedValue;
+                    HUcurve.Infobulle = ResourceHelper.GetMessage("String46") + " " + HUcurve.ExpectedValue;
                 }
                 else
                 {
-                    HUcurve.MeasuredValue = "Pas de rapport de dosimétrie Tomothérapie. Vérifiez la courbe HU";
+                    HUcurve.MeasuredValue = ResourceHelper.GetMessage("String47");
                     HUcurve.setToUNCHECK();
                 }
 
@@ -584,7 +580,7 @@ namespace PlanCheck
                 this._result.Add(HUcurve);
                 #endregion
             }
-            
+
             if (_pinfo.actualUserPreference.userWantsTheTest("deviceName"))
             {
                 #region CT series number
@@ -606,23 +602,23 @@ namespace PlanCheck
                     deviceName.ExpectedValue = "Siemens Healthineers SOMATOM go.Open Pro130246";// GE MEDICAL SYSTEMS Optima CT580";//XXXXX TO GET         
                 }
 
-                
+
                 deviceName.MeasuredValue = CT;
                 deviceName.Comparator = "=";
-                deviceName.Infobulle = "Vérification du modèle et du numéro de série du CT";
+                deviceName.Infobulle = ResourceHelper.GetMessage("String48");
                 deviceName.ResultStatus = testing.CompareDatas(deviceName.ExpectedValue, deviceName.MeasuredValue, deviceName.Comparator);
                 this._result.Add(deviceName);
 
                 #endregion
             }
-          
+
             if (_pinfo.actualUserPreference.userWantsTheTest("image3Dnaming"))
             {
                 #region date dans le nom imaged 3d
 
                 Item_Result image3Dnaming = new Item_Result();
 
-                image3Dnaming.Label = "Nom de l'image 3D";
+                image3Dnaming.Label = ResourceHelper.GetMessage("String49");
 
                 // get the CT date in format: ddmmyy
                 String imageDate = ((DateTime)_context.Image.CreationDateTime).ToString("dd");
@@ -652,7 +648,7 @@ namespace PlanCheck
 
                 image3Dnaming.ExpectedValue = imageDate;
                 image3Dnaming.MeasuredValue = _context.Image.Id;
-                image3Dnaming.Infobulle = "Le nom de l'image 3D doit contenir la date du CT au format jjmmaa (" + imageDate + ") ou jjmmaaaa";
+                image3Dnaming.Infobulle = ResourceHelper.GetMessage("String50") +" (" + imageDate + ") "+ ResourceHelper.GetMessage("String51"); 
                 this._result.Add(image3Dnaming);
 
                 #endregion
@@ -666,17 +662,17 @@ namespace PlanCheck
                 {
 
                     Item_Result averageCT = new Item_Result();
-                    averageCT.Label = "Composition de AVE3 ou AVE6";
+                    averageCT.Label = ResourceHelper.GetMessage("String52");
                     averageCT.ExpectedValue = "none";
                     // averageCT.Infobulle = "Si le nom de l'image contient AVG ou AVE, l'image 3D doit être la moyenne des phases:";
                     // averageCT.Infobulle += "\n AVG3: moyenne des phases 33% 50% et 66%";
                     // averageCT.Infobulle += "\n AVG6: moyenne des phases 0% 16% 33% 50% 66% et 83%";
-                    averageCT.Infobulle += "La composition est vérifiée en recalculant la moyenne pour deux pixels A et B\n";
+                    averageCT.Infobulle += ResourceHelper.GetMessage("String53") + "\n";
 
                     averageCT.MeasuredValue = _context.Image.Id;
                     bool checkComposition = false;
 
-                   
+
 
                     if (_context.Image.Series.Comment.ToUpper().Contains("AVE"))
                     {
@@ -718,78 +714,17 @@ namespace PlanCheck
                     if (checkComposition == false)
                     {
                         averageCT.setToFALSE();
-                        averageCT.MeasuredValue += " n'est pas la moyenne des phases";
+                        averageCT.MeasuredValue += " "+ ResourceHelper.GetMessage("String54");
                     }
                     else
                     {
                         averageCT.setToTRUE();
-                        averageCT.MeasuredValue += " est bien la moyenne des phases";
+                        averageCT.MeasuredValue += " "+ ResourceHelper.GetMessage("String55");
                     }
                     averageCT.Infobulle += CheckAVEMessage;
                     this._result.Add(averageCT);
 
                 }
-
-
-                #endregion
-            }
-            if (_pinfo.actualUserPreference.userWantsTheTest("averageForSBRT"))
-            {
-                #region AVE3 or AVE6 is only for lung SBRT  (option)
-
-
-
-
-                Item_Result averageForSBRT = new Item_Result();
-                averageForSBRT.Label = "Image Average";
-                averageForSBRT.ExpectedValue = "none";
-
-
-                /*
-                averageForSBRT.Infobulle = "Les scanners AVERAGE doivent être utilisés pour les STEC poumons uniquement (avec enable Gating)";
-                averageForSBRT.MeasuredValue = _context.Image.Id;
-
-
-                if (_context.Image.Id.ToUpper().Contains("AV"))
-                {
-                    averageForSBRT.setToTRUE();
-
-                    if (!_context.PlanSetup.UseGating)
-                    {
-                        averageForSBRT.setToFALSE();
-
-                    }
-
-
-                    if (!_rcp.protocolName.ToUpper().Contains("STEC POUMON"))
-                    {
-
-                        averageForSBRT.setToFALSE();
-                    }
-
-
-
-                }
-                else
-                {
-                    averageForSBRT.setToTRUE();
-                    if (_rcp.protocolName.ToUpper().Contains("STEC poumon"))
-                    {
-                        averageForSBRT.setToFALSE();
-
-                    }
-                    if (_context.PlanSetup.UseGating)
-                    {
-                        averageForSBRT.setToFALSE();
-
-                    }
-                }
-                */
-                averageForSBRT.setToINFO();
-                averageForSBRT.MeasuredValue = "Ce test n'est plus utile. Merci de le déselectionner dans vos préférences";
-                this._result.Add(averageForSBRT);
-
-
 
 
                 #endregion
@@ -800,7 +735,7 @@ namespace PlanCheck
                 if (_pinfo.isTOMO)
                 {
                     Item_Result tomoReportCT_date = new Item_Result();
-                    tomoReportCT_date.Label = "Date du CT dans le rapport Tomotherapy";
+                    tomoReportCT_date.Label = ResourceHelper.GetMessage("String56");
                     tomoReportCT_date.ExpectedValue = "";//XXXXX TO GET        
                     if (_pinfo.planReportIsFound) // tomo with a report
                     {
@@ -811,11 +746,11 @@ namespace PlanCheck
                             tomoReportCT_date.setToTRUE();
                         else
                             tomoReportCT_date.setToFALSE();
-                        tomoReportCT_date.Infobulle = "Comparaison de la date du CT (" + parsedDate.ToString() + ") dans le rapport Tomo et de la date du scanner (" + _context.Image.Series.HistoryDateTime.ToString() + ")";
+                        tomoReportCT_date.Infobulle = ResourceHelper.GetMessage("String57")+" (" + parsedDate.ToString() + ") "+ ResourceHelper.GetMessage("String58") + " (" + _context.Image.Series.HistoryDateTime.ToString() + ")";
                     }
                     else
                     {
-                        tomoReportCT_date.MeasuredValue = "Pas de rapport de dosimétrie Tomothérapie, vérifiez la date";
+                        tomoReportCT_date.MeasuredValue = ResourceHelper.GetMessage("String59");
                         tomoReportCT_date.setToUNCHECK();
 
 
@@ -834,7 +769,7 @@ namespace PlanCheck
                     //neededSupplImage.Add("T2 FLAIR 220823");
                     //neededSupplImage.Add("T3 FLAIR 220823");
 
-                    otherSeries.Label = "Autres séries d'images";
+                    otherSeries.Label = ResourceHelper.GetMessage("String60");
                     //_context.Image.
                     string msg = string.Empty;
                     foreach (string s in _rcp.needeSupplImages)
@@ -852,7 +787,7 @@ namespace PlanCheck
                                     break;
                                 }
 
-                               
+
                             }
                             if (found) break;
                         }
@@ -864,11 +799,11 @@ namespace PlanCheck
 
 
 
-                    otherSeries.MeasuredValue = _rcp.needeSupplImages.Count + " série(s) nécessaires, " + unfound3DImage.Count + " séries absentes (voir détail)";
-                    otherSeries.Infobulle = "Séries supplémentaires nécessaires (ex. IRM). cf check-protocol Ligne 53 \n";
+                    otherSeries.MeasuredValue = _rcp.needeSupplImages.Count + " "+ ResourceHelper.GetMessage("String61")+", " + unfound3DImage.Count + " "+ ResourceHelper.GetMessage("String62");
+                    otherSeries.Infobulle = ResourceHelper.GetMessage("String63") + " \n";
                     foreach (string s in _rcp.needeSupplImages)
                         otherSeries.Infobulle += " - " + s + "\n";
-                    otherSeries.Infobulle += "Séries absentes \n";
+                    otherSeries.Infobulle += ResourceHelper.GetMessage("String64") + " \n";
                     foreach (string s in unfound3DImage)
                         otherSeries.Infobulle += " - " + s + "\n";
 

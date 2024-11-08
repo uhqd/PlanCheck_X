@@ -6,7 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using VMS.TPS.Common.Model.API;
 using System.Windows;
-
+using PlanCheck.Languages;
 namespace PlanCheck
 {
     internal class Check_UM
@@ -118,7 +118,7 @@ namespace PlanCheck
 
                     //MessageBox.Show("IMRT " + n_um_per_gray);
 
-                    umPerGray.Infobulle = "En VMAT/IMRT warning si > 3.5, > 4.5 pour Halcyon, > 5 pour STEC vertebre et ERREUR si > 6";
+                    umPerGray.Infobulle = ResourceHelper.GetMessage("String188");
 
                 }
                 else
@@ -129,7 +129,7 @@ namespace PlanCheck
                         umPerGray.setToWARNING();
                     else
                         umPerGray.setToTRUE();
-                    umPerGray.Infobulle = "En RTC/DCA  warning si > 1.5 et ERREUR si > 2.";
+                    umPerGray.Infobulle = ResourceHelper.GetMessage("String189");
 
                 }
 
@@ -145,11 +145,11 @@ namespace PlanCheck
                     else
                         umPerGray.setToTRUE();
 
-                    umPerGray.Infobulle = "Attendu < 700 s";
+                    umPerGray.Infobulle = ResourceHelper.GetMessage("String190");
                 }
                 else
                 {
-                    umPerGray.MeasuredValue = "Pas de rapport de dosimétrie Tomotherapy dans Aria documents";
+                    umPerGray.MeasuredValue = ResourceHelper.GetMessage("String191");
                 }
 
             }
@@ -159,8 +159,6 @@ namespace PlanCheck
             {
                 this._result.Add(umPerGray);
 
-
-
             }
 
             if (_pinfo.actualUserPreference.userWantsTheTest("UMforFE"))
@@ -169,7 +167,7 @@ namespace PlanCheck
                 if (_pinfo.isFE)
                 {
                     Item_Result UMforFE = new Item_Result();
-                    UMforFE.Label = "Fluence étendue";
+                    UMforFE.Label = ResourceHelper.GetMessage("String192");
                     UMforFE.ExpectedValue = "EN COURS";
                     double nUmWithNoFE = 0.0;
                     double nUmWithFE = 0.0;
@@ -204,7 +202,7 @@ namespace PlanCheck
                     bool foundOneWrong = false;
                     foreach (var v in listDiff)
                     {
-                        UMforFE.Infobulle += "Ecart d'UM pour " + v.Item1 + " :\t" + v.Item2.ToString("F1") + "%\n";
+                        UMforFE.Infobulle += ResourceHelper.GetMessage("String193") + " " + v.Item1 + " :\t" + v.Item2.ToString("F1") + "%\n";
                         if (!foundOneWrong)
                         {
                             if (v.Item2 > 10.0)
@@ -217,12 +215,12 @@ namespace PlanCheck
                     if (foundOneWrong)
                     {
                         UMforFE.setToFALSE();
-                        UMforFE.MeasuredValue = "Un champ au moins a +10% d'UM que le plan non FE";
+                        UMforFE.MeasuredValue = ResourceHelper.GetMessage("String194");
 
                     }
                     else
                     {
-                        UMforFE.MeasuredValue = "Tous les champs ont des UMs proches du plan non FE (<10%)";
+                        UMforFE.MeasuredValue = ResourceHelper.GetMessage("String195");
                         UMforFE.setToTRUE();
                     }
 
@@ -241,27 +239,27 @@ namespace PlanCheck
                 if (_pinfo.isNOVA)
                 {
                     Item_Result wedged = new Item_Result();
-                    wedged.Label = "Champs filtrés";
+                    wedged.Label = ResourceHelper.GetMessage("String196");
                     wedged.ExpectedValue = "EN COURS";
 
                     if (uncorrFieldWithaWedge != 0)
                     {
-                        wedged.MeasuredValue = uncorrFieldWithaWedge.ToString() + " champs filtrés avec < 20 UM";
+                        wedged.MeasuredValue = uncorrFieldWithaWedge.ToString() + " "+ ResourceHelper.GetMessage("String197");
                         wedged.setToFALSE();
-                        wedged.Infobulle = uncorrFieldWithaWedge.ToString() + " champs filtrés avec moins de 20 UM";
+                        wedged.Infobulle = uncorrFieldWithaWedge.ToString() + " "+ ResourceHelper.GetMessage("String198");
 
                     }
                     else
                     {
                         wedged.MeasuredValue = "OK";
                         wedged.setToTRUE();
-                        wedged.Infobulle = "Pas de champs filtré avec moins de 20 UM";
+                        wedged.Infobulle = ResourceHelper.GetMessage("String199");
 
                     }
                     if (_pinfo.machine.Contains("TOM") || _pinfo.machine.Contains("HALCYON"))
                     {
                         wedged.setToINFO();
-                        wedged.MeasuredValue = "TOMO ou HALCYON: non vérifié";
+                        wedged.MeasuredValue = ResourceHelper.GetMessage("String200");
                     }
 
                     this._result.Add(wedged);
@@ -276,33 +274,33 @@ namespace PlanCheck
                 if (!_pinfo.isTOMO)
                 {
                     Item_Result numberOfUM = new Item_Result();
-                    numberOfUM.Label = "Nombre UM";
+                    numberOfUM.Label = ResourceHelper.GetMessage("String201");
                     numberOfUM.ExpectedValue = "EN COURS";
 
                     if (FieldWithLessThan10UM != 0)
                     {
-                        numberOfUM.MeasuredValue = FieldWithLessThan10UM.ToString() + " champs avec < 10 UM";
+                        numberOfUM.MeasuredValue = FieldWithLessThan10UM.ToString() + " "+ ResourceHelper.GetMessage("String202");
                         numberOfUM.setToFALSE();
-                        numberOfUM.Infobulle = FieldWithLessThan10UM.ToString() + " champs avec < 10 UM";
+                        numberOfUM.Infobulle = FieldWithLessThan10UM.ToString() + " "+ ResourceHelper.GetMessage("String203");
 
                     }
                     else if(fieldWithTooMuchMU != 0)
                     {
-                        numberOfUM.MeasuredValue = fieldWithTooMuchMU.ToString() + " champs avec plus que UM max (" + limitMU_ForThisPlan + ")";
+                        numberOfUM.MeasuredValue = fieldWithTooMuchMU.ToString() + " "+ ResourceHelper.GetMessage("String204") + " (" + limitMU_ForThisPlan + ")";
                         numberOfUM.setToFALSE();
-                        numberOfUM.Infobulle = fieldWithTooMuchMU.ToString() + " champs avec plus que UM max (" + limitMU_ForThisPlan + ")";
+                        numberOfUM.Infobulle = fieldWithTooMuchMU.ToString() + " "+ ResourceHelper.GetMessage("String204") + " (" + limitMU_ForThisPlan + ")";
                     }
                     else
                     {
                         numberOfUM.MeasuredValue = "OK";
                         numberOfUM.setToTRUE();
-                        numberOfUM.Infobulle = "Toutes les valeurs UM ok (10 < UM < Max)";
+                        numberOfUM.Infobulle = ResourceHelper.GetMessage("String205");
 
                     }
                     if (_pinfo.machine.Contains("TOM"))
                     {
                         numberOfUM.setToINFO();
-                        numberOfUM.MeasuredValue = "TOMO : non vérifié";
+                        numberOfUM.MeasuredValue = ResourceHelper.GetMessage("String206");
                     }
                     this._result.Add(numberOfUM);
                 }

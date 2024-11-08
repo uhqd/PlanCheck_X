@@ -52,11 +52,12 @@ namespace PlanCheck.xaml_datas
             }
             if (getUserLanguage.myLang == "FR")
                 cbLang.SelectedIndex = 0;
-            if (getUserLanguage.myLang == "UK")
+            else
                 cbLang.SelectedIndex = 1;
+//            if (getUserLanguage.myLang == "UK")
 
 
-            MaListe = new List<string>();
+                MaListe = new List<string>();
             foreach ((string text, bool valeurBool, string text2) in _pinfo.actualUserPreference.userPreferencesList)
             {
                 MaListe.Add(text2);

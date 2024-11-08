@@ -8,7 +8,7 @@ using VMS.TPS.Common.Model.API;
 using System.Windows;
 using System.Windows.Navigation;
 using System.Drawing;
-
+using PlanCheck.Languages;
 
 
 namespace PlanCheck
@@ -42,21 +42,37 @@ namespace PlanCheck
                 gating.Label = "Gating";
 
                 if (_ctx.PlanSetup.UseGating)
+                    gating.MeasuredValue = ResourceHelper.GetMessage("String133");
+                else
+                    gating.MeasuredValue = ResourceHelper.GetMessage("String134");
+
+                if (_rcp.enebleGating == ResourceHelper.GetMessage("String135"))
+                    gating.ExpectedValue = ResourceHelper.GetMessage("String136");
+                if (_rcp.enebleGating == ResourceHelper.GetMessage("String149"))
+                    gating.ExpectedValue = ResourceHelper.GetMessage("String137");
+
+
+                //MessageBox.Show("rcp " +_rcp.enebleGating + "\nExp " + gating.ExpectedValue + "\nMes " + gating.MeasuredValue);
+                /*
+                 *    if (_ctx.PlanSetup.UseGating)
                     gating.MeasuredValue = "Gating activé";
                 else
                     gating.MeasuredValue = "Gating Désactivé";
 
-                if (_rcp.enebleGating == "Oui")
+                                 if (_rcp.enebleGating == "Oui")
                     gating.ExpectedValue = "Gating activé";
                 if (_rcp.enebleGating == "Non")
                     gating.ExpectedValue = "Gating Désactivé";
+
+                 */
+
 
                 if (gating.ExpectedValue == gating.MeasuredValue)
                     gating.setToTRUE();
                 else
                     gating.setToFALSE();
 
-                gating.Infobulle = "La case Enable gating doit être en accord avec le check-protocol " + _rcp.protocolName + " (" + gating.ExpectedValue + ")";
+                gating.Infobulle = ResourceHelper.GetMessage("String138") + " " + _rcp.protocolName + " (" + gating.ExpectedValue + ")";
                 this._result.Add(gating);
                 //
                 #endregion
@@ -67,7 +83,7 @@ namespace PlanCheck
                 if ((_pinfo.treatmentType == "VMAT")&&(!_pinfo.isHyperArc))
                 {
                     Item_Result RAdirection = new Item_Result();
-                    RAdirection.Label = "Sens des arcs";
+                    RAdirection.Label = ResourceHelper.GetMessage("String139");
 
                     RAdirection.ExpectedValue = "none";
                     int nbeams = 0;
@@ -100,7 +116,7 @@ namespace PlanCheck
                         RAdirection.setToTRUE();
                     else
                         RAdirection.setToWARNING();
-                    RAdirection.Infobulle = "Les arcs doivent être alternativement dans le sens horaire (CW) et antihoraire (CCW)";
+                    RAdirection.Infobulle = ResourceHelper.GetMessage("String140");
                     this._result.Add(RAdirection);
                 }
                 #endregion
@@ -111,7 +127,7 @@ namespace PlanCheck
                 if (_pinfo.treatmentType == "VMAT")
                 {
                     Item_Result colli = new Item_Result();
-                    colli.Label = "Collimateur RA";
+                    colli.Label = ResourceHelper.GetMessage("String141");
 
                     colli.ExpectedValue = "none";
                     int nbeams = 0;
@@ -135,15 +151,15 @@ namespace PlanCheck
 
                     if (isOk)
                     {
-                        colli.MeasuredValue = "Pas de collimateur à 0° pour les " + nbeams + " champs RA";
+                        colli.MeasuredValue = ResourceHelper.GetMessage("String142") + " " + nbeams + " "+ ResourceHelper.GetMessage("String143");
                         colli.setToTRUE();
                     }
                     else
                     {
-                        colli.MeasuredValue = "Au moins un CP avec collimateur à 0°";
+                        colli.MeasuredValue = ResourceHelper.GetMessage("String144");
                         colli.setToFALSE();
                     }
-                    colli.Infobulle = "Le collimateur ne doit pas être à 0° pour les champs RA ";
+                    colli.Infobulle = ResourceHelper.GetMessage("String145") + " ";
                     this._result.Add(colli);
                 }
                 #endregion
@@ -158,7 +174,7 @@ namespace PlanCheck
                 if ((_pinfo.isFE) && (_pinfo.fondNonFEPlan))
                 {
                     Item_Result FE_MLC = new Item_Result();
-                    FE_MLC.Label = "Fluence étendue : modification MLC";
+                    FE_MLC.Label = ResourceHelper.GetMessage("String146");
                     FE_MLC.ExpectedValue = "EN COURS";
                     PlanSetup pNonFE = _ctx.Course.PlanSetups.Where(p => p.Id == _pinfo.planIdwithoutFE).FirstOrDefault();
                     List<string> modifiedMLC = new List<string>();
@@ -201,13 +217,13 @@ namespace PlanCheck
                         beamindex++;
                     }
                     int nTotBeam = modifiedMLC.Count + nonModifiedMLC.Count;
-                    FE_MLC.MeasuredValue = "Faisceaux modifiés : " + modifiedMLC.Count + "/" + nTotBeam;
+                    FE_MLC.MeasuredValue = ResourceHelper.GetMessage("String147") + " : " + modifiedMLC.Count + "/" + nTotBeam;
                     if (nTotBeam == modifiedMLC.Count)
                         FE_MLC.setToTRUE();
                     else
                         FE_MLC.setToWARNING();
 
-                    FE_MLC.Infobulle = "Vérifie si le MLC a été modifié entre les champs du plan FE et ceux du plan initial (non FE)";
+                    FE_MLC.Infobulle = ResourceHelper.GetMessage("String148");
 
                     this._result.Add(FE_MLC);
                 }

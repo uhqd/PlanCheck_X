@@ -1,221 +1,124 @@
-Accuray Precision® Plan Overview
-Plan Name:
-Plan Type:
-ParoiGgg
-Standard
-Plan Saved Date: 04 Nov 2024, 8:08:49 AM (hr:min:sec)
-Treatment Machine / Serial No.: 0210462 850 MU/min, rev 175 / 
-210462
-Prescription: Median of PTV paroi, 50.00 Gy
-Prescribed Dose per Fraction (Gy): 2.00
-Planned Fractions: 25
-Maximum Dose (Gy): 56.64
-Plan Status: Approved
-MU Planned / MU per Fraction: 212136.9 / 8485.5
-Field Width (cm): 5.0, Dynamic
-Pitch: 0.265
-Modulation Factor / Actual: 2.000 / 2.0
-Gantry Period (sec):
-Gantry Rotations:
-27.4
-21.3
-Sinogram Segments: 7.1
-Couch Travel (mm):
-Couch Speed (mm/sec):
-285.1
-0.5
-Red Lasers Offset (IECf, mm): X: -9.69 Y: -52.50 Z: -45.07
-Beam On Time (sec): 584.5
-Plan Delivery Type / Mode: Helical / IMRT
-Dose Calculation Algorithm:
-Dose Calculation Resolution / Type: High / Final
-Convolution-Superposition Spacing (IECp, mm) X: 1.17 Y: 3.00 Z: 1.17
-Size (IECp, voxel) X: 512 Y: 180 Z: 512
-Reference Dose (Gy): 56.64
-X: 70.9 Y: -261.0 Z: 376.4 Reference Point (IECp, mm): Tracking Method: None
-Image Angles (deg):
-Tracking Target VOI:
-Planning Method: VOLO Ultra
-Patient Name:
-Medical ID:
-CANS, MARIE-BERNADETTE
-197805150 Version: Accuray Precision 3.3.1.3 [2]
-Date Of Birth: 04 Sep 1950
-Gender: Female Patient Key: 410809
-Plan Overview
-Page 1 of 9 04 Nov 2024, 3:10:27 PM (hr:min:sec)DVH: Absolute Dose
-Warning: Full list of VOIs may not fit in legend.Refer VOI List
-Plan Overview
-Page 2 of 9 04 Nov 2024, 3:10:27 PM (hr:min:sec)
-Patient Name: CANS, MARIE-BERNADETTE; Medical ID: 197805150; Plan Name: ParoiGgg; Version: Accuray 
-Precision 3.3.1.3VOI List
-VOI Volume 
-(cm³)
-Min (Gy) Mean (Gy) Max (Gy) CI nCI HI Coverage 
-%
-Beam Inter.
-Canal Med 98.86 0.25 3.58 15.30 n/a n/a n/a n/a Allowed
-Coeur 1093.33 1.43 6.50 45.85 n/a n/a n/a n/a Allowed
-CTV cmi 20.17 46.78 50.61 55.87 n/a n/a n/a n/a Allowed
-Foie 2597.18 0.16 1.99 19.93 n/a n/a n/a n/a Allowed
-IVA 6.53 4.73 10.75 21.82 n/a n/a n/a n/a Allowed
-Larynx 18.72 2.27 8.44 30.88 n/a n/a n/a n/a Allowed
-Oesophage 31.29 1.29 9.73 41.06 n/a n/a n/a n/a Allowed
-PlexusDt 14.68 1.13 6.80 13.74 n/a n/a n/a n/a Allowed
-PlexusGche 14.41 2.22 43.15 53.64 n/a n/a n/a n/a Allowed
-PoumonDt 1493.48 1.03 4.59 26.50 n/a n/a n/a n/a Allowed
-PoumonGche 1178.49 1.60 11.40 54.76 n/a n/a n/a n/a Allowed
-Poumons 2671.97 1.03 7.59 54.76 n/a n/a n/a n/a Allowed
-Sac Digestif 5537.00 0.05 0.27 1.75 n/a n/a n/a n/a Allowed
-Sein contro 1682.23 0.91 4.35 29.66 n/a n/a n/a n/a Allowed
-TetehumeraleDte 61.88 0.47 2.54 5.04 n/a n/a n/a n/a Allowed
-TetehumeraleGche 65.10 0.83 11.50 42.58 n/a n/a n/a n/a Allowed
-Thyroide 8.04 8.12 12.66 20.45 n/a n/a n/a n/a Allowed
-Trachee 19.25 4.12 15.98 41.67 n/a n/a n/a n/a Allowed
-BODY 48492.03 0.05 6.27 56.64 n/a n/a n/a n/a Allowed
-CTV axillaire 77.20 47.39 50.21 53.34 n/a n/a n/a n/a Allowed
-CTV paroi 1055.96 33.21 49.60 56.64 n/a n/a n/a n/a Allowed
-CTV sous clav 132.47 47.28 50.91 54.24 n/a n/a n/a n/a Allowed
-CTV sus clav 43.18 47.18 50.43 53.95 n/a n/a n/a n/a Allowed
-PTV Axillaire 154.75 38.75 49.93 53.49 12.39 25.66 1.13 48.31 n/a
-PTV cmi 44.63 39.07 50.03 55.87 41.18 81.67 1.13 50.42 n/a
-PTV paroi 1255.03 35.01 49.93 56.64 1.48 2.95 1.13 50.01 n/a
-PTV sous clav 241.30 39.00 50.23 54.24 6.09 9.66 1.13 63.05 n/a
-PTV sus clav 98.60 40.14 49.99 54.09 17.16 31.34 1.13 54.76 n/a
-CanalMed+5 267.93 0.23 3.88 19.27 n/a n/a n/a n/a Exit Only
-VOI
-Plan Overview
-Page 3 of 9 04 Nov 2024, 3:10:27 PM (hr:min:sec)
-Patient Name: CANS, MARIE-BERNADETTE; Medical ID: 197805150; Plan Name: ParoiGgg; Version: Accuray 
-Precision 3.3.1.3Coeur-PTV+0.5 1091.82 1.43 6.46 43.55 n/a n/a n/a n/a Allowed
-Cotecontro 3465.77 0.39 3.76 23.33 n/a n/a n/a n/a Allowed
-IVA+5mm 40.54 4.52 11.01 33.74 n/a n/a n/a n/a Allowed
-Plombs 0.58 3.78 18.62 32.45 n/a n/a n/a n/a Allowed
-PoumonG-PTV+0.5 1118.59 1.60 9.80 49.98 n/a n/a n/a n/a Allowed
-PTVTotal 1698.24 35.01 49.96 56.64 n/a n/a n/a n/a Allowed
-RingPTVgg 508.21 11.05 41.18 55.04 n/a n/a n/a n/a Allowed
-RingPTVParoi 1138.79 11.42 36.65 55.04 n/a n/a n/a n/a Allowed
-Seuillage 36.37 0.97 6.01 50.56 n/a n/a n/a n/a Allowed
-ManqueParoi 329.91 35.01 49.32 54.71 6.89 16.91 1.13 40.75 n/a
-CTV paroi-5mm 834.13 44.56 50.18 56.64 n/a n/a n/a n/a Allowed
-PTV paroi int 71.33 37.11 48.72 54.07 40.76 127.8
-9
-1.13 31.87 n/a
-PTV paroiBis 1183.71 35.01 50.00 56.64 1.53 3.00 1.13 51.10 n/a
-SeinBis 1474.04 0.91 3.47 7.96 n/a n/a n/a n/a Exit Only
-chauffe 107.98 15.31 40.24 51.56 n/a n/a n/a n/a Allowed
-All Target Regions n/a 35.01 49.96 56.64 0.00 0.00 0.00 0.00 n/a
-All Critical Regions n/a 0.05 6.45 56.64 0.00 0.00 0.00 0.00 n/a
-Soft Tissue n/a 0.05 2.45 37.21 0.00 0.00 0.00 0.00 n/a
-Plan Overview
-Page 4 of 9 04 Nov 2024, 3:10:27 PM (hr:min:sec)
-Patient Name: CANS, MARIE-BERNADETTE; Medical ID: 197805150; Plan Name: ParoiGgg; Version: Accuray 
-Precision 3.3.1.3DVH Dose (Gy) Dose (% of 50.00 
-Gy Rx Dose)
-Volume (cm³) Volume (%) Criteria Value
-PTV paroi 47.63 95.3 1192.28 95.0 Dose (Gy) >= 47.50, Min: 46.50 47.63
-PTV sus clav 47.19 94.4 93.67 95.0 Dose (Gy) >= 47.50, Min: 46.50 47.19
-PTV sous clav 46.92 93.8 229.23 95.0 Dose (Gy) >= 47.50, Min: 46.50 46.92
-PTV cmi 47.21 94.4 42.40 95.0 Dose (Gy) >= 47.50, Min: 46.50 47.21
-PTV Axillaire 48.08 96.2 147.01 95.0 Dose (Gy) >= 47.50, Min: 46.50 48.08
-Canal Med 10.00 20.0 12.65 12.8 Volume (%) <= 10.0 12.8
-Coeur 15.00 30.0 65.18 6.0 Volume (%) <= 5.0, Max: 10.0 6.0
-Coeur 25.00 50.0 14.83 1.4 Volume (%) <= 0.0, Max: 5.0 1.4
-PoumonDt 5.00 10.0 509.13 34.1 Volume (%) < 20.0, Max: 35.0 34.1
-PoumonGche 5.00 10.0 795.73 67.5 Volume (%) < 65.0, Max: 70.0 67.5
-PoumonGche 20.00 40.0 211.28 17.9 Volume (%) < 15.0, Max: 18.0 17.9
-Poumons 5.00 10.0 1305.12 48.8 Volume (%) <= 42.0, Max: 50.0 48.8
-Poumons 20.00 40.0 213.00 8.0 Volume (%) <= 10.0, Max: 15.0 8.0
-Sein contro 5.00 10.0 402.91 24.0 Volume (%) <= 15.0, Max: 25.0 24.0
-TetehumeraleGche 42.58 85.2 0.00 0.0 Dose (Gy) < 45.00, Max: 47.50 42.58
-Canal Med 15.30 30.6 0.00 0.0 Dose (Gy) <= 15.00, Max: 18.00 15.30
-CanalMed+5 19.27 38.5 0.00 0.0 Dose (Gy) <= 18.00, Max: 20.00 19.27
-PTV paroi 52.57 105.1 25.10 2.0 Dose (Gy) <= 53.50 52.57
-PTV sus clav 52.41 104.8 1.97 2.0 Dose (Gy) <= 53.50 52.41
-PTV sous clav 52.80 105.6 4.83 2.0 Dose (Gy) <= 53.50 52.80
-PTV Axillaire 52.21 104.4 3.10 2.0 Dose (Gy) <= 53.50 52.21
-PTV cmi 53.50 107.0 0.89 2.0 Dose (Gy) <= 53.50 53.50
-Dx Vx Values
-Plan Overview
-Page 5 of 9 04 Nov 2024, 3:10:27 PM (hr:min:sec)
-Patient Name: CANS, MARIE-BERNADETTE; Medical ID: 197805150; Plan Name: ParoiGgg; Version: Accuray 
-Precision 3.3.1.3HU Relative Electron Density Mass Density (g/cm³)
--1000 * 0.001
--691 * 0.300
--509 * 0.490
--70 * 0.960
--40 * 0.983
-2 * 1.000
-3 * 1.023
-34 * 1.050
-63 * 1.081
-335 * 1.218
-503 * 1.331
-925 * 1.559
-1561 * 1.924
-8370 * 4.510
-Density
-Density Model: CT130246
-Density Overrides
-Priority VOI Name
-Relative Electron 
-Density
-Mass Density 
-(g/cm³)
-1 Plombs n/a 0.900
-Note: Density overrides are listed in priority order with the highest priority listed first. In regions where two VOIs overlap, the higher priority density override has been used.
-Plan Overview
-Page 6 of 9 04 Nov 2024, 3:10:27 PM (hr:min:sec)
-Patient Name: CANS, MARIE-BERNADETTE; Medical ID: 197805150; Plan Name: ParoiGgg; Version: Accuray 
-Precision 3.3.1.3Name: HERNANDEZ, Ludovic
-04 Nov 2024, 8:06:38 AM (hr:min:sec)
-User ID: hernandez_l
-Approval Date:
-Approved by: Specialists
-Radiation Oncologist:
-Surgeon:
-Referring Physician:
-Physicist:
-Treatment Site ICD: IUC-TOULOUSE
-IUC-TOULOUSE Treatment Site:
-Additional Site Codes: IUC-TOULOUSE
-Additional Sites: IUC-TOULOUSE
-Created in Version: Accuray Precision 3.3.1.3 [2]
-Plan Key:
-Last Modified by:
-426076/6
-LANASPEZE, Christelle
-Saved Deliverable by: HERNANDEZ, Ludovic
-Approval and ICD
-Auto Generated Results:
-Not Applicable
-Patient Position: HFS Delivery Signature: uMM10 JBZ4A 
-Plan Overview
-Page 7 of 9 04 Nov 2024, 3:10:27 PM (hr:min:sec)
-Patient Name: CANS, MARIE-BERNADETTE; Medical ID: 197805150; Plan Name: ParoiGgg; Version: Accuray 
-Precision 3.3.1.3Report Snapshots
-Plan Overview
-Page 8 of 9 04 Nov 2024, 3:10:27 PM (hr:min:sec)
-Patient Name: CANS, MARIE-BERNADETTE; Medical ID: 197805150; Plan Name: ParoiGgg; Version: Accuray 
-Precision 3.3.1.3Imaging Series
-X Y Z
-Origin (IECp, mm) -299.414 -549.000 502.914
-Size (IECp, voxel) 512 180 512
-Spacing (IECp, mm) 1.17 3.00 1.17
-Primary Series:
-Modality:
-Scan Date: Number of Slices:
-Yes
-CT
-25 Oct 2024, 09:54:13 AM (hr:min:sec) 180
-Scanner Model:
-Patient Position:
-SOMATOM go.Open Pro
-HFS
-Series UID/Description Study UID/Description:
-1.3.12.2.1107.5.1.7.130246.30000024102508490814200000422 1.3.51.0.1.1.10.10.13.63.108370375.9985141
-SEIN G TOMO SEIN G TOMO(Adulte)
-Plan Overview
-Page 9 of 9 04 Nov 2024, 3:10:27 PM (hr:min:sec)
-Patient Name: CANS, MARIE-BERNADETTE; Medical ID: 197805150; Plan Name: ParoiGgg; Version: Accuray 
-Precision 3.3.1.3
+Rappportdeplanificationderadiothérapie(v15.6.05)deMASANETCALAFAT,
+JUAN
+Plan:STIC2Locs1TT
+Rapportcrééle:08/11/202409:26:23par:RecordonFrederique
+1/7
+PATIENT
+Nom:MASANETCALAFAT,JUAN(202420020) DatedeNaissance:25/05/1969 Sexe:Masculin
+PLAN PRESCRIPTIONDE
+DOSE
+IDplan STIC2Locs1TT Méthodenormalisation 100.00%couvre50.00%duvolumecible
+IDdossierdetraitement: C2 Volumecible: GTVsHD
+IDimage: tdmrte051124 Pointdereferenceprincipal HA2
+Systèmed'imagerie: CT130246 Valeurdenormalisation: 99.1%
+Orientationdutraitement: Tetedevant-DD Pourcentagededoseprescrite 100.0%
+Décalagedel'origine/àDICOM: (0.18cm,-23.05cm,-33.10cm) Fractionnement:
+Typedetraitement: VMAT(RA) DosePrescrite: 36.0Gy(7.20Gy/fraction)
+Nombredefractions: 5
+OPTIONSDECALCUL
+Algorithmephoton: Acuros_15605New
+AutomaticHighDensityMaterial__ Bone
+CalculationGridSizeInCM 0.125
+CalculationGridSizeInCMForSRSAndHyperArc 0.125
+DoseReportingMode Dosetomedium
+FieldNormalizationType 100%toisocenter
+HeterogeneityCorrection ON
+MaximumAutomaticHighDensityVolumeInCM3__ 0.50
+PlanDoseCalculation OFF
+UseGPU Yes
+APPROBATIONS
+Plancréé: admin\lanaspeze(07/11/202408:28:10)
+Appro.plan: PiramLucie(vendredi8novembre202409:08:25)
+Appro.traitement: -Rappportdeplanificationderadiothérapie(v15.6.05)deMASANETCALAFAT,
+JUAN
+Plan:STIC2Locs1TT
+Rapportcrééle:08/11/202409:26:23par:RecordonFrederique
+2/7
+PARAMETRESDESFAISCEAUXDETRAITEMENT(1/1)
+IDchamp
+HA0 HA315 HA270 HA45
+IDmachine NOVASBRT NOVASBRT NOVASBRT NOVASBRT
+Energie 6X-FFF 6X-FFF 6X-FFF 6X-FFF
+Debitdedose 1400UM/min 1400UM/min 1400UM/min 1400UM/min
+X1 3.48 2.86 3.85 2.72
+X2 3.28 3.08 2.63 2.73
+Y1 3.5 3.75 3.75 3.25
+Y2 3.25 3.75 3.5 3.75
+Tailledechamp 6.76x6.75cm² 5.94x7.5cm² 6.48x7.25cm² 5.45x7cm²
+Angledubras 179.9° 0° 180.1° 0°
+Sensderotationdubras SAH SAH SH SH
+Angled'arrêtdubras 0° 180.1° 0° 179.9°
+Rot.collimateur 153° 159° 102° 69°
+Rot.detable 0° 315° 270° 45°
+Bolus - - - -
+IsocentreX 5.97cm 5.97cm 5.97cm 5.97cm
+IsocentreY 1.68cm 1.68cm 1.68cm 1.68cm
+IsocentreZ -3.85cm -3.85cm -3.85cm -3.85cm
+DSP 94cm 90.4cm 94cm 90.4cm
+Ponderation 0.533 0.649 0.562 0.605
+Pointderéférence HA2 HA2 HA2 HA2
+Filtreencoin - - - -
+Bloc - - - -
+Plaque - - - -
+Doseparfraction 1.633Gy 1.990Gy 1.722Gy 1.856Gy
+UM 386.8UM 471.4UM 407.9UM 439.7UMRappportdeplanificationderadiothérapie(v15.6.05)deMASANETCALAFAT,
+JUAN
+Plan:STIC2Locs1TT
+Rapportcrééle:08/11/202409:26:23par:RecordonFrederique
+3/7
+HISTOGRAMMEDOSEVOLUMERappportdeplanificationderadiothérapie(v15.6.05)deMASANETCALAFAT,
+JUAN
+Plan:STIC2Locs1TT
+Rapportcrééle:08/11/202409:26:23par:RecordonFrederique
+4/7
+STATISTIQUESHISTOGRAMMEDOSE-VOLUME(1/2)
+Structure Volume(cc) DoseMax(Gy) DoseMoyenne(Gy) Dose1cc(Gy) Dose0.035cc(Gy)
+BODY 7575.2 38.0 1.4 37.3 37.8
+TroncCerebral 26.7 1.7 0.7 1.1 1.5
+RetineGche 2.0 3.9 2.0 2.2 3.6
+RetineDt 2.0 1.0 0.2 0.2 0.8
+OeilGche 8.2 3.9 1.8 3.0 3.6
+OeilDt 8.2 1.0 0.2 0.3 0.8
+NerfOptiqueGche 0.6 0.9 0.7 0.0 0.8
+NerfOptiqueDt 0.6 0.5 0.3 0.0 0.4
+Hypophyse 0.3 2.3 1.2 0.0 1.7
+CristallinGche 0.2 2.4 1.7 0.0 2.1
+CristallinDt 0.2 0.2 0.1 0.0 0.1
+CochleeGche 0.1 4.8 3.2 0.0 3.4
+CochleeDte 0.1 0.2 0.2 0.0 0.2
+Chiasma 1.2 1.0 0.6 0.5 0.9
+Cerveau 1389.6 38.0 3.3 37.3 37.8
+Canalmed 30.3 2.9 0.5 2.0 2.7
+CTV2.1 18.4 38.0 36.0 37.3 37.8
+HippocampeDt 2.2 0.6 0.3 0.3 0.5
+HippocampeGche 2.3 14.2 6.8 7.1 11.9
+LitOp1.3 21.8 1.1 0.5 0.8 1.0
+LitOp1.1 51.9 38.0 22.8 37.1 37.8
+PTV_LitOp2.1 33.2 38.0 34.8 37.3 37.8
+GTVsHD 18.5 38.0 36.0 37.3 37.8
+TroncCerebral+2 40.7 2.7 0.7 1.5 2.2
+NerfOptGche+2 2.7 1.4 0.7 0.8 1.1
+NerfOptDt+2 2.5 0.7 0.3 0.3 0.6
+GTVs 18.4 38.0 36.0 37.3 37.8
+CristallinGche+5 2.9 3.1 1.7 2.0 2.9
+CristallinDt+5 2.8 0.4 0.2 0.1 0.3Rappportdeplanificationderadiothérapie(v15.6.05)deMASANETCALAFAT,
+JUAN
+Plan:STIC2Locs1TT
+Rapportcrééle:08/11/202409:26:23par:RecordonFrederique
+5/7
+STATISTIQUESHISTOGRAMMEDOSE-VOLUME(2/2)
+Structure Volume(cc) DoseMax(Gy) DoseMoyenne(Gy) Dose1cc(Gy) Dose0.035cc(Gy)
+Chiasma+2 4.1 1.5 0.6 0.7 1.2
+Cerveau-GTVs 1372.5 37.4 2.9 34.7 36.6Rappportdeplanificationderadiothérapie(v15.6.05)deMASANETCALAFAT,
+JUAN
+Plan:STIC2Locs1TT
+Rapportcrééle:08/11/202409:26:23par:RecordonFrederique
+6/7
+DECALAGESDELATABLEPARRAPPORTALAPOSITIONDEREFERENCE
+Isocentredeschamps:,HA0,HA315,HA270,HA45
+Décaler: 5.97cm -1.68cm -3.85cm
+Direction: Tableverslagaucheenregardantlebras Tableverslehaut Tableenlongverslebras(in)Rappportdeplanificationderadiothérapie(v15.6.05)deMASANETCALAFAT,
+JUAN
+Plan:STIC2Locs1TT
+Rapportcrééle:08/11/202409:26:23par:RecordonFrederique
+7/7

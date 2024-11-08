@@ -6,7 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using VMS.TPS.Common.Model.API;
 using System.Windows;
-
+using PlanCheck.Languages;
 namespace PlanCheck
 {
     internal class Check_Isocenter
@@ -54,23 +54,23 @@ namespace PlanCheck
                 {
                     Item_Result allFieldsSameIso = new Item_Result();
 
-                    allFieldsSameIso.Label = "Unicité de l'isocentre";
+                    allFieldsSameIso.Label =ResourceHelper.GetMessage("String111");
                     allFieldsSameIso.ExpectedValue = "1";
 
-                    
+
 
                     if (numberOfIso > 1)
                     {
                         allFieldsSameIso.setToFALSE();
-                        allFieldsSameIso.MeasuredValue = "Plusieurs isocentres";
+                        allFieldsSameIso.MeasuredValue = ResourceHelper.GetMessage("String112");
                     }
                     else
                     {
                         allFieldsSameIso.setToTRUE();
-                        allFieldsSameIso.MeasuredValue = "Un seul isocentre";
+                        allFieldsSameIso.MeasuredValue = ResourceHelper.GetMessage("String113");
                     }
 
-                    allFieldsSameIso.Infobulle = "Tous les champs du plan doivent avoir le même isocentre, sauf plan multi-isocentres";
+                    allFieldsSameIso.Infobulle = ResourceHelper.GetMessage("String114");
                     this._result.Add(allFieldsSameIso);
                 }
                 #endregion
@@ -87,7 +87,7 @@ namespace PlanCheck
                         tolerance = 0.25;
                     Item_Result isoAtCenterOfPTV = new Item_Result();
 
-                    isoAtCenterOfPTV.Label = "Position de l'isocentre";
+                    isoAtCenterOfPTV.Label = ResourceHelper.GetMessage("String115");
                     isoAtCenterOfPTV.ExpectedValue = "1";
                     isoAtCenterOfPTV.setToTRUE();
 
@@ -152,29 +152,29 @@ namespace PlanCheck
                         }
                         if (iswrong == 1)
                         {
-                            isoAtCenterOfPTV.MeasuredValue = " Positionnement non central de l'isocentre dans le " + ptvTarget.Id;
+                            isoAtCenterOfPTV.MeasuredValue = " " + ResourceHelper.GetMessage("String116") + " " + ptvTarget.Id;
                             isoAtCenterOfPTV.setToINFO();
                         }
                         else
                         {
-                            isoAtCenterOfPTV.MeasuredValue = " Isocentre proche du centre de " + ptvTarget.Id;
+                            isoAtCenterOfPTV.MeasuredValue = " " + ResourceHelper.GetMessage("String117") + " " + ptvTarget.Id;
                             isoAtCenterOfPTV.setToTRUE();
                         }
 
                         double tolmin = 0.5 - tolerance;
                         double tolmax = 0.5 + tolerance;
-                        isoAtCenterOfPTV.Infobulle = "L'isocentre doit être proche du centre de " + ptvTarget.Id;
-                        isoAtCenterOfPTV.Infobulle += "\n(volume cible)";
-                        isoAtCenterOfPTV.Infobulle += "\navec une tolérance de " + (tolerance * 100).ToString("N1") + "% dans chaque direction.";
-                        isoAtCenterOfPTV.Infobulle += "\n\nPosition relative de l'isoscentre sur les axes x y et z:\n" + Math.Round(fractionX, 2) + "\t" + Math.Round(fractionY, 2) + "\t" + Math.Round(fractionZ, 2);
-                        isoAtCenterOfPTV.Infobulle += "\n\n0 et 1 = limites du PTV";
-                        isoAtCenterOfPTV.Infobulle += "\nValeures attendues (selon check-protocol) entre " + tolmin + " et " + tolmax;
+                        isoAtCenterOfPTV.Infobulle = ResourceHelper.GetMessage("String118") + " " + ptvTarget.Id;
+                        isoAtCenterOfPTV.Infobulle += "\n" + ResourceHelper.GetMessage("String119");
+                        isoAtCenterOfPTV.Infobulle += "\n" + ResourceHelper.GetMessage("String120") + " " + (tolerance * 100).ToString("N1") + ResourceHelper.GetMessage("String121");
+                        isoAtCenterOfPTV.Infobulle += "\n\n" + ResourceHelper.GetMessage("String122") + "\n" + Math.Round(fractionX, 2) + "\t" + Math.Round(fractionY, 2) + "\t" + Math.Round(fractionZ, 2);
+                        isoAtCenterOfPTV.Infobulle += "\n\n" + ResourceHelper.GetMessage("String113");
+                        isoAtCenterOfPTV.Infobulle += "\n" + ResourceHelper.GetMessage("String124") + " " + tolmin + " " + ResourceHelper.GetMessage("String125") + " " + tolmax;
                     }
                     else
                     {
-                        isoAtCenterOfPTV.MeasuredValue = "Aucun volume cible trouvé";
+                        isoAtCenterOfPTV.MeasuredValue = ResourceHelper.GetMessage("String126");
                         isoAtCenterOfPTV.setToINFO();
-                        isoAtCenterOfPTV.Infobulle += "Pas de vérification de la position de l'isocentre dans le volume cible";
+                        isoAtCenterOfPTV.Infobulle += ResourceHelper.GetMessage("String127");
 
                     }
 
@@ -184,7 +184,7 @@ namespace PlanCheck
 
                 #endregion
             }
-            
+
             if (_pinfo.actualUserPreference.userWantsTheTest("distanceToOrigin"))
             {
                 #region Distance à l'origine en z
@@ -195,7 +195,7 @@ namespace PlanCheck
                     //double maxDistanceX = 15.0;
                     //double maxDistanceY = 15.0;
                     double maxDistanceZ = 20.0;
-                    distanceToOrigin.Label = "Distance iso-origine (Z)";
+                    distanceToOrigin.Label = ResourceHelper.GetMessage("String128");
                     distanceToOrigin.ExpectedValue = "1";
                     //double distanceX = (myx - _ctx.Image.UserOrigin.x) / 10.0;
                     //double distanceY = (myy - _ctx.Image.UserOrigin.y) / 10.0;
@@ -215,8 +215,8 @@ namespace PlanCheck
                     //             distanceToOrigin.MeasuredValue = distanceX.ToString("0.##") + " cm (x) / " + distanceZ.ToString("0.##") + " cm (z)";
                     distanceToOrigin.MeasuredValue = distanceZ.ToString("0.##") + " cm (z)";
                     // distanceToOrigin.Infobulle = "L'isocentre doit être à < " + maxDistanceX + " cm  (en x) et < " + maxDistanceZ + " cm (en z) de l'origine";
-                    distanceToOrigin.Infobulle = "L'isocentre doit être à < " + maxDistanceZ + " cm (en z) de l'origine";
-                    distanceToOrigin.Infobulle += "\n Obligatoire pour les Halcyon";
+                    distanceToOrigin.Infobulle = ResourceHelper.GetMessage("String129") + " " + maxDistanceZ + " "+ ResourceHelper.GetMessage("String130");
+                    distanceToOrigin.Infobulle += "\n "+ ResourceHelper.GetMessage("String131");
 
                     this._result.Add(distanceToOrigin);
                 }
@@ -246,7 +246,7 @@ namespace PlanCheck
                     }
                     else
                     {
-                        isoTomo.MeasuredValue = "Pas de rapport de dosimétrie Tomotherapy. Vérifier l'isocentre";
+                        isoTomo.MeasuredValue = ResourceHelper.GetMessage("String132");
                         isoTomo.setToUNCHECK();
                     }
                     this._result.Add(isoTomo);

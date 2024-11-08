@@ -10,7 +10,7 @@ using System.Windows;
 using System.Text.RegularExpressions;
 using System.IO;
 using PlanCheck.xaml_datas;
-
+using PlanCheck.Languages;
 namespace PlanCheck
 {
     internal class Check_doseDistribution
@@ -440,7 +440,7 @@ namespace PlanCheck
             else if (obj.Contains(">"))
                 startIndex = obj.IndexOf('>');
             else
-                MessageBox.Show("ERROR DOSE DISTRIBUTION. Cet objectif devrait contenir un caractère < ou > : " + obj);
+                MessageBox.Show(ResourceHelper.GetMessage("String65") + obj);
 
             int endIndex = obj.IndexOf('%', startIndex);
 
@@ -470,14 +470,14 @@ namespace PlanCheck
 
 
                 Item_Result turquoiseIsodose = new Item_Result();
-                turquoiseIsodose.Label = "Isodose Turquoise";
+                turquoiseIsodose.Label = ResourceHelper.GetMessage("String69");
                 turquoiseIsodose.ExpectedValue = "EN COURS";
-                turquoiseIsodose.Infobulle = "L'isodose turquoise doit avoir la valeur de 95% ou 100% d'une prescription";
+                turquoiseIsodose.Infobulle = ResourceHelper.GetMessage("String66");
                 Isodose i = _ctx.PlanSetup.Dose.Isodoses.FirstOrDefault(x => x.Color.ToString() == "#FF80FFFF");
 
                 if (i == null)
                 {
-                    turquoiseIsodose.MeasuredValue = "Pas d'isodose turquoise";
+                    turquoiseIsodose.MeasuredValue = ResourceHelper.GetMessage("String67");
                     turquoiseIsodose.setToWARNING();
                 }
                 else
@@ -515,7 +515,7 @@ namespace PlanCheck
                     else
                     {
                         turquoiseIsodose.setToWARNING();
-                        turquoiseIsodose.MeasuredValue = "Isodose turquoise sans rapport avec la prescription";
+                        turquoiseIsodose.MeasuredValue = ResourceHelper.GetMessage("String68");
                     }
                 }
                 this._result.Add(turquoiseIsodose);
@@ -527,13 +527,13 @@ namespace PlanCheck
 
             #region Objectives to ptv in the prescription.
             if (_ctx.PlanSetup.RTPrescription == null)
-                MessageBox.Show("Pas de prescription --> Pas de vérification de la dose aux PTV");
+                ResourceHelper.displayMessage("String70");
             else if (_pinfo.actualUserPreference.userWantsTheTest("prescribedObjectives") && _ctx.PlanSetup.RTPrescription.Targets.Count() > 0)
             {
                
 
                Item_Result prescribedObjectives = new Item_Result();
-                prescribedObjectives.Label = "Dose aux PTVs";
+                prescribedObjectives.Label = ResourceHelper.GetMessage("String71");
                 prescribedObjectives.ExpectedValue = "EN COURS";
                 prescribedObjectives.MeasuredValue = "EN COURS";
                 prescribedObjectives.setToINFO();
@@ -633,7 +633,7 @@ namespace PlanCheck
                 }
                 // if (myChoiceWindow.targetStructList.Count != _ctx.PlanSetup.RTPrescription.Targets.Count())
                 if (targetsAndStructList.Count != _ctx.PlanSetup.RTPrescription.Targets.Count())
-                    MessageBox.Show("ERREUR Check_DoseDistribution : Nombre de prescriptions incohérent");
+                    MessageBox.Show(ResourceHelper.GetMessage("String71"));
                 #endregion
 
                 foreach (var target in _ctx.PlanSetup.RTPrescription.Targets)
@@ -664,7 +664,7 @@ namespace PlanCheck
                     }
                     if (correspondingStructure == null)
                     {
-                        MessageBox.Show("impossible de trouver la structure " + target.TargetId);
+                        MessageBox.Show(ResourceHelper.GetMessage("String73") + " " + target.TargetId);
                     }
 
                     DVHData dvh = _ctx.PlanSetup.GetDVHCumulativeData(correspondingStructure, DoseValuePresentation.Absolute, VolumePresentation.Relative, 0.1);
@@ -714,7 +714,7 @@ namespace PlanCheck
                             //                            myinfo += "X\n";
                             nFailed++;
                         }
-                        myinfo += "Dose médiane* (Gy) :\t" + median.ToString("F2") + " (" + minAcceptedMedianDose.ToString("F2") + "<D<" + maxAcceptedMedianDose.ToString("F2") + ")\n";
+                        myinfo += ResourceHelper.GetMessage("String74") + " :\t" + median.ToString("F2") + " (" + minAcceptedMedianDose.ToString("F2") + "<D<" + maxAcceptedMedianDose.ToString("F2") + ")\n";
                     }
                     #endregion
 
@@ -781,7 +781,7 @@ namespace PlanCheck
 
 
                 prescribedObjectives.setToTRUE();
-                prescribedObjectives.MeasuredValue = nOK.ToString() + "/" + (nOK + nFailed).ToString() + " objectifs atteints";
+                prescribedObjectives.MeasuredValue = nOK.ToString() + "/" + (nOK + nFailed).ToString() + " "+ ResourceHelper.GetMessage("String75");
                 prescribedObjectives.Infobulle = myinfo;
                 if (nFailed > 1)
                     prescribedObjectives.setToWARNING();
@@ -789,10 +789,10 @@ namespace PlanCheck
                     prescribedObjectives.setToFALSE();
 
                 if (!thereIsAHighObjective && !thereIsALowObjective)
-                    prescribedObjectives.Infobulle += "\n\n Pas d'objectifs PTV dans le check-protocol (seuls les tests par défaut ont été réalisés)";
+                    prescribedObjectives.Infobulle += "\n\n "+ ResourceHelper.GetMessage("String76");
 
                 if (!_rcp.protocolName.Contains("STEC") && !_rcp.protocolName.Contains("hyperarc") && !_rcp.protocolName.Contains("STIC"))
-                    prescribedObjectives.Infobulle += "\n * La dose médiane est interpolée pour les PTV BD (non calculée pour les STEC/STIC)";
+                    prescribedObjectives.Infobulle += "\n * "+ ResourceHelper.GetMessage("String77");
 
 
                 this._result.Add(prescribedObjectives);
@@ -810,7 +810,7 @@ namespace PlanCheck
 
 
                 Item_Result doseToOAR = new Item_Result();
-                doseToOAR.Label = "Doses aux OARs (check-protocol)";
+                doseToOAR.Label = ResourceHelper.GetMessage("String78");
                 doseToOAR.ExpectedValue = "EN COURS";
                 List<string> successList = new List<string>();
                 List<string> failedList = new List<string>();
@@ -885,8 +885,8 @@ namespace PlanCheck
                 else
                 {
                     doseToOAR.setToINFO();
-                    doseToOAR.MeasuredValue = "Aucun test réalisé sur des indicateurs de dose";
-                    doseToOAR.Infobulle = "Aucun test réalisé sur des indicateurs de dose. Soit il n'en est spécifié aucun dans le check-protocol, soit les structures requises sont absentes.";
+                    doseToOAR.MeasuredValue = ResourceHelper.GetMessage("String79");
+                    doseToOAR.Infobulle = ResourceHelper.GetMessage("String80");
 
                 }
 

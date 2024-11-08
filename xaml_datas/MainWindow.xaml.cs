@@ -17,6 +17,8 @@ using PlanCheck.createWordPrefilledCheckList;
 using PlanCheck.pdfreport;
 using PlanCheck.Users;
 using PlanCheck.xaml_datas;
+using PlanCheck.Languages;
+
 //using Microsoft.Office.Tools;
 //using PdfSharp.Pdf;
 
@@ -70,7 +72,6 @@ namespace PlanCheck
         public List<UserControl> ListChecks { get; set; }
         private bool _AplanIsloaded;
         #endregion
-
         public MainWindow(PreliminaryInformation pinfo, ScriptContext pcontext, bool planIsloaded) //Constructeur
         {
             _AplanIsloaded = planIsloaded;
@@ -103,7 +104,7 @@ namespace PlanCheck
             string folderPath = Directory.GetCurrentDirectory() + @".\plancheck_data\check_protocol";
             if (!Directory.Exists(folderPath))
             {
-                MessageBox.Show(folderPath + " n'existe pas.");
+                MessageBox.Show(folderPath + " does not exist");
             }
             string[] csvFiles = Directory.GetFiles(folderPath, "*.xlsx");
             foreach (string filePath in csvFiles)
@@ -138,17 +139,17 @@ namespace PlanCheck
             String sex;
             if (_pcontext.Patient.Sex == "Female")
             {
-                sex = "F";
+                sex = ResourceHelper.GetMessage("sexInitialsW");
                 sexBackgroundColor = System.Windows.Media.Brushes.Wheat;
                 sexForegroundColor = System.Windows.Media.Brushes.DeepPink;
-                strPatientDOB = "Née le " + _pinfo.PatientDOB; // for tooltip only
+                strPatientDOB = ResourceHelper.GetMessage("bornON_W") + _pinfo.PatientDOB; // for tooltip only
             }
             else
             {
-                sex = "H";
+                sex = ResourceHelper.GetMessage("sexInitialsM");
                 sexBackgroundColor = System.Windows.Media.Brushes.Wheat;
                 sexForegroundColor = System.Windows.Media.Brushes.Blue;
-                strPatientDOB = "Né le " + _pinfo.PatientDOB; // for tooltip only
+                strPatientDOB = ResourceHelper.GetMessage("bornON_M") + _pinfo.PatientDOB; // for tooltip only
             }
             PatientFullName = _pinfo.PatientName + " " + sex + "/" + years.ToString();
             #endregion
@@ -181,8 +182,8 @@ namespace PlanCheck
                     DoctorForegroundColor = _pinfo.Doctor.UserForeGroundColor;// System.Windows.Media.Brushes.Wheat; // _pinfo.Doctor.DoctorForeGroundColor;
 
                 }
-                else DoctorName = "    " + "Pas de prescripteur";
-            else DoctorName = "    " + "Pas de prescripteur";
+                else DoctorName = "    " + ResourceHelper.GetMessage("noPrescriptor");
+            else DoctorName = "    " + ResourceHelper.GetMessage("noPrescriptor");
 
             #endregion
 
@@ -212,7 +213,7 @@ namespace PlanCheck
                     prescriptionComment = listOfDoses;
 
                     if (_pcontext.PlanSetup.RTPrescription.Notes.Length == 0)
-                        prescriptionComment += "Pas de commentaire dans la prescription)";
+                        prescriptionComment += ResourceHelper.GetMessage("prescriptionComment")+")";// "Pas de commentaire dans la prescription)";
                     else
                     {
                         string noEndline = _pcontext.PlanSetup.RTPrescription.Notes.Replace("\n", "").Replace("\r", " - "); // replace newline by -
@@ -224,9 +225,9 @@ namespace PlanCheck
                     }
                 }
                 else
-                    prescriptionComment = "pas de prescription";
+                    prescriptionComment = ResourceHelper.GetMessage("noPrescription");
             else
-                prescriptionComment = "pas de prescription";
+                prescriptionComment = ResourceHelper.GetMessage("noPrescription");
             #endregion
 
             #region machine and fields
@@ -240,7 +241,7 @@ namespace PlanCheck
                 theMachine = "    " + _pinfo.machine;// machineName;
                 if (!_pinfo.machine.Contains("TOM"))
                 {
-                    theFields = _pinfo.treatmentType + " : " + _pinfo.treatmentFieldNumber + " champ(s) + " + _pinfo.setupFieldNumber + " set-up";
+                    theFields = _pinfo.treatmentType + " : " + _pinfo.treatmentFieldNumber + " " + ResourceHelper.GetMessage("fields") + " " + _pinfo.setupFieldNumber + " set-up";
                 }
                 else
                     theFields = "Tomotherapy";
@@ -252,7 +253,7 @@ namespace PlanCheck
                 theFields = "   no machine";
             }
 
-           
+
 
             #region color the machines first theme
 
@@ -331,7 +332,7 @@ namespace PlanCheck
                 PhotonModel = _plan.PhotonCalculationModel;
                 OptimizationModel = _plan.GetCalculationModel(CalculationType.PhotonVMATOptimization);
                 OptimizationModel = _plan.GetCalculationModel(CalculationType.PhotonVMATOptimization);
-               
+
 
             }
             ListChecks = new List<UserControl>();
@@ -347,44 +348,7 @@ namespace PlanCheck
             ListChecks.Add(checkScreen);
             CheckList.ItemsSource = new List<UserControl>();
             CheckList.ItemsSource = ListChecks;
-        }
-
-        /*
-        private void Choose_file_button_Click(object sender, RoutedEventArgs e)
-        {
-            OK_button.IsEnabled = true;
-
-            var fileDialog = new Microsoft.Win32.OpenFileDialog();
-            fileDialog.DefaultExt = "xlsx";
-            fileDialog.InitialDirectory = Directory.GetCurrentDirectory() + @"\plancheck_data\check_protocol";
-
-            if (!Directory.Exists(fileDialog.InitialDirectory))
-            {
-                MessageBox.Show(fileDialog.InitialDirectory + "n'existe pas.");
-                fileDialog.InitialDirectory = @"C:\";
-            }
-
-            fileDialog.Multiselect = false;
-            fileDialog.Title = "Selection du check-protocol";
-            fileDialog.ShowReadOnly = true;
-            fileDialog.Filter = "XLSX files (*.xlsx)|*.xlsx";
-            fileDialog.FilterIndex = 0;
-            fileDialog.CheckFileExists = true;
-            if (fileDialog.ShowDialog() == false)
-            {
-                return;    // user canceled
-            }
-            myFullFilename = fileDialog.FileName; // full absolute path                                                  
-            if (!System.IO.File.Exists(myFullFilename))
-            {
-                MessageBox.Show(string.Format("Le check-protocol '{0}'  n'existe pas ", theProtocol));
-                return;
-            }
-            theProtocol = setProtocolDisplay(myFullFilename);
-            defaultProtocol.Text = theProtocol; // refresh display of default value
-            //_pinfo.lastUsedCheckProtocol = theProtocol;
-        }
-        */
+        }       
         private void OK_button_click(object sender, RoutedEventArgs e)
         {
             this.cleanList();
@@ -394,7 +358,7 @@ namespace PlanCheck
 
             String absolutePathToCP = Directory.GetCurrentDirectory() + @".\plancheck_data\check_protocol\" + comboCP.SelectedItem.ToString() + ".xlsx";
             if (!File.Exists(absolutePathToCP))
-                MessageBox.Show(absolutePathToCP + " n'existe pas");
+                MessageBox.Show(absolutePathToCP + " " + ResourceHelper.GetMessage("doesntExist"));
 
             //            read_check_protocol rcp = new read_check_protocol(myFullFilename);
             read_check_protocol rcp = new read_check_protocol(absolutePathToCP);
@@ -609,7 +573,7 @@ namespace PlanCheck
             createPDFreport myPDF_report = new createPDFreport(_pinfo, _pcontext, ListChecks, this);
             string dirname = @"\\srv015\sf_com\simon_lu\temp\";
             myPDF_report.saveInDirectory(dirname);
-
+            
 
             CheckList.Visibility = Visibility.Visible;
             createCheckListWord_button.Visibility = Visibility.Visible;
@@ -728,7 +692,6 @@ namespace PlanCheck
             */
             #endregion
         }
-
         private void preferences_button_Click(object sender, RoutedEventArgs e)
         {
             var myPrefWindow = new chooseUserPreferences(_pcontext, _pinfo); // create window
@@ -736,8 +699,6 @@ namespace PlanCheck
                                        // MessageBox.Show("yes");
 
         }
-
-
         private void exportPDF_button_Click(object sender, RoutedEventArgs e)
         {
 
@@ -830,7 +791,7 @@ namespace PlanCheck
                 {
                     fileName = @"\plancheck_data\check_protocol\ORL.xlsx";
                 }
-                else if ((planName.Contains("POUMON")) && (!planName.Contains("STEC")))
+                else if ((planName.Contains("POUM")) && (!planName.Contains("STEC")))
                 {
                     fileName = @"\plancheck_data\check_protocol\poumon.xlsx";
                 }
@@ -852,7 +813,10 @@ namespace PlanCheck
                 { fileName = @"\plancheck_data\check_protocol\hyperarc.xlsx"; }
                 else if (planName.Contains("STIC"))
                 {
-                    fileName = @"\plancheck_data\check_protocol\STIC.xlsx";
+                    if (_pinfo.Mlctype.ToLower().Contains("dca"))
+                        fileName = @"\plancheck_data\check_protocol\STIC DCA.xlsx";
+                    else
+                        fileName = @"\plancheck_data\check_protocol\STIC RA.xlsx";
                 }
                 else if (planName.Contains("STEC") || planName.Contains("STEREO") || planName.Contains("SBRT"))
                 {
@@ -913,7 +877,6 @@ namespace PlanCheck
                 MessageBox.Show(fullname + "\nFichiers check-protocol introuvables");
             return fullname;
         }
-
         private void comboCP_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             /*

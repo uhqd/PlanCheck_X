@@ -22,7 +22,7 @@
 
         <StackPanel Grid.Row="0">
             <StackPanel.Background>
-                <ImageBrush ImageSource="img/FLAG2.png" Stretch="None" AlignmentX="Right" />
+                <ImageBrush ImageSource="img/FLAG2.png" Stretch="None" AlignmentX="Center" />
             </StackPanel.Background>
             <!-- Contenu du StackPanel -->
         </StackPanel>

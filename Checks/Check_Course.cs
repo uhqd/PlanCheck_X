@@ -31,49 +31,49 @@ namespace PlanCheck
 
         private List<Item_Result> _result = new List<Item_Result>();
         // private PreliminaryInformation _pinfo;
-        private string _title = "Statut des Courses et du plan";
+        private string _title = ResourceHelper.GetMessage("Planandcoursestatus1");
 
         public void Check()
         {
-            MessageBox.Show("toto \n"+ResourceHelper.GetMessage("generalError"));
+            //MessageBox.Show("toto \n"+ResourceHelper.GetMessage("generalError"));
 
             if (_pinfo.actualUserPreference.userWantsTheTest("currentCourseStatus"))
             {
                 #region IS ACTUAL COURSE "EN COURS" ? 
 
                 Item_Result currentCourseStatus = new Item_Result();
-                currentCourseStatus.Label = "Course " + _ctx.Course.Id + " (Course ouvert)";
-                currentCourseStatus.ExpectedValue = "EN COURS";
+                currentCourseStatus.Label = "Course " + _ctx.Course.Id + " " + ResourceHelper.GetMessage("String2");
+                currentCourseStatus.ExpectedValue = ResourceHelper.GetMessage("String1");
 
                 if (_ctx.Course.CompletedDateTime == null)
                 {
-                    currentCourseStatus.MeasuredValue = "EN COURS";
+                    currentCourseStatus.MeasuredValue = ResourceHelper.GetMessage("String1");
                     currentCourseStatus.setToTRUE();
                 }
                 else
                 {
-                    currentCourseStatus.MeasuredValue = "TERMINE";
+                    currentCourseStatus.MeasuredValue = ResourceHelper.GetMessage("String3");
                     currentCourseStatus.setToFALSE();
                 }
-                currentCourseStatus.Infobulle = "L'état du course actuel doit être EN COURS";
+                currentCourseStatus.Infobulle = ResourceHelper.GetMessage("String4");
 
                 this._result.Add(currentCourseStatus);
 
                 #endregion
             }
 
-            
+
             if (_pinfo.actualUserPreference.userWantsTheTest("planApprove"))
             {
                 #region Is actual Plan PlanningApproved ? 
 
                 Item_Result planApprove = new Item_Result();
-                planApprove.Label = "Statut d'approbation du plan";
+                planApprove.Label = ResourceHelper.GetMessage("String5");
                 planApprove.ExpectedValue = "EN COURS";
 
 
 
-                planApprove.Infobulle = "Le plan doit être Planning Approved";
+                planApprove.Infobulle = ResourceHelper.GetMessage("String6");
                 if (!_pinfo.isTOMO)
                 {
                     String[] beautifulDoctorName = _ctx.PlanSetup.PlanningApprover.Split('\\');
@@ -82,7 +82,7 @@ namespace PlanCheck
                     if (_ctx.PlanSetup.ApprovalStatus.ToString() == "PlanningApproved")
                     {
 
-                        planApprove.MeasuredValue = "Plan approuvé par le Dr " + beautifulDoctorName[1].ToUpper();// + _ctx.PlanSetup.PlanningApprover;s[0].ToString().ToUpper() + s.Substring(1);
+                        planApprove.MeasuredValue = ResourceHelper.GetMessage("String7") + " " + beautifulDoctorName[1].ToUpper();// + _ctx.PlanSetup.PlanningApprover;s[0].ToString().ToUpper() + s.Substring(1);
                         planApprove.setToTRUE();
 
                     }
@@ -91,7 +91,7 @@ namespace PlanCheck
 
                         planApprove.MeasuredValue = "Treatment approved";
                         //Approuvé par le Dr " + _ctx.PlanSetup.TreatmentApprover + [1].ToUpper();// + _ctx.PlanSetup.PlanningApprover;s[0].ToString().ToUpper() + s.Substring(1);
-                        planApprove.Infobulle += "\n\nLe plan est en état Treat Approved";
+                        planApprove.Infobulle += "\n\n" + ResourceHelper.GetMessage("String8");
                         planApprove.Infobulle += "\nPlanning approver: " + beautifulDoctorName[1].ToUpper() + "\nTreatment approver " + TAname[1].ToUpper();
                         planApprove.setToWARNING();
                     }
@@ -117,7 +117,7 @@ namespace PlanCheck
 
                         if (p.ApprovalStatus.ToString() == "PlanningApproved")
                         {
-                            planApprove.MeasuredValue = "Tomo : Plan " + p.Id + " approuvé par le Dr " + beautifulDoctorName[1].ToUpper();// + _ctx.PlanSetup.PlanningApprover;s[0].ToString().ToUpper() + s.Substring(1);
+                            planApprove.MeasuredValue = ResourceHelper.GetMessage("String10") + " " + p.Id + " " + ResourceHelper.GetMessage("String9") + " " + beautifulDoctorName[1].ToUpper();// + _ctx.PlanSetup.PlanningApprover;s[0].ToString().ToUpper() + s.Substring(1);
                             planApprove.setToTRUE();
 
                         }
@@ -125,7 +125,7 @@ namespace PlanCheck
                         {
                             planApprove.MeasuredValue = "Treatment approved";
                             //Approuvé par le Dr " + _ctx.PlanSetup.TreatmentApprover + [1].ToUpper();// + _ctx.PlanSetup.PlanningApprover;s[0].ToString().ToUpper() + s.Substring(1);
-                            planApprove.Infobulle += "\n\nLe plan  " + p.Id + " est en état Treat Approved";
+                            planApprove.Infobulle += "\n\n"+ ResourceHelper.GetMessage("String11") + " " + p.Id + " " + ResourceHelper.GetMessage("String12");
                             planApprove.Infobulle += "\nPlanning approver: " + beautifulDoctorName[1].ToUpper() + "\nTreatment approver " + TAname[1].ToUpper();
                             planApprove.setToWARNING();
                         }
@@ -139,22 +139,22 @@ namespace PlanCheck
                         if (msg1.Contains("NaN"))
                         {
                             planApprove.setToFALSE();
-                            planApprove.Infobulle += "\n\nATTENTION : le plan " + p.Id + " n'a pas de dose au point de référence prinicpal";
+                            planApprove.Infobulle += "\n\n" + ResourceHelper.GetMessage("String13") + " " + p.Id + " " + ResourceHelper.GetMessage("String18");
                         }
                         else if (msg2.Contains("NaN"))
                         {
                             planApprove.setToFALSE();
-                            planApprove.Infobulle += "\n\nATTENTION : le plan " + p.Id + " n'a pas d'UMs";
+                            planApprove.Infobulle += "\n\n" + ResourceHelper.GetMessage("String13") + " " + p.Id + " " + ResourceHelper.GetMessage("String14");
                         }
                         else
-                            planApprove.Infobulle += "\n\nUMs et Dose au point principal sont bien renseignés dans le plan " + p.Id;
+                            planApprove.Infobulle += "\n\n" + ResourceHelper.GetMessage("String15") + " " + p.Id;
 
 
                     }
                     else
                     {
-                        planApprove.MeasuredValue = "TOMO : pas de plan SEA";
-                        planApprove.Infobulle += "\n\nPour les plans TOMO un plan SEA doit exister et être approuvé";
+                        planApprove.MeasuredValue = ResourceHelper.GetMessage("String16");
+                        planApprove.Infobulle += "\n\n"+ ResourceHelper.GetMessage("String17");
                         planApprove.setToFALSE();
                     }
 
@@ -164,13 +164,13 @@ namespace PlanCheck
                 #endregion
             }
 
-           
+
             if (_pinfo.actualUserPreference.userWantsTheTest("coursesStatus"))
             {
                 #region other courses
 
                 Item_Result coursesStatus = new Item_Result();
-                coursesStatus.Label = "Statut des autres courses";
+                coursesStatus.Label = ResourceHelper.GetMessage("String19");
 
                 List<string> otherCoursesTerminated = new List<string>();
                 List<string> otherCoursesNotOKNotQA_butRecent = new List<string>();
@@ -180,11 +180,11 @@ namespace PlanCheck
 
 
 
-                coursesStatus.Infobulle = "Les courses doivent être dans l'état TERMINE\n";
-              /*  coursesStatus.Infobulle += "\nERREUR si au moins un course (CQ ou non) est EN COURS cours depuis > " + maxNumberOfDays + " jours";
-                coursesStatus.Infobulle += "\nWARNING si au moins un course (non CQ) est en cours depuis moins de " + maxNumberOfDays + " jours";
-                coursesStatus.Infobulle += "\nOK si tous les course sont TERMINE (CQ ou non) ou EN COURS (CQ) depuis moins de " + maxNumberOfDays + " jours";
-              */
+                coursesStatus.Infobulle = ResourceHelper.GetMessage("String20") +"\n";
+                /*  coursesStatus.Infobulle += "\nERREUR si au moins un course (CQ ou non) est EN COURS cours depuis > " + maxNumberOfDays + " jours";
+                  coursesStatus.Infobulle += "\nWARNING si au moins un course (non CQ) est en cours depuis moins de " + maxNumberOfDays + " jours";
+                  coursesStatus.Infobulle += "\nOK si tous les course sont TERMINE (CQ ou non) ou EN COURS (CQ) depuis moins de " + maxNumberOfDays + " jours";
+                */
 
 
                 foreach (Course courseN in _ctx.Patient.Courses) // loop on the courses
@@ -193,7 +193,7 @@ namespace PlanCheck
                     if (courseN.Id != _ctx.Course.Id) // do not test current course
                         if (courseN.CompletedDateTime != null) // --> terminated courses = there is a  completed date time
                         {
-                            otherCoursesTerminated.Add(courseN.Id + " terminé le " + courseN.CompletedDateTime.ToString());
+                            otherCoursesTerminated.Add(courseN.Id + " "+ ResourceHelper.GetMessage("String22") + " " + courseN.CompletedDateTime.ToString());
                         }
                         else // course not terminated
                         {
@@ -213,45 +213,45 @@ namespace PlanCheck
                                 }
                                 if (itIsaQA_Course == 0) // en cours, recent, non QA
                                 {
-                                    otherCoursesNotOKNotQA_butRecent.Add(courseN.Id + " (" + nDays + " jours)");
+                                    otherCoursesNotOKNotQA_butRecent.Add(courseN.Id + " (" + nDays + " "+ ResourceHelper.GetMessage("String21"));
 
                                 }
                                 else // en cours, recent,  QA
                                 {
-                                    otherQACoursesOK.Add(courseN.Id + " (" + nDays + " jours)");
+                                    otherQACoursesOK.Add(courseN.Id + " (" + nDays + " "+ ResourceHelper.GetMessage("String21"));
                                 }
                             }
                             else // if not recent
                             {
-                                oldCourses.Add(courseN.Id + " (" + nDays + " jours)");
+                                oldCourses.Add(courseN.Id + " (" + nDays + " " + ResourceHelper.GetMessage("String21"));
                             }
 
 
                         }
                 }
                 #region infobulle
-              // coursesStatus.Infobulle += "\n\nListe des courses\n";
+                // coursesStatus.Infobulle += "\n\nListe des courses\n";
                 if (oldCourses.Count() > 0)
                 {
-                    coursesStatus.Infobulle += "\nAnciens et toujours EN COURS : \n";
+                    coursesStatus.Infobulle += "\n"+ ResourceHelper.GetMessage("String23") + " : \n";
                     foreach (string s in oldCourses)
                         coursesStatus.Infobulle += " - " + s + "\n";
                 }
                 if (otherCoursesNotOKNotQA_butRecent.Count() > 0)
                 {
-                    coursesStatus.Infobulle += "\nEN COURS mais récents (non CQ) : \n";
+                    coursesStatus.Infobulle += "\n"+ ResourceHelper.GetMessage("String24") + " : \n";
                     foreach (string s in otherCoursesNotOKNotQA_butRecent)
                         coursesStatus.Infobulle += " - " + s + "\n";
                 }
                 if (otherQACoursesOK.Count() > 0)
                 {
-                    coursesStatus.Infobulle += "\nEN COURS mais récents (CQ) : \n";
+                    coursesStatus.Infobulle += "\n"+ ResourceHelper.GetMessage("String25") + " : \n";
                     foreach (string s in otherQACoursesOK)
                         coursesStatus.Infobulle += " - " + s + "\n";
                 }
                 if (otherCoursesTerminated.Count() > 0)
                 {
-                    coursesStatus.Infobulle += "\nTerminés : \n";
+                    coursesStatus.Infobulle += "\n"+ ResourceHelper.GetMessage("String26") + " : \n";
                     foreach (string s in otherCoursesTerminated)
                         coursesStatus.Infobulle += " - " + s + "\n";
                 }
@@ -260,23 +260,23 @@ namespace PlanCheck
                 if (oldCourses.Count() > 0)
                 {
                     coursesStatus.setToFALSE();
-                    coursesStatus.MeasuredValue = "Au moins un course ancien est EN COURS (voir détail)\n";
+                    coursesStatus.MeasuredValue = ResourceHelper.GetMessage("String27") + "\n";
                 }
                 else if (otherCoursesNotOKNotQA_butRecent.Count() > 0)
                 {
                     coursesStatus.setToWARNING();
-                    coursesStatus.MeasuredValue = "Au moins un course récent (hors CQ) est EN COURS (voir détail)\n";
+                    coursesStatus.MeasuredValue = ResourceHelper.GetMessage("String28") + "\n";
                 }
                 else
                 {
                     coursesStatus.setToTRUE();
-                    coursesStatus.MeasuredValue = "Pas de courses EN COURS (voir détail)";
+                    coursesStatus.MeasuredValue = ResourceHelper.GetMessage("String29");
                 }
                 this._result.Add(coursesStatus);
                 #endregion
             }
 
-            
+
             if (_pinfo.actualUserPreference.userWantsTheTest("tomoReportApproved"))
             {
                 #region Tomo report approved ?  
@@ -284,7 +284,7 @@ namespace PlanCheck
                 {
 
                     Item_Result tomoReportApproved = new Item_Result();
-                    tomoReportApproved.Label = "Approbation du rapport Tomo";
+                    tomoReportApproved.Label = ResourceHelper.GetMessage("String30");
                     tomoReportApproved.ExpectedValue = "";
 
                     if (_pinfo.planReportIsFound)
@@ -293,12 +293,12 @@ namespace PlanCheck
                         {
                             string str = _pinfo.tprd.Trd.approverID.Trim();
                             string str2 = char.ToUpper(str[0]) + str.Substring(1);
-                            tomoReportApproved.MeasuredValue = "Rapport de Dosimétrie Tomotherapy approuvé par Dr " + str2; // Dr Dalmasso
+                            tomoReportApproved.MeasuredValue = ResourceHelper.GetMessage("String31") + " " + str2; // Dr Dalmasso
                             tomoReportApproved.setToTRUE();
                         }
                         else
                         {
-                            tomoReportApproved.MeasuredValue = "Rapport de Dosimétrie Tomotherapy non approuvé";
+                            tomoReportApproved.MeasuredValue = ResourceHelper.GetMessage("String32");
                             tomoReportApproved.setToFALSE();
                         }
 
@@ -308,10 +308,10 @@ namespace PlanCheck
                     else
                     {
                         tomoReportApproved.setToFALSE();
-                        tomoReportApproved.MeasuredValue = "Pas de rapport de Dosimétrie Tomotherapy dans Aria Documents";
+                        tomoReportApproved.MeasuredValue = ResourceHelper.GetMessage("String33");
                     }
 
-                    tomoReportApproved.Infobulle = "Le rapport pdf du plan Tomotherapy doit être approuvé";
+                    tomoReportApproved.Infobulle = ResourceHelper.GetMessage("String34");
                     this._result.Add(tomoReportApproved);
 
                 }

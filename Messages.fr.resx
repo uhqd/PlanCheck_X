@@ -117,7 +117,1144 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="7deg" xml:space="preserve">
+    <value>7 deg. entre les différents champs</value>
+  </data>
+  <data name="7degDetails" xml:space="preserve">
+    <value>Les différents champs intenes doivent être séparés de 7 degrés (idem externes)</value>
+  </data>
+  <data name="absentStruct1" xml:space="preserve">
+    <value>struct. absentes, vides ou UH incorrectes (voir infobulle)</value>
+  </data>
+  <data name="absentStruct2" xml:space="preserve">
+    <value>structures attendues pour le protocole</value>
+  </data>
+  <data name="absentStruct3" xml:space="preserve">
+    <value>absentes ou vides dans le plan</value>
+  </data>
+  <data name="absentStruct4" xml:space="preserve">
+    <value>structures avec UH incorrectes</value>
+  </data>
+  <data name="absentStruct5" xml:space="preserve">
+    <value>structure(s) de table obligatoire(s) absente(s)</value>
+  </data>
+  <data name="adaptFieldToPTV" xml:space="preserve">
+    <value>Les champs doivent avoir une dimension adaptée au PTV</value>
+  </data>
+  <data name="allCPcorrectJaws" xml:space="preserve">
+    <value>Tous les champs ou Control Points ont des dimensions de machoîres cohérentes par rapport au volume cible</value>
+  </data>
+  <data name="allLeavesOK" xml:space="preserve">
+    <value>Toutes les lames MLC &lt; 100 mm</value>
+  </data>
+  <data name="approbationDateDiffers" xml:space="preserve">
+    <value>Date d'approbation du plan différente de la date d'approbation du plan dans le rapport de Dosi.</value>
+  </data>
+  <data name="approStructLabel" xml:space="preserve">
+    <value>Approbation du groupe de structures</value>
+  </data>
+  <data name="approved" xml:space="preserve">
+    <value>Approuvé</value>
+  </data>
+  <data name="ariaConnexionFailed" xml:space="preserve">
+    <value>La connexion à Aria Documents a échoué. Les documents ne peuvent pas être récupérés</value>
+  </data>
+  <data name="atleastALeafSup100" xml:space="preserve">
+    <value>Au moins une lame MLC &gt; 100 mm</value>
+  </data>
+  <data name="beamAngleBreastLabel" xml:space="preserve">
+    <value>Angles de bras en IMRT du sein</value>
+  </data>
+  <data name="Beams" xml:space="preserve">
+    <value>Faisceaux</value>
+  </data>
+  <data name="blocOAR" xml:space="preserve">
+    <value>Blocage OAR</value>
+  </data>
+  <data name="bornOn_M" xml:space="preserve">
+    <value>Née le </value>
+  </data>
+  <data name="bornON_W" xml:space="preserve">
+    <value>Né le </value>
+  </data>
+  <data name="clinStruct1" xml:space="preserve">
+    <value>Structures cliniques</value>
+  </data>
+  <data name="clinStruct2" xml:space="preserve">
+    <value>Présentes et UH correctes</value>
+  </data>
+  <data name="clinStruct3" xml:space="preserve">
+    <value>Structures attendues pour le protocole</value>
+  </data>
+  <data name="clinStruct4" xml:space="preserve">
+    <value>struct. absentes, vides ou UH incorrectes (voir infobulle)</value>
+  </data>
+  <data name="clinStruct5" xml:space="preserve">
+    <value>structure(s) attendue(s) pour le protocole</value>
+  </data>
+  <data name="clinStruct6" xml:space="preserve">
+    <value>absentes ou vides dans le plan</value>
+  </data>
+  <data name="clinStruct7" xml:space="preserve">
+    <value>structure(s) avec UH incorrectes</value>
+  </data>
+  <data name="clinStruct8" xml:space="preserve">
+    <value>structure(s) obligatoire(s) manquante(s)</value>
+  </data>
+  <data name="correctCouchLabel" xml:space="preserve">
+    <value>Table correcte</value>
+  </data>
+  <data name="correctJaws" xml:space="preserve">
+    <value>Dimensions des Jaws correctes</value>
+  </data>
+  <data name="couchDetail1" xml:space="preserve">
+    <value>Le commentaire de la structure CouchSurface doit être TABLE HALCYON</value>
+  </data>
+  <data name="couchDetail2" xml:space="preserve">
+    <value>Note : la table Exact moyenne et la table Halcyon sont les mêmes...</value>
+  </data>
+  <data name="couchDetail3" xml:space="preserve">
+    <value>Le commentaire de la structure CouchSurface doit être TABLE EXACT</value>
+  </data>
+  <data name="couchDetail4" xml:space="preserve">
+    <value>En principe, il faut la table épaisse pour les plans prostate, rectum, etc.,</value>
+  </data>
+  <data name="couchDetail5" xml:space="preserve">
+    <value>la table fine pour la tête...</value>
+  </data>
+  <data name="couchDetail6" xml:space="preserve">
+    <value>Note : la table Exact moyenne et la table Halcyon sont les mêmes...</value>
+  </data>
+  <data name="coucStruct" xml:space="preserve">
+    <value>Structures de table</value>
+  </data>
+  <data name="DCA" xml:space="preserve">
+    <value>Arctherapie dynamique (DCA)</value>
+  </data>
+  <data name="detailsMLCHalcyon" xml:space="preserve">
+    <value>Les lames du MLC pour l'Halcyon doivent être &lt; 100 mm (tolérance 5 mm)</value>
+  </data>
+  <data name="differentToleranceTables" xml:space="preserve">
+    <value>Table de tolérances différentes  (voir détail)</value>
+  </data>
+  <data name="doesntExist" xml:space="preserve">
+    <value>n'existe pas</value>
+  </data>
+  <data name="doseRateLabel" xml:space="preserve">
+    <value>Débit de dose pour QA</value>
+  </data>
+  <data name="Energy" xml:space="preserve">
+    <value>Energie</value>
+  </data>
+  <data name="energyNotChecked" xml:space="preserve">
+    <value>Energie non vérifiée</value>
+  </data>
+  <data name="expected" xml:space="preserve">
+    <value>Attendu</value>
+  </data>
+  <data name="expectedStruc" xml:space="preserve">
+    <value>Structures de tables attendues pour le protocole</value>
+  </data>
+  <data name="fields" xml:space="preserve">
+    <value>champ(s)</value>
+  </data>
+  <data name="forcedHU1" xml:space="preserve">
+    <value>Structure avec HU forcées (autres que celles vérifiées dans les tests précédents)</value>
+  </data>
+  <data name="forcedHU2" xml:space="preserve">
+    <value>structure(s) avec HU forcées</value>
+  </data>
+  <data name="forcedHU3" xml:space="preserve">
+    <value>Aucune autre structure avec HU forcées (autres que celles testées dans la liste des structures de tables, cliniques et optim.)</value>
+  </data>
+  <data name="forcedHU4" xml:space="preserve">
+    <value>Aucune autre structure avec HU forcées</value>
+  </data>
+  <data name="forcedHUlabel" xml:space="preserve">
+    <value>Structures avec HU forcées</value>
+  </data>
   <data name="generalError" xml:space="preserve">
     <value>Une erreur s'est produite</value>
+  </data>
+  <data name="goodTable" xml:space="preserve">
+    <value>Tous les champs ont bien la table de tolérance spécifiée dans le check-protocol</value>
+  </data>
+  <data name="IMRT" xml:space="preserve">
+    <value>Modulation d'intensite</value>
+  </data>
+  <data name="labelMLCHalcyon" xml:space="preserve">
+    <value>Lames MLC Halcyon &lt; 10 cm</value>
+  </data>
+  <data name="lastBin" xml:space="preserve">
+    <value>Dernier bin de l'histogramme de débit de dose </value>
+  </data>
+  <data name="Laterality1" xml:space="preserve">
+    <value>Latéralité</value>
+  </data>
+  <data name="Laterality2" xml:space="preserve">
+    <value>struct. avec mauvaise latéralité (voir détail)</value>
+  </data>
+  <data name="Laterality3" xml:space="preserve">
+    <value>structure(s) sont attendues à gauche ou à droite et semblent du mauvais côté</value>
+  </data>
+  <data name="Laterality4" xml:space="preserve">
+    <value>Vérifiée pour</value>
+  </data>
+  <data name="Laterality5" xml:space="preserve">
+    <value>structure(s)</value>
+  </data>
+  <data name="Laterality6" xml:space="preserve">
+    <value>structures sont attendues à gauche ou à droite et semblent du bon côté</value>
+  </data>
+  <data name="Laterality7" xml:space="preserve">
+    <value>Aucune structure n'a une latéralité (G ou D) attendue dans le check-protocol</value>
+  </data>
+  <data name="listOARblocked" xml:space="preserve">
+    <value>Liste des OAR bloqués en EXIT ONLY</value>
+  </data>
+  <data name="MissingContours1" xml:space="preserve">
+    <value>Contours manquants</value>
+  </data>
+  <data name="MissingContours2" xml:space="preserve">
+    <value>contour(s) manquantes pour la structure</value>
+  </data>
+  <data name="MissingContours3" xml:space="preserve">
+    <value>structures présentent des contours manquants</value>
+  </data>
+  <data name="MissingContours4" xml:space="preserve">
+    <value>Aucune coupe non-contourée détectée</value>
+  </data>
+  <data name="MissingContours5" xml:space="preserve">
+    <value>structures analysées. Aucune coupe non-contourée détectée</value>
+  </data>
+  <data name="missingPTV1" xml:space="preserve">
+    <value>GTV/CTV/ITV sans PTV</value>
+  </data>
+  <data name="missingPTV2" xml:space="preserve">
+    <value>GTV/CTV/ITV(s) n'ont pas de PTV (ou un PTV trop petit)</value>
+  </data>
+  <data name="missingPTV3" xml:space="preserve">
+    <value>GTV/CTV n'ont pas de PTV</value>
+  </data>
+  <data name="missingPTV4" xml:space="preserve">
+    <value>GTV/CTV/ITV(s) détectés avec PTV</value>
+  </data>
+  <data name="missingPTV5" xml:space="preserve">
+    <value>GTV/CTV/ITV(s) ont tous un PTV</value>
+  </data>
+  <data name="missingPTV6" xml:space="preserve">
+    <value>Un GTV/CTV/ITV doit avoir une structure dont le nom contient 'PTV' et donc chacune des  6 dimensions (X+, X-, ...) est supérieure à celle du GTV/CTV</value>
+  </data>
+  <data name="noCourse" xml:space="preserve">
+    <value>Pas de course chargé</value>
+  </data>
+  <data name="noEnergyInProtocol" xml:space="preserve">
+    <value>Aucune énergie spécifiée dans le protocole</value>
+  </data>
+  <data name="noLocNumber" xml:space="preserve">
+    <value>Plancheck n'a pas trouvé le nombre de locs dans ce nom du plan:</value>
+  </data>
+  <data name="noPlan" xml:space="preserve">
+    <value>Pas de plan chargé</value>
+  </data>
+  <data name="Noplanisloaded" xml:space="preserve">
+    <value>Aucun plan chargé, les tests de plans et de dose ne seront pas effectués</value>
+  </data>
+  <data name="noPrescription" xml:space="preserve">
+    <value>Pas de prescription</value>
+  </data>
+  <data name="noPrescriptor" xml:space="preserve">
+    <value>Pas de prescripteur</value>
+  </data>
+  <data name="notAKnownTechnique" xml:space="preserve">
+    <value>Technique non reconnue (ni RA, ni DCA)</value>
+  </data>
+  <data name="notapproved" xml:space="preserve">
+    <value>Non approuvé</value>
+  </data>
+  <data name="noToleranceTableinCP" xml:space="preserve">
+    <value>Pas de table de tolérance spécifiée dans le check-protocol</value>
+  </data>
+  <data name="noTomoReport" xml:space="preserve">
+    <value>Pas de rapport de plan Tomotherapy dans Aria Documents. PlanChek n'a pas trouvé un document Dosimétrie TOMO ayant la même dose max que le plan DTO</value>
+  </data>
+  <data name="notTrue" xml:space="preserve">
+    <value>non respecté</value>
+  </data>
+  <data name="NoValidDose" xml:space="preserve">
+    <value>Aucune dose assoicée au plan</value>
+  </data>
+  <data name="novaNoVMAT" xml:space="preserve">
+    <value>Nova non VMAT : machine NOVA SBRT interdite</value>
+  </data>
+  <data name="novaornovasbrt" xml:space="preserve">
+    <value>NOVA SBRT ou NOVA</value>
+  </data>
+  <data name="novaornovasbrtdetail1" xml:space="preserve">
+    <value>Pour les Nova en VMAT, la machine NOVA SBRT doit être utilisée si X ou Y &lt; 7 cm</value>
+  </data>
+  <data name="novaornovasbrtdetail2" xml:space="preserve">
+    <value>sauf pour les prostate sans Ganglions (NOVA SBRT dans tous les cas)</value>
+  </data>
+  <data name="numberOfSlowCPs" xml:space="preserve">
+    <value>Nombre de CP ayant une vitesse &lt; 1 deg/s</value>
+  </data>
+  <data name="NumberStruct1" xml:space="preserve">
+    <value>Nombre de parties des structures</value>
+  </data>
+  <data name="NumberStruct2" xml:space="preserve">
+    <value>parties</value>
+  </data>
+  <data name="NumberStruct3" xml:space="preserve">
+    <value>structures avec un nombres de parties incorrect</value>
+  </data>
+  <data name="NumberStruct4" xml:space="preserve">
+    <value>structures suivantes ont un de nombre de parties non-conforme</value>
+  </data>
+  <data name="NumberStruct5" xml:space="preserve">
+    <value>structures vérifiées</value>
+  </data>
+  <data name="NumberStruct6" xml:space="preserve">
+    <value>Les structures ont un de nombre de parties conforme ou aucun nombre particulier de parties n'est attendu</value>
+  </data>
+  <data name="NumberStruct7" xml:space="preserve">
+    <value>Aucune analyse du nombres de parties des structures</value>
+  </data>
+  <data name="NumberStruct8" xml:space="preserve">
+    <value>Les structures présentes n'ont pas de valeurs attendues de nombre de parties dans le check-protocol</value>
+  </data>
+  <data name="OARsAreblocked" xml:space="preserve">
+    <value>OAR bloqués (voir détail)</value>
+  </data>
+  <data name="ok" xml:space="preserve">
+    <value>ok</value>
+  </data>
+  <data name="oneFieldTooSmall" xml:space="preserve">
+    <value>Un ou plusieurs champs trop petits</value>
+  </data>
+  <data name="oneFieldTooSmallDetail" xml:space="preserve">
+    <value>Au moins un champ ou un Control Point a des dimensions de machoîres trop petites par rapport au volume cible</value>
+  </data>
+  <data name="optStruct1" xml:space="preserve">
+    <value>Structures d'optimisation</value>
+  </data>
+  <data name="Planandcoursestatus1" xml:space="preserve">
+    <value>Statut des Courses et du plan</value>
+  </data>
+  <data name="Pleaseloadapatient" xml:space="preserve">
+    <value>Merci de charger un patient</value>
+  </data>
+  <data name="prescriptionComment" xml:space="preserve">
+    <value>Pas de commentaire dans la prescription)</value>
+  </data>
+  <data name="presentandcorrHU" xml:space="preserve">
+    <value>Présentes et UH correctes</value>
+  </data>
+  <data name="reviewTolTable" xml:space="preserve">
+    <value>Table de tolérances des champs à revoir (voir détail)</value>
+  </data>
+  <data name="RTC" xml:space="preserve">
+    <value>RTC</value>
+  </data>
+  <data name="severaTolTable" xml:space="preserve">
+    <value>Plusieurs tables de tolérance utilisées pour les faisceaux</value>
+  </data>
+  <data name="sexInitialsM" xml:space="preserve">
+    <value>H</value>
+  </data>
+  <data name="sexInitialsW" xml:space="preserve">
+    <value>F</value>
+  </data>
+  <data name="SpecifiedValueInProtocol" xml:space="preserve">
+    <value>Valeur spécifiée dans le check-protocol</value>
+  </data>
+  <data name="String1" xml:space="preserve">
+    <value>EN COURS</value>
+  </data>
+  <data name="String10" xml:space="preserve">
+    <value>Tomo : Plan</value>
+  </data>
+  <data name="String100" xml:space="preserve">
+    <value>Plan CQ présents mais non planning approuved</value>
+  </data>
+  <data name="String101" xml:space="preserve">
+    <value>Tous les plans CQ requis sont présents mais au moins un n'est pas approuvé</value>
+  </data>
+  <data name="String102" xml:space="preserve">
+    <value>Tous les CQ sont présents</value>
+  </data>
+  <data name="String103" xml:space="preserve">
+    <value>Les plans CQ requis selon le check-protocole</value>
+  </data>
+  <data name="String104" xml:space="preserve">
+    <value>sont présents, Planning Approved et calculés avec le bon algorithme</value>
+  </data>
+  <data name="String105" xml:space="preserve">
+    <value>Au moins un CQ a un champ de calibration incorrect</value>
+  </data>
+  <data name="String106" xml:space="preserve">
+    <value>Verifier UM, Table de tolérance, Energie, et statut d'approbation pour</value>
+  </data>
+  <data name="String107" xml:space="preserve">
+    <value>Liste des plans CQ requis et présents</value>
+  </data>
+  <data name="String108" xml:space="preserve">
+    <value>Liste des plans CQ requis mais absents</value>
+  </data>
+  <data name="String109" xml:space="preserve">
+    <value>Aucun CQ attendu selon le protocole</value>
+  </data>
+  <data name="String11" xml:space="preserve">
+    <value>Le plan</value>
+  </data>
+  <data name="String110" xml:space="preserve">
+    <value>Fiche de position : un document récent doit être présent</value>
+  </data>
+  <data name="String111" xml:space="preserve">
+    <value>Unicité de l'isocentre</value>
+  </data>
+  <data name="String112" xml:space="preserve">
+    <value>Plusieurs isocentres</value>
+  </data>
+  <data name="String113" xml:space="preserve">
+    <value>Un seul isocentre</value>
+  </data>
+  <data name="String114" xml:space="preserve">
+    <value>Tous les champs du plan doivent avoir le même isocentre, sauf plan multi-isocentres</value>
+  </data>
+  <data name="String115" xml:space="preserve">
+    <value>Position de l'isocentre</value>
+  </data>
+  <data name="String116" xml:space="preserve">
+    <value>Positionnement non central de l'isocentre dans le</value>
+  </data>
+  <data name="String117" xml:space="preserve">
+    <value>Isocentre proche du centre de</value>
+  </data>
+  <data name="String118" xml:space="preserve">
+    <value>L'isocentre doit être proche du centre de</value>
+  </data>
+  <data name="String119" xml:space="preserve">
+    <value>(volume cible)</value>
+  </data>
+  <data name="String12" xml:space="preserve">
+    <value>est en état Treat Approved</value>
+  </data>
+  <data name="String120" xml:space="preserve">
+    <value>avec une tolérance de</value>
+  </data>
+  <data name="String121" xml:space="preserve">
+    <value>% dans chaque direction.</value>
+  </data>
+  <data name="String122" xml:space="preserve">
+    <value>Position relative de l'isoscentre sur les axes x y et z:</value>
+  </data>
+  <data name="String123" xml:space="preserve">
+    <value>0 et 1 = limites du PTV</value>
+  </data>
+  <data name="String124" xml:space="preserve">
+    <value>Valeures attendues (selon check-protocol) entre</value>
+  </data>
+  <data name="String125" xml:space="preserve">
+    <value>et</value>
+  </data>
+  <data name="String126" xml:space="preserve">
+    <value>Aucun volume cible trouvé</value>
+  </data>
+  <data name="String127" xml:space="preserve">
+    <value>Pas de vérification de la position de l'isocentre dans le volume cible</value>
+  </data>
+  <data name="String128" xml:space="preserve">
+    <value>Distance iso-origine (Z)</value>
+  </data>
+  <data name="String129" xml:space="preserve">
+    <value>L'isocentre doit être à &lt;</value>
+  </data>
+  <data name="String13" xml:space="preserve">
+    <value>ATTENTION : le plan</value>
+  </data>
+  <data name="String130" xml:space="preserve">
+    <value>cm (en z) de l'origine</value>
+  </data>
+  <data name="String131" xml:space="preserve">
+    <value>Obligatoire pour les Halcyon</value>
+  </data>
+  <data name="String132" xml:space="preserve">
+    <value>Pas de rapport de dosimétrie Tomotherapy. Vérifier l'isocentre</value>
+  </data>
+  <data name="String133" xml:space="preserve">
+    <value>Gating activé</value>
+  </data>
+  <data name="String134" xml:space="preserve">
+    <value>Gating Désactivé</value>
+  </data>
+  <data name="String135" xml:space="preserve">
+    <value>Oui</value>
+  </data>
+  <data name="String136" xml:space="preserve">
+    <value>Gating activé</value>
+  </data>
+  <data name="String137" xml:space="preserve">
+    <value>Gating Désactivé</value>
+  </data>
+  <data name="String138" xml:space="preserve">
+    <value>La case Enable gating doit être en accord avec le check-protocol</value>
+  </data>
+  <data name="String139" xml:space="preserve">
+    <value>Sens des arcs</value>
+  </data>
+  <data name="String14" xml:space="preserve">
+    <value>n'a pas d'UMs</value>
+  </data>
+  <data name="String140" xml:space="preserve">
+    <value>Les arcs doivent être alternativement dans le sens horaire (CW) et antihoraire (CCW)</value>
+  </data>
+  <data name="String141" xml:space="preserve">
+    <value>Collimateur RA</value>
+  </data>
+  <data name="String142" xml:space="preserve">
+    <value>Pas de collimateur à 0° pour les</value>
+  </data>
+  <data name="String143" xml:space="preserve">
+    <value>champs RA</value>
+  </data>
+  <data name="String144" xml:space="preserve">
+    <value>Au moins un CP avec collimateur à 0°</value>
+  </data>
+  <data name="String145" xml:space="preserve">
+    <value>Le collimateur ne doit pas être à 0° pour les champs RA</value>
+  </data>
+  <data name="String146" xml:space="preserve">
+    <value>Fluence étendue : modification MLC</value>
+  </data>
+  <data name="String147" xml:space="preserve">
+    <value>Faisceaux modifiés</value>
+  </data>
+  <data name="String148" xml:space="preserve">
+    <value>Vérifie si le MLC a été modifié entre les champs du plan FE et ceux du plan initial (non FE)</value>
+  </data>
+  <data name="String149" xml:space="preserve">
+    <value>Non</value>
+  </data>
+  <data name="String15" xml:space="preserve">
+    <value>UMs et Dose au point principal sont bien renseignés dans le plan</value>
+  </data>
+  <data name="String150" xml:space="preserve">
+    <value>Approuvée</value>
+  </data>
+  <data name="String151" xml:space="preserve">
+    <value>Non approuvée</value>
+  </data>
+  <data name="String152" xml:space="preserve">
+    <value>information : liste des cibles de la prescription</value>
+  </data>
+  <data name="String153" xml:space="preserve">
+    <value>Approbation de la prescription pour</value>
+  </data>
+  <data name="String154" xml:space="preserve">
+    <value>cible(s)</value>
+  </data>
+  <data name="String155" xml:space="preserve">
+    <value>Données récupées du rapport Aria Documents Dosimétrie Tomotherapy du plan</value>
+  </data>
+  <data name="String156" xml:space="preserve">
+    <value>Gy - Prescrits</value>
+  </data>
+  <data name="String157" xml:space="preserve">
+    <value>Le 'nombre de fractions' et la 'dose par fraction' du plan doivent</value>
+  </data>
+  <data name="String158" xml:space="preserve">
+    <value>être conformes à la plus forte prescription</value>
+  </data>
+  <data name="String159" xml:space="preserve">
+    <value>Pas de rapport de plan Tomotherapy dans Aria Documents</value>
+  </data>
+  <data name="String16" xml:space="preserve">
+    <value>TOMO : pas de plan SEA</value>
+  </data>
+  <data name="String160" xml:space="preserve">
+    <value>Fractionnement de la cible principale</value>
+  </data>
+  <data name="String161" xml:space="preserve">
+    <value>Pourcentage de traitement</value>
+  </data>
+  <data name="String162" xml:space="preserve">
+    <value>Le pourcentage de traitement (onglet Dose) doit être en accord avec</value>
+  </data>
+  <data name="String163" xml:space="preserve">
+    <value>la valeur de pourcentage du check-protocol</value>
+  </data>
+  <data name="String164" xml:space="preserve">
+    <value>Mode de normalisation du plan</value>
+  </data>
+  <data name="String165" xml:space="preserve">
+    <value>100% au point de référence</value>
+  </data>
+  <data name="String166" xml:space="preserve">
+    <value>Aucune normalisation de plan</value>
+  </data>
+  <data name="String167" xml:space="preserve">
+    <value>Le mode de normalisation (onglet Dose) doit être en accord avec le check-protocol. Cet item est en WARNING si Aucune normalisation</value>
+  </data>
+  <data name="String168" xml:space="preserve">
+    <value>attendue : Median</value>
+  </data>
+  <data name="String169" xml:space="preserve">
+    <value>Pas de rapport de dosimétrie Tomotherapy dans ARIA documents</value>
+  </data>
+  <data name="String17" xml:space="preserve">
+    <value>Pour les plans TOMO un plan SEA doit exister et être approuvé</value>
+  </data>
+  <data name="String170" xml:space="preserve">
+    <value>Nom de la prescription</value>
+  </data>
+  <data name="String171" xml:space="preserve">
+    <value>(différent du nom du plan)</value>
+  </data>
+  <data name="String172" xml:space="preserve">
+    <value>La prescription et le plan doivent avoir le même nom</value>
+  </data>
+  <data name="String173" xml:space="preserve">
+    <value>Il est recommandé de mettre ce nom en commentaire du course</value>
+  </data>
+  <data name="String174" xml:space="preserve">
+    <value>C'est le cas pour ce course</value>
+  </data>
+  <data name="String175" xml:space="preserve">
+    <value>principal</value>
+  </data>
+  <data name="String176" xml:space="preserve">
+    <value>Traitements antérieurs</value>
+  </data>
+  <data name="String177" xml:space="preserve">
+    <value>Ancien plan corompu, vérifier</value>
+  </data>
+  <data name="String178" xml:space="preserve">
+    <value>plan(s) TreatApproved</value>
+  </data>
+  <data name="String179" xml:space="preserve">
+    <value>document(s) extérieur(s)</value>
+  </data>
+  <data name="String18" xml:space="preserve">
+    <value>n'a pas de dose au point de référence prinicpal</value>
+  </data>
+  <data name="String180" xml:space="preserve">
+    <value>plan(s) extérieur(s)</value>
+  </data>
+  <data name="String181" xml:space="preserve">
+    <value>Les plans suivants sont à l'état TreatmentApproved</value>
+  </data>
+  <data name="String182" xml:space="preserve">
+    <value>Il peut s'agir de traitements concomitants ou de traitements antérieurs</value>
+  </data>
+  <data name="String183" xml:space="preserve">
+    <value>document extérieur présent dans Aria Documents</value>
+  </data>
+  <data name="String184" xml:space="preserve">
+    <value>Un plan au moins contient le mot</value>
+  </data>
+  <data name="String185" xml:space="preserve">
+    <value>documents extérieurs présents dans Aria Documents</value>
+  </data>
+  <data name="String186" xml:space="preserve">
+    <value>Aucun autre plan au status TreatApproved ni de documents exterieurs</value>
+  </data>
+  <data name="String187" xml:space="preserve">
+    <value>Aucun autre plan au status TreatApproved ni de documents exterieurs</value>
+  </data>
+  <data name="String188" xml:space="preserve">
+    <value>En VMAT/IMRT warning si &gt; 3.5, &gt; 4.5 pour Halcyon, &gt; 5 pour STEC vertebre et ERREUR si &gt; 6</value>
+  </data>
+  <data name="String189" xml:space="preserve">
+    <value>En RTC/DCA  warning si &gt; 1.5 et ERREUR si &gt; 2.</value>
+  </data>
+  <data name="String19" xml:space="preserve">
+    <value>Statut des autres courses</value>
+  </data>
+  <data name="String190" xml:space="preserve">
+    <value>Attendu &lt; 700 s</value>
+  </data>
+  <data name="String191" xml:space="preserve">
+    <value>Pas de rapport de dosimétrie Tomotherapy dans Aria documents</value>
+  </data>
+  <data name="String192" xml:space="preserve">
+    <value>Fluence étendue</value>
+  </data>
+  <data name="String193" xml:space="preserve">
+    <value>Ecart d'UM pour</value>
+  </data>
+  <data name="String194" xml:space="preserve">
+    <value>Un champ au moins a +10% d'UM que le plan non FE</value>
+  </data>
+  <data name="String195" xml:space="preserve">
+    <value>Tous les champs ont des UMs proches du plan non FE (&lt;10%)</value>
+  </data>
+  <data name="String196" xml:space="preserve">
+    <value>Champs filtrés</value>
+  </data>
+  <data name="String197" xml:space="preserve">
+    <value>champs filtrés avec &lt; 20 UM</value>
+  </data>
+  <data name="String198" xml:space="preserve">
+    <value>champs filtrés avec moins de 20 UM</value>
+  </data>
+  <data name="String199" xml:space="preserve">
+    <value>Pas de champs filtré avec moins de 20 UM</value>
+  </data>
+  <data name="String2" xml:space="preserve">
+    <value>(Course ouvert)</value>
+  </data>
+  <data name="String20" xml:space="preserve">
+    <value>Les courses doivent être dans l'état TERMINE</value>
+  </data>
+  <data name="String200" xml:space="preserve">
+    <value>TOMO ou HALCYON: non vérifié</value>
+  </data>
+  <data name="String201" xml:space="preserve">
+    <value>Nombre UM</value>
+  </data>
+  <data name="String202" xml:space="preserve">
+    <value>champs avec &lt; 10 UM</value>
+  </data>
+  <data name="String203" xml:space="preserve">
+    <value>champs avec &lt; 10 UM</value>
+  </data>
+  <data name="String204" xml:space="preserve">
+    <value>champs avec plus que UM max</value>
+  </data>
+  <data name="String205" xml:space="preserve">
+    <value>Toutes les valeurs UM ok (10 &lt; UM &lt; Max)</value>
+  </data>
+  <data name="String206" xml:space="preserve">
+    <value>TOMO : non vérifié</value>
+  </data>
+  <data name="String207" xml:space="preserve">
+    <value>Algorithme de calcul</value>
+  </data>
+  <data name="String208" xml:space="preserve">
+    <value>Algorithme attendu pour le check-protocol</value>
+  </data>
+  <data name="String209" xml:space="preserve">
+    <value>Les options de calcul ne sont pas vérifiées si l'algorithme n'est pas celui attendu</value>
+  </data>
+  <data name="String21" xml:space="preserve">
+    <value>jours</value>
+  </data>
+  <data name="String210" xml:space="preserve">
+    <value>Pour les plans Tomotherapy l'algorithme doit être Volo ULTRA.</value>
+  </data>
+  <data name="String211" xml:space="preserve">
+    <value>Taille grille de calcul (mm)</value>
+  </data>
+  <data name="String212" xml:space="preserve">
+    <value>Grille de calcul attendue pour le check-protocol</value>
+  </data>
+  <data name="String213" xml:space="preserve">
+    <value>Pour les tomos, la grille doit être 1.17 mm (obtenu dans le plan DTO)</value>
+  </data>
+  <data name="String214" xml:space="preserve">
+    <value>Pas de rapport de Dosimétrie Tomotherapy dans Aria Documents</value>
+  </data>
+  <data name="String215" xml:space="preserve">
+    <value>Autres algoOptions du modèle de calcul</value>
+  </data>
+  <data name="String216" xml:space="preserve">
+    <value>Option de calcul est différente du check-protocol</value>
+  </data>
+  <data name="String217" xml:space="preserve">
+    <value>Protocole</value>
+  </data>
+  <data name="String218" xml:space="preserve">
+    <value>Plan</value>
+  </data>
+  <data name="String219" xml:space="preserve">
+    <value>Options de calcul erronées (voir détail)</value>
+  </data>
+  <data name="String22" xml:space="preserve">
+    <value>terminé le</value>
+  </data>
+  <data name="String220" xml:space="preserve">
+    <value>options du modèle calcul sont en accord avec le check-protocol</value>
+  </data>
+  <data name="String221" xml:space="preserve">
+    <value>NTO désactivé</value>
+  </data>
+  <data name="String222" xml:space="preserve">
+    <value>NTO désactivé</value>
+  </data>
+  <data name="String223" xml:space="preserve">
+    <value>Paramètres NTO conformes au protocole</value>
+  </data>
+  <data name="String224" xml:space="preserve">
+    <value>Paramètres NTO conformes au protocole</value>
+  </data>
+  <data name="String225" xml:space="preserve">
+    <value>Paramètres NTO non conformes au protocole</value>
+  </data>
+  <data name="String226" xml:space="preserve">
+    <value>Paramètres NTO non conformes au protocole</value>
+  </data>
+  <data name="String227" xml:space="preserve">
+    <value>Paramètres NTO du plan vs. protocole</value>
+  </data>
+  <data name="String228" xml:space="preserve">
+    <value>Pas de NTO</value>
+  </data>
+  <data name="String229" xml:space="preserve">
+    <value>Jaw Track</value>
+  </data>
+  <data name="String23" xml:space="preserve">
+    <value>Anciens et toujours EN COURS</value>
+  </data>
+  <data name="String230" xml:space="preserve">
+    <value>Jaw Track désactivé</value>
+  </data>
+  <data name="String231" xml:space="preserve">
+    <value>Jaw Track activé</value>
+  </data>
+  <data name="String232" xml:space="preserve">
+    <value>Options du PO</value>
+  </data>
+  <data name="String233" xml:space="preserve">
+    <value>Option(s) du PO non conforme au protocole (voir détail)</value>
+  </data>
+  <data name="String234" xml:space="preserve">
+    <value>Une option du PO est différente du check-protocol</value>
+  </data>
+  <data name="String235" xml:space="preserve">
+    <value>Les</value>
+  </data>
+  <data name="String236" xml:space="preserve">
+    <value>algoOptions du modèle PO sont en accord avec le check-protocol</value>
+  </data>
+  <data name="String237" xml:space="preserve">
+    <value>Modèle de calcul</value>
+  </data>
+  <data name="String238" xml:space="preserve">
+    <value>et la grille de Final Dose doit être High (obtenu dans le rapport de Dosimétrie si disponible)</value>
+  </data>
+  <data name="String24" xml:space="preserve">
+    <value>EN COURS mais récents (non CQ)</value>
+  </data>
+  <data name="String25" xml:space="preserve">
+    <value>EN COURS mais récents (CQ)</value>
+  </data>
+  <data name="String26" xml:space="preserve">
+    <value>Terminés</value>
+  </data>
+  <data name="String27" xml:space="preserve">
+    <value>Au moins un course ancien est EN COURS (voir détail)</value>
+  </data>
+  <data name="String28" xml:space="preserve">
+    <value>Au moins un course récent (hors CQ) est EN COURS (voir détail)</value>
+  </data>
+  <data name="String29" xml:space="preserve">
+    <value>Pas de courses EN COURS (voir détail)</value>
+  </data>
+  <data name="String3" xml:space="preserve">
+    <value>TERMINE</value>
+  </data>
+  <data name="String30" xml:space="preserve">
+    <value>Approbation du rapport Tomo</value>
+  </data>
+  <data name="String31" xml:space="preserve">
+    <value>Rapport de Dosimétrie Tomotherapy approuvé par Dr</value>
+  </data>
+  <data name="String32" xml:space="preserve">
+    <value>Rapport de Dosimétrie Tomotherapy non approuvé</value>
+  </data>
+  <data name="String33" xml:space="preserve">
+    <value>Pas de rapport de Dosimétrie Tomotherapy dans Aria Documents</value>
+  </data>
+  <data name="String34" xml:space="preserve">
+    <value>Le rapport pdf du plan Tomotherapy doit être approuvé</value>
+  </data>
+  <data name="String35" xml:space="preserve">
+    <value>Ancienneté du CT (jours)</value>
+  </data>
+  <data name="String36" xml:space="preserve">
+    <value>Le CT doit avoir moins de 12 jours. Warning si &gt; 10 jours, ERREUR si &gt; 30</value>
+  </data>
+  <data name="String37" xml:space="preserve">
+    <value>Origine modifiée</value>
+  </data>
+  <data name="String38" xml:space="preserve">
+    <value>Origine non modifiée</value>
+  </data>
+  <data name="String39" xml:space="preserve">
+    <value>L'origine est confondue avec l'origine DICOM. Ce qui signifie que l'origine n'a pas été placée. A vérifier.</value>
+  </data>
+  <data name="String4" xml:space="preserve">
+    <value>L'état du course actuel doit être EN COURS</value>
+  </data>
+  <data name="String40" xml:space="preserve">
+    <value>L'origine n'est pas confondue avec l'origine DICOM.</value>
+  </data>
+  <data name="String41" xml:space="preserve">
+    <value>Epaisseur de coupes (mm)</value>
+  </data>
+  <data name="String42" xml:space="preserve">
+    <value>L'épaisseur de coupe doit être</value>
+  </data>
+  <data name="String43" xml:space="preserve">
+    <value>mm comme spécfifié dans le fichier check-protocol</value>
+  </data>
+  <data name="String44" xml:space="preserve">
+    <value>Courbe HU</value>
+  </data>
+  <data name="String45" xml:space="preserve">
+    <value>Si l'âge du patient est &gt; 14, la courbe doit être</value>
+  </data>
+  <data name="String46" xml:space="preserve">
+    <value>Pour Tomotherapy la courbe doit être</value>
+  </data>
+  <data name="String47" xml:space="preserve">
+    <value>Pas de rapport de dosimétrie Tomothérapie. Vérifiez la courbe HU</value>
+  </data>
+  <data name="String48" xml:space="preserve">
+    <value>Vérification du modèle et du numéro de série du CT</value>
+  </data>
+  <data name="String49" xml:space="preserve">
+    <value>Nom de l'image 3D</value>
+  </data>
+  <data name="String5" xml:space="preserve">
+    <value>Statut d'approbation du plan</value>
+  </data>
+  <data name="String50" xml:space="preserve">
+    <value>Le nom de l'image 3D doit contenir la date du CT au format jjmmaa</value>
+  </data>
+  <data name="String51" xml:space="preserve">
+    <value>ou jjmmaaaa</value>
+  </data>
+  <data name="String52" xml:space="preserve">
+    <value>Composition de AVE3 ou AVE6</value>
+  </data>
+  <data name="String53" xml:space="preserve">
+    <value>La composition est vérifiée en recalculant la moyenne pour deux pixels A et B</value>
+  </data>
+  <data name="String54" xml:space="preserve">
+    <value>n'est pas la moyenne des phases</value>
+  </data>
+  <data name="String55" xml:space="preserve">
+    <value>est bien la moyenne des phases</value>
+  </data>
+  <data name="String56" xml:space="preserve">
+    <value>Date du CT dans le rapport Tomotherapy</value>
+  </data>
+  <data name="String57" xml:space="preserve">
+    <value>Comparaison de la date du CT</value>
+  </data>
+  <data name="String58" xml:space="preserve">
+    <value>avec la date lue dans le rapport Tomotherapy</value>
+  </data>
+  <data name="String59" xml:space="preserve">
+    <value>Pas de rapport de dosimétrie Tomothérapie, vérifiez la date</value>
+  </data>
+  <data name="String6" xml:space="preserve">
+    <value>Le plan doit être Planning Approved</value>
+  </data>
+  <data name="String60" xml:space="preserve">
+    <value>Autres séries d'images</value>
+  </data>
+  <data name="String61" xml:space="preserve">
+    <value>série(s) nécessaires</value>
+  </data>
+  <data name="String62" xml:space="preserve">
+    <value>séries absentes (voir détail)</value>
+  </data>
+  <data name="String63" xml:space="preserve">
+    <value>Séries supplémentaires nécessaires (ex. IRM). cf check-protocol Ligne 53</value>
+  </data>
+  <data name="String64" xml:space="preserve">
+    <value>Séries absentes</value>
+  </data>
+  <data name="String65" xml:space="preserve">
+    <value>ERROR DOSE DISTRIBUTION. Cet objectif devrait contenir un caractère &lt; ou &gt; :</value>
+  </data>
+  <data name="String66" xml:space="preserve">
+    <value>L'isodose turquoise doit avoir la valeur de 95% ou 100% d'une prescription</value>
+  </data>
+  <data name="String67" xml:space="preserve">
+    <value>Pas d'isodose turquoise</value>
+  </data>
+  <data name="String68" xml:space="preserve">
+    <value>Isodose turquoise sans rapport avec la prescription</value>
+  </data>
+  <data name="String69" xml:space="preserve">
+    <value>Isodose Turquoise</value>
+  </data>
+  <data name="String7" xml:space="preserve">
+    <value>Plan approuvé par le Dr</value>
+  </data>
+  <data name="String70" xml:space="preserve">
+    <value>Pas de prescription --&gt; Pas de vérification de la dose aux PTV</value>
+  </data>
+  <data name="String71" xml:space="preserve">
+    <value>Dose aux PTVs</value>
+  </data>
+  <data name="String72" xml:space="preserve">
+    <value>ERREUR Check_DoseDistribution : Nombre de prescriptions incohérent</value>
+  </data>
+  <data name="String73" xml:space="preserve">
+    <value>impossible de trouver la structure</value>
+  </data>
+  <data name="String74" xml:space="preserve">
+    <value>Dose médiane* (Gy)</value>
+  </data>
+  <data name="String75" xml:space="preserve">
+    <value>objectifs atteints</value>
+  </data>
+  <data name="String76" xml:space="preserve">
+    <value>Pas d'objectifs PTV dans le check-protocol (seuls les tests par défaut ont été réalisés)</value>
+  </data>
+  <data name="String77" xml:space="preserve">
+    <value>La dose médiane est interpolée pour les PTV BD (non calculée pour les STEC/STIC)</value>
+  </data>
+  <data name="String78" xml:space="preserve">
+    <value>Doses aux OARs (check-protocol)</value>
+  </data>
+  <data name="String79" xml:space="preserve">
+    <value>Aucun test réalisé sur des indicateurs de dose</value>
+  </data>
+  <data name="String8" xml:space="preserve">
+    <value>Le plan est en état Treat Approved</value>
+  </data>
+  <data name="String80" xml:space="preserve">
+    <value>Aucun test réalisé sur des indicateurs de dose. Soit il n'en est spécifié aucun dans le check-protocol, soit les structures requises sont absentes.</value>
+  </data>
+  <data name="String81" xml:space="preserve">
+    <value>Finalisation</value>
+  </data>
+  <data name="String82" xml:space="preserve">
+    <value>Documents Aria</value>
+  </data>
+  <data name="String83" xml:space="preserve">
+    <value>Le système vérifie la présence dans Aria Documents de trois documents récents (&lt; 30 j)</value>
+  </data>
+  <data name="String84" xml:space="preserve">
+    <value>Dosecheck : un document récent doit être présent</value>
+  </data>
+  <data name="String85" xml:space="preserve">
+    <value>Fiche de position : un document récent doit être présent</value>
+  </data>
+  <data name="String86" xml:space="preserve">
+    <value>Dosimétrie (Tomo) : un document récent doit être présent avec la même dose max que le plan DTO</value>
+  </data>
+  <data name="String87" xml:space="preserve">
+    <value>Dosimétrie : un document récent doit être présent avec la même date d'approbation que le plan</value>
+  </data>
+  <data name="String88" xml:space="preserve">
+    <value>Documents Aria</value>
+  </data>
+  <data name="String89" xml:space="preserve">
+    <value>Le système vérifie la présence dans Aria Documents de trois documents récents (&lt; 30 j)</value>
+  </data>
+  <data name="String9" xml:space="preserve">
+    <value>approuvé par le Dr</value>
+  </data>
+  <data name="String90" xml:space="preserve">
+    <value>Dosecheck : un document récent doit être présent</value>
+  </data>
+  <data name="String91" xml:space="preserve">
+    <value>Dosimétrie (Tomo) : un document récent doit être présent avec la même dose max que le plan DTO</value>
+  </data>
+  <data name="String92" xml:space="preserve">
+    <value>Dosimétrie : un document récent doit être présent avec la même date d'approbation que le plan</value>
+  </data>
+  <data name="String93" xml:space="preserve">
+    <value>Absence de Dosecheck</value>
+  </data>
+  <data name="String94" xml:space="preserve">
+    <value>Absence de Fiche de pos.</value>
+  </data>
+  <data name="String95" xml:space="preserve">
+    <value>Absence de Dosimétrie</value>
+  </data>
+  <data name="String96" xml:space="preserve">
+    <value>Présence des documents: ok</value>
+  </data>
+  <data name="String97" xml:space="preserve">
+    <value>Au moins un CQ absent ou mauvais algorithme</value>
+  </data>
+  <data name="String98" xml:space="preserve">
+    <value>Au moins un plan CQ absent alors qu'il est requis selon le check-protocole</value>
+  </data>
+  <data name="String99" xml:space="preserve">
+    <value>Mauvais algorithme pour les plans QA suivants</value>
+  </data>
+  <data name="structMustBeApproved" xml:space="preserve">
+    <value>Les structures doivent être approuvées</value>
+  </data>
+  <data name="structVolume1" xml:space="preserve">
+    <value>Volume des structures</value>
+  </data>
+  <data name="structVolume10" xml:space="preserve">
+    <value>Aucune analyse de volumes de structures</value>
+  </data>
+  <data name="structVolume11" xml:space="preserve">
+    <value>Les structures présentes n'ont pas une valeur de volume (cc) attendu</value>
+  </data>
+  <data name="structVolume2" xml:space="preserve">
+    <value>Attendu</value>
+  </data>
+  <data name="structVolume3" xml:space="preserve">
+    <value>Aucun volume anormal détecté</value>
+  </data>
+  <data name="structVolume4" xml:space="preserve">
+    <value>1 volume anormal détecté</value>
+  </data>
+  <data name="structVolume5" xml:space="preserve">
+    <value>volumes anormaux détectés</value>
+  </data>
+  <data name="structVolume6" xml:space="preserve">
+    <value>Les volumes de ces</value>
+  </data>
+  <data name="structVolume7" xml:space="preserve">
+    <value>structures ne sont pas dans l'intervalle habituel</value>
+  </data>
+  <data name="structVolume8" xml:space="preserve">
+    <value>volumes de structures vérifiés</value>
+  </data>
+  <data name="structVolume9" xml:space="preserve">
+    <value>structures sont dans l'intervalle habituel</value>
+  </data>
+  <data name="TableOfTolerances" xml:space="preserve">
+    <value>Table de tolérances</value>
+  </data>
+  <data name="ThisPlanLess7" xml:space="preserve">
+    <value>Ce plan : X ou Y &lt; 7 cm --&gt; NOVA SBRT</value>
+  </data>
+  <data name="ThisPlanMore7" xml:space="preserve">
+    <value>Ce plan : X et Y &gt; 7 cm --&gt; NOVA</value>
+  </data>
+  <data name="thisPlanProstateNoGG" xml:space="preserve">
+    <value>Ce plan : Prostate sans gg --&gt; NOVA SBRT</value>
+  </data>
+  <data name="thisTestNotForTomo" xml:space="preserve">
+    <value>Ce test n'est pas réalisé pour les Tomos ou si le plan n'a pas de volume cible</value>
+  </data>
+  <data name="TomoNoToleranceTable" xml:space="preserve">
+    <value>Tomo (pas de table de tolérance)</value>
+  </data>
+  <data name="tooSlowCps" xml:space="preserve">
+    <value>CP trop lents (&lt; 1 deg/s)</value>
+  </data>
+  <data name="tooSmallFields" xml:space="preserve">
+    <value>Champs trop petits</value>
+  </data>
+  <data name="unchekForTomo" xml:space="preserve">
+    <value>Non vérifié pour les tomos</value>
+  </data>
+  <data name="undotest" xml:space="preserve">
+    <value>Test non réalisé</value>
+  </data>
+  <data name="uniqueTableDetail" xml:space="preserve">
+    <value>Table de tolérances unique  (voir détail)</value>
+  </data>
+  <data name="uniqueToleranceTable" xml:space="preserve">
+    <value>Unse seule table de tolérance est utilisée pour tous les faisceaux</value>
+  </data>
+  <data name="wrongTolerancesForSomeFields" xml:space="preserve">
+    <value>Certains des chams suivants n'ont pas la bonne table de tolérance</value>
   </data>
 </root>

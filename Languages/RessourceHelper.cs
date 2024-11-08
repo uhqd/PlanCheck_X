@@ -6,7 +6,7 @@ using System.Threading;
 using System.Threading.Tasks;
 using System.Globalization;
 using System.Resources;
-
+using System.Windows;
 namespace PlanCheck.Languages
 {
     public static class ResourceHelper
@@ -29,6 +29,11 @@ namespace PlanCheck.Languages
         public static string GetMessage(string key)
         {
             return resManager.GetString(key);
+        }
+
+        public static void displayMessage(string s)
+        {
+            MessageBox.Show(GetMessage(s));
         }
     }
 }

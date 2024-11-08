@@ -61,11 +61,3422 @@ namespace PlanCheck {
         }
         
         /// <summary>
+        ///   Recherche une chaîne localisée semblable à 7 deg. between the different fields.
+        /// </summary>
+        internal static string _7deg {
+            get {
+                return ResourceManager.GetString("7deg", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à The different internal fields must be sepatrated by 7 deg. .
+        /// </summary>
+        internal static string _7degDetails {
+            get {
+                return ResourceManager.GetString("7degDetails", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à Absent, empty or with uncorrect HU (see info).
+        /// </summary>
+        internal static string absentStruct1 {
+            get {
+                return ResourceManager.GetString("absentStruct1", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à expected structures for the protocol.
+        /// </summary>
+        internal static string absentStruct2 {
+            get {
+                return ResourceManager.GetString("absentStruct2", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à absent or empty for this plan.
+        /// </summary>
+        internal static string absentStruct3 {
+            get {
+                return ResourceManager.GetString("absentStruct3", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à structures with uncorrect HU.
+        /// </summary>
+        internal static string absentStruct4 {
+            get {
+                return ResourceManager.GetString("absentStruct4", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à absent mandatory couch structures.
+        /// </summary>
+        internal static string absentStruct5 {
+            get {
+                return ResourceManager.GetString("absentStruct5", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à Field sizes must be adapted to PTV.
+        /// </summary>
+        internal static string adaptFieldToPTV {
+            get {
+                return ResourceManager.GetString("adaptFieldToPTV", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à All fields or CP have correct jaws opening.
+        /// </summary>
+        internal static string allCPcorrectJaws {
+            get {
+                return ResourceManager.GetString("allCPcorrectJaws", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à All MLC leaves &lt; 100 mm.
+        /// </summary>
+        internal static string allLeavesOK {
+            get {
+                return ResourceManager.GetString("allLeavesOK", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à Plan approbation date is different than the date in the plan report.
+        /// </summary>
+        internal static string approbationDateDiffers {
+            get {
+                return ResourceManager.GetString("approbationDateDiffers", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à Approbation of the structure group.
+        /// </summary>
+        internal static string approStructLabel {
+            get {
+                return ResourceManager.GetString("approStructLabel", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à Approved.
+        /// </summary>
+        internal static string approved {
+            get {
+                return ResourceManager.GetString("approved", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à Connexion to Aria failed. No access to the documents.
+        /// </summary>
+        internal static string ariaConnexionFailed {
+            get {
+                return ResourceManager.GetString("ariaConnexionFailed", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à At least one MLC leaf &gt; 100 mm.
+        /// </summary>
+        internal static string atleastALeafSup100 {
+            get {
+                return ResourceManager.GetString("atleastALeafSup100", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à Beam angle for IMRT breast treatement.
+        /// </summary>
+        internal static string beamAngleBreastLabel {
+            get {
+                return ResourceManager.GetString("beamAngleBreastLabel", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à Beams.
+        /// </summary>
+        internal static string Beams {
+            get {
+                return ResourceManager.GetString("Beams", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à Bloc OAR.
+        /// </summary>
+        internal static string blocOAR {
+            get {
+                return ResourceManager.GetString("blocOAR", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à Born.
+        /// </summary>
+        internal static string bornOn_M {
+            get {
+                return ResourceManager.GetString("bornOn_M", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à Born.
+        /// </summary>
+        internal static string bornON_W {
+            get {
+                return ResourceManager.GetString("bornON_W", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à Clinical structures.
+        /// </summary>
+        internal static string clinStruct1 {
+            get {
+                return ResourceManager.GetString("clinStruct1", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à Present and correct HU.
+        /// </summary>
+        internal static string clinStruct2 {
+            get {
+                return ResourceManager.GetString("clinStruct2", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à Expected structures for the protocol.
+        /// </summary>
+        internal static string clinStruct3 {
+            get {
+                return ResourceManager.GetString("clinStruct3", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à Absent, empty or with uncorrect HU (see info).
+        /// </summary>
+        internal static string clinStruct4 {
+            get {
+                return ResourceManager.GetString("clinStruct4", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à expected structures for the protocol.
+        /// </summary>
+        internal static string clinStruct5 {
+            get {
+                return ResourceManager.GetString("clinStruct5", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à absent or empty for this plan.
+        /// </summary>
+        internal static string clinStruct6 {
+            get {
+                return ResourceManager.GetString("clinStruct6", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à structures with uncorrect HU.
+        /// </summary>
+        internal static string clinStruct7 {
+            get {
+                return ResourceManager.GetString("clinStruct7", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à absent mandatory structures.
+        /// </summary>
+        internal static string clinStruct8 {
+            get {
+                return ResourceManager.GetString("clinStruct8", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à Correct couch.
+        /// </summary>
+        internal static string correctCouchLabel {
+            get {
+                return ResourceManager.GetString("correctCouchLabel", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à Correct jaws size.
+        /// </summary>
+        internal static string correctJaws {
+            get {
+                return ResourceManager.GetString("correctJaws", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à Comment for structure Couchsurface must be HALCYON.
+        /// </summary>
+        internal static string couchDetail1 {
+            get {
+                return ResourceManager.GetString("couchDetail1", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à Note: Halcyon couch and mid ExacTrac couch are the same.
+        /// </summary>
+        internal static string couchDetail2 {
+            get {
+                return ResourceManager.GetString("couchDetail2", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à Comment for structure Couchsurface must be TABLE EXAC.
+        /// </summary>
+        internal static string couchDetail3 {
+            get {
+                return ResourceManager.GetString("couchDetail3", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à Normally, for prostate plans, couch must be the thick one.
+        /// </summary>
+        internal static string couchDetail4 {
+            get {
+                return ResourceManager.GetString("couchDetail4", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à fine couch for the head plans.
+        /// </summary>
+        internal static string couchDetail5 {
+            get {
+                return ResourceManager.GetString("couchDetail5", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à Note: Halcyon couch and mid ExacTrac couch are the same.
+        /// </summary>
+        internal static string couchDetail6 {
+            get {
+                return ResourceManager.GetString("couchDetail6", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à Couch structures.
+        /// </summary>
+        internal static string coucStruct {
+            get {
+                return ResourceManager.GetString("coucStruct", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à Dynamic Arctherapy (DCA).
+        /// </summary>
+        internal static string DCA {
+            get {
+                return ResourceManager.GetString("DCA", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à MLC leaves must be &lt; 100 mm (tolerance 5 mm).
+        /// </summary>
+        internal static string detailsMLCHalcyon {
+            get {
+                return ResourceManager.GetString("detailsMLCHalcyon", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à Different tolerance tables are used .
+        /// </summary>
+        internal static string differentToleranceTables {
+            get {
+                return ResourceManager.GetString("differentToleranceTables", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à does not exist.
+        /// </summary>
+        internal static string doesntExist {
+            get {
+                return ResourceManager.GetString("doesntExist", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à Dose rate for QA.
+        /// </summary>
+        internal static string doseRateLabel {
+            get {
+                return ResourceManager.GetString("doseRateLabel", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à Energy.
+        /// </summary>
+        internal static string Energy {
+            get {
+                return ResourceManager.GetString("Energy", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à Energy is not checked.
+        /// </summary>
+        internal static string energyNotChecked {
+            get {
+                return ResourceManager.GetString("energyNotChecked", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à Expected.
+        /// </summary>
+        internal static string expected {
+            get {
+                return ResourceManager.GetString("expected", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à Expected couch structures for the protocol.
+        /// </summary>
+        internal static string expectedStruc {
+            get {
+                return ResourceManager.GetString("expectedStruc", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à field(s).
+        /// </summary>
+        internal static string fields {
+            get {
+                return ResourceManager.GetString("fields", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à Structures with assigned HU (that are not checked in previous tests).
+        /// </summary>
+        internal static string forcedHU1 {
+            get {
+                return ResourceManager.GetString("forcedHU1", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à structures with assigned HU.
+        /// </summary>
+        internal static string forcedHU2 {
+            get {
+                return ResourceManager.GetString("forcedHU2", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à No structure with assigned HU (that are not checked in previous tests).
+        /// </summary>
+        internal static string forcedHU3 {
+            get {
+                return ResourceManager.GetString("forcedHU3", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à No structure with assigned HU.
+        /// </summary>
+        internal static string forcedHU4 {
+            get {
+                return ResourceManager.GetString("forcedHU4", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à Structures with assigned HU.
+        /// </summary>
+        internal static string forcedHUlabel {
+            get {
+                return ResourceManager.GetString("forcedHUlabel", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Recherche une chaîne localisée semblable à Something bad occurs. .
         /// </summary>
         internal static string generalError {
             get {
                 return ResourceManager.GetString("generalError", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à All fields have the correct tolerance table (as specified in the check protocol).
+        /// </summary>
+        internal static string goodTable {
+            get {
+                return ResourceManager.GetString("goodTable", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à Modulated Intensity.
+        /// </summary>
+        internal static string IMRT {
+            get {
+                return ResourceManager.GetString("IMRT", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à MLC leaves &gt; 100 mm.
+        /// </summary>
+        internal static string labelMLCHalcyon {
+            get {
+                return ResourceManager.GetString("labelMLCHalcyon", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à Last bin of the dose rate histogram .
+        /// </summary>
+        internal static string lastBin {
+            get {
+                return ResourceManager.GetString("lastBin", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à Laterality.
+        /// </summary>
+        internal static string Laterality1 {
+            get {
+                return ResourceManager.GetString("Laterality1", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à struct. with wrong laterality (see info).
+        /// </summary>
+        internal static string Laterality2 {
+            get {
+                return ResourceManager.GetString("Laterality2", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à structure(s) are expected on the left or the right part of the body but are in the wrong position.
+        /// </summary>
+        internal static string Laterality3 {
+            get {
+                return ResourceManager.GetString("Laterality3", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à Checked for.
+        /// </summary>
+        internal static string Laterality4 {
+            get {
+                return ResourceManager.GetString("Laterality4", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à structure(s).
+        /// </summary>
+        internal static string Laterality5 {
+            get {
+                return ResourceManager.GetString("Laterality5", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à structure(s) are expected on the left or the right part of the body and are in the correct position.
+        /// </summary>
+        internal static string Laterality6 {
+            get {
+                return ResourceManager.GetString("Laterality6", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à no expected laterality (according to the check protocol).
+        /// </summary>
+        internal static string Laterality7 {
+            get {
+                return ResourceManager.GetString("Laterality7", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à List of blocked OARs (EXIT ONLY).
+        /// </summary>
+        internal static string listOARblocked {
+            get {
+                return ResourceManager.GetString("listOARblocked", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à Missing contours.
+        /// </summary>
+        internal static string MissingContours1 {
+            get {
+                return ResourceManager.GetString("MissingContours1", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à missing contour(s) for the structure.
+        /// </summary>
+        internal static string MissingContours2 {
+            get {
+                return ResourceManager.GetString("MissingContours2", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à structures have missing contours.
+        /// </summary>
+        internal static string MissingContours3 {
+            get {
+                return ResourceManager.GetString("MissingContours3", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à No missing contours are detected.
+        /// </summary>
+        internal static string MissingContours4 {
+            get {
+                return ResourceManager.GetString("MissingContours4", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à analysed structrues. No missing contours are detected..
+        /// </summary>
+        internal static string MissingContours5 {
+            get {
+                return ResourceManager.GetString("MissingContours5", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à GTV/CTV/ITV with no PTV.
+        /// </summary>
+        internal static string missingPTV1 {
+            get {
+                return ResourceManager.GetString("missingPTV1", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à GTV/CTV/ITV(s) have no PTV (or a too small one).
+        /// </summary>
+        internal static string missingPTV2 {
+            get {
+                return ResourceManager.GetString("missingPTV2", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à GTV/CTV/ITV with no PTV.
+        /// </summary>
+        internal static string missingPTV3 {
+            get {
+                return ResourceManager.GetString("missingPTV3", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à GTV/CTV/ITV with PTV.
+        /// </summary>
+        internal static string missingPTV4 {
+            get {
+                return ResourceManager.GetString("missingPTV4", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à GTV/CTV/ITV have a PTV.
+        /// </summary>
+        internal static string missingPTV5 {
+            get {
+                return ResourceManager.GetString("missingPTV5", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à Each GTV/CTV/ITV must have a structure with a name that contains PTV and a larger value of each of the 6 dimensions (X+, X-, Y+...).
+        /// </summary>
+        internal static string missingPTV6 {
+            get {
+                return ResourceManager.GetString("missingPTV6", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à no loaded course.
+        /// </summary>
+        internal static string noCourse {
+            get {
+                return ResourceManager.GetString("noCourse", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à no energy in the protocol.
+        /// </summary>
+        internal static string noEnergyInProtocol {
+            get {
+                return ResourceManager.GetString("noEnergyInProtocol", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à Can&apos;t find number of targets in this plan name: .
+        /// </summary>
+        internal static string noLocNumber {
+            get {
+                return ResourceManager.GetString("noLocNumber", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à no loaded plan.
+        /// </summary>
+        internal static string noPlan {
+            get {
+                return ResourceManager.GetString("noPlan", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à No plan is loaded. Only tests for structures will be performed.
+        /// </summary>
+        internal static string Noplanisloaded {
+            get {
+                return ResourceManager.GetString("Noplanisloaded", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à No prescription.
+        /// </summary>
+        internal static string noPrescription {
+            get {
+                return ResourceManager.GetString("noPrescription", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à no prescriptor.
+        /// </summary>
+        internal static string noPrescriptor {
+            get {
+                return ResourceManager.GetString("noPrescriptor", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à Not a known technique.
+        /// </summary>
+        internal static string notAKnownTechnique {
+            get {
+                return ResourceManager.GetString("notAKnownTechnique", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à Not appoved.
+        /// </summary>
+        internal static string notapproved {
+            get {
+                return ResourceManager.GetString("notapproved", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à The check-protocol does not specify a tolerance table : .
+        /// </summary>
+        internal static string noToleranceTableinCP {
+            get {
+                return ResourceManager.GetString("noToleranceTableinCP", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à Can&apos;t find tomo report (type doc must be plan report with the same Dmax).
+        /// </summary>
+        internal static string noTomoReport {
+            get {
+                return ResourceManager.GetString("noTomoReport", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à not true.
+        /// </summary>
+        internal static string notTrue {
+            get {
+                return ResourceManager.GetString("notTrue", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à No dose in the plan.
+        /// </summary>
+        internal static string NoValidDose {
+            get {
+                return ResourceManager.GetString("NoValidDose", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à Nova non VMAT : machine NOVA SBRT not allowed.
+        /// </summary>
+        internal static string novaNoVMAT {
+            get {
+                return ResourceManager.GetString("novaNoVMAT", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à NOVA SBT or NOVA.
+        /// </summary>
+        internal static string novaornovasbrt {
+            get {
+                return ResourceManager.GetString("novaornovasbrt", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à For NOVA VMAT, machine must be NOVA SBRT if X or Y &lt; 7 cm.
+        /// </summary>
+        internal static string novaornovasbrtdetail1 {
+            get {
+                return ResourceManager.GetString("novaornovasbrtdetail1", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à except for prostate (NOVA SBRT).
+        /// </summary>
+        internal static string novaornovasbrtdetail2 {
+            get {
+                return ResourceManager.GetString("novaornovasbrtdetail2", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à Number of CPs with speed &lt; 1 deg/s.
+        /// </summary>
+        internal static string numberOfSlowCPs {
+            get {
+                return ResourceManager.GetString("numberOfSlowCPs", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à Number of parts of the structures.
+        /// </summary>
+        internal static string NumberStruct1 {
+            get {
+                return ResourceManager.GetString("NumberStruct1", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à parts.
+        /// </summary>
+        internal static string NumberStruct2 {
+            get {
+                return ResourceManager.GetString("NumberStruct2", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à structures with an incorrect number of parts.
+        /// </summary>
+        internal static string NumberStruct3 {
+            get {
+                return ResourceManager.GetString("NumberStruct3", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à following structures have an anormal number of parts.
+        /// </summary>
+        internal static string NumberStruct4 {
+            get {
+                return ResourceManager.GetString("NumberStruct4", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à structures checked.
+        /// </summary>
+        internal static string NumberStruct5 {
+            get {
+                return ResourceManager.GetString("NumberStruct5", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à The structures have a correct number of parts according to the protocol (or the expected number of part is not specified).
+        /// </summary>
+        internal static string NumberStruct6 {
+            get {
+                return ResourceManager.GetString("NumberStruct6", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à No analysis of the number of part of the structures.
+        /// </summary>
+        internal static string NumberStruct7 {
+            get {
+                return ResourceManager.GetString("NumberStruct7", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à The structures have no expected number of parts in the check-protocol.
+        /// </summary>
+        internal static string NumberStruct8 {
+            get {
+                return ResourceManager.GetString("NumberStruct8", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à Blocked OARs (see details).
+        /// </summary>
+        internal static string OARsAreblocked {
+            get {
+                return ResourceManager.GetString("OARsAreblocked", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à ok.
+        /// </summary>
+        internal static string ok {
+            get {
+                return ResourceManager.GetString("ok", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à One (or more) field is too small .
+        /// </summary>
+        internal static string oneFieldTooSmall {
+            get {
+                return ResourceManager.GetString("oneFieldTooSmall", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à At least one field or CP have a too small opening of PTV according to the PTV size.
+        /// </summary>
+        internal static string oneFieldTooSmallDetail {
+            get {
+                return ResourceManager.GetString("oneFieldTooSmallDetail", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à Optimisation structures.
+        /// </summary>
+        internal static string optStruct1 {
+            get {
+                return ResourceManager.GetString("optStruct1", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à Plan and course status.
+        /// </summary>
+        internal static string Planandcoursestatus1 {
+            get {
+                return ResourceManager.GetString("Planandcoursestatus1", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à Please load a patient.
+        /// </summary>
+        internal static string Pleaseloadapatient {
+            get {
+                return ResourceManager.GetString("Pleaseloadapatient", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à no comment in prescription.
+        /// </summary>
+        internal static string prescriptionComment {
+            get {
+                return ResourceManager.GetString("prescriptionComment", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à Present and correct HU.
+        /// </summary>
+        internal static string presentandcorrHU {
+            get {
+                return ResourceManager.GetString("presentandcorrHU", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à Please review tolerances table (see info).
+        /// </summary>
+        internal static string reviewTolTable {
+            get {
+                return ResourceManager.GetString("reviewTolTable", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à RTC.
+        /// </summary>
+        internal static string RTC {
+            get {
+                return ResourceManager.GetString("RTC", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à Different tolerance tables are used.
+        /// </summary>
+        internal static string severaTolTable {
+            get {
+                return ResourceManager.GetString("severaTolTable", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à M.
+        /// </summary>
+        internal static string sexInitialsM {
+            get {
+                return ResourceManager.GetString("sexInitialsM", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à W.
+        /// </summary>
+        internal static string sexInitialsW {
+            get {
+                return ResourceManager.GetString("sexInitialsW", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à Specified value in the protocol.
+        /// </summary>
+        internal static string SpecifiedValueInProtocol {
+            get {
+                return ResourceManager.GetString("SpecifiedValueInProtocol", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à OPEN.
+        /// </summary>
+        internal static string String1 {
+            get {
+                return ResourceManager.GetString("String1", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à Tomo : Plan.
+        /// </summary>
+        internal static string String10 {
+            get {
+                return ResourceManager.GetString("String10", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à QA plans are not planning approved.
+        /// </summary>
+        internal static string String100 {
+            get {
+                return ResourceManager.GetString("String100", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à Missing an approbation for at least one QA plan.
+        /// </summary>
+        internal static string String101 {
+            get {
+                return ResourceManager.GetString("String101", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à All QA are present.
+        /// </summary>
+        internal static string String102 {
+            get {
+                return ResourceManager.GetString("String102", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à QA plans according to the check protocol.
+        /// </summary>
+        internal static string String103 {
+            get {
+                return ResourceManager.GetString("String103", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à are present, approved and computed with the correct algo..
+        /// </summary>
+        internal static string String104 {
+            get {
+                return ResourceManager.GetString("String104", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à At least one calibration field is missing or is uncorrect.
+        /// </summary>
+        internal static string String105 {
+            get {
+                return ResourceManager.GetString("String105", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à Please check MU, approbation status, tolerance table and energy for.
+        /// </summary>
+        internal static string String106 {
+            get {
+                return ResourceManager.GetString("String106", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à List of required and present QA plans.
+        /// </summary>
+        internal static string String107 {
+            get {
+                return ResourceManager.GetString("String107", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à List of required and missing QA plans.
+        /// </summary>
+        internal static string String108 {
+            get {
+                return ResourceManager.GetString("String108", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à no QA plans are expected..
+        /// </summary>
+        internal static string String109 {
+            get {
+                return ResourceManager.GetString("String109", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à The plan.
+        /// </summary>
+        internal static string String11 {
+            get {
+                return ResourceManager.GetString("String11", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à Patient Position form: a recent document must be present.
+        /// </summary>
+        internal static string String110 {
+            get {
+                return ResourceManager.GetString("String110", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à Unique isocentre.
+        /// </summary>
+        internal static string String111 {
+            get {
+                return ResourceManager.GetString("String111", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à Several isocentres.
+        /// </summary>
+        internal static string String112 {
+            get {
+                return ResourceManager.GetString("String112", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à One unique isocentre.
+        /// </summary>
+        internal static string String113 {
+            get {
+                return ResourceManager.GetString("String113", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à All fields must have the same isocente (except multi-iso. plans).
+        /// </summary>
+        internal static string String114 {
+            get {
+                return ResourceManager.GetString("String114", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à Position of the isocentre.
+        /// </summary>
+        internal static string String115 {
+            get {
+                return ResourceManager.GetString("String115", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à Position of the isocentre is not at the centre of.
+        /// </summary>
+        internal static string String116 {
+            get {
+                return ResourceManager.GetString("String116", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à Isocentre close to the centre of.
+        /// </summary>
+        internal static string String117 {
+            get {
+                return ResourceManager.GetString("String117", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à Isocentre must be close to the centre of the.
+        /// </summary>
+        internal static string String118 {
+            get {
+                return ResourceManager.GetString("String118", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à (target colume).
+        /// </summary>
+        internal static string String119 {
+            get {
+                return ResourceManager.GetString("String119", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à is Treat approved.
+        /// </summary>
+        internal static string String12 {
+            get {
+                return ResourceManager.GetString("String12", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à with a tolerance of.
+        /// </summary>
+        internal static string String120 {
+            get {
+                return ResourceManager.GetString("String120", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à % in each direction..
+        /// </summary>
+        internal static string String121 {
+            get {
+                return ResourceManager.GetString("String121", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à Relative position of the isocenter on the axis: x y and z.
+        /// </summary>
+        internal static string String122 {
+            get {
+                return ResourceManager.GetString("String122", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à 0 and 1 = limits of the PTV.
+        /// </summary>
+        internal static string String123 {
+            get {
+                return ResourceManager.GetString("String123", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à Expected values according to the check protocol between.
+        /// </summary>
+        internal static string String124 {
+            get {
+                return ResourceManager.GetString("String124", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à and.
+        /// </summary>
+        internal static string String125 {
+            get {
+                return ResourceManager.GetString("String125", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à No target volume was found.
+        /// </summary>
+        internal static string String126 {
+            get {
+                return ResourceManager.GetString("String126", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à No verification of the isocentre in the target volume.
+        /// </summary>
+        internal static string String127 {
+            get {
+                return ResourceManager.GetString("String127", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à Distance iso-origin (Z).
+        /// </summary>
+        internal static string String128 {
+            get {
+                return ResourceManager.GetString("String128", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à Isocentre must be at  &lt;.
+        /// </summary>
+        internal static string String129 {
+            get {
+                return ResourceManager.GetString("String129", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à ATTENTION : the plan.
+        /// </summary>
+        internal static string String13 {
+            get {
+                return ResourceManager.GetString("String13", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à cm (z) from the the origin.
+        /// </summary>
+        internal static string String130 {
+            get {
+                return ResourceManager.GetString("String130", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à Mandatory for Halcyon machines.
+        /// </summary>
+        internal static string String131 {
+            get {
+                return ResourceManager.GetString("String131", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à No tomotherapy report, check isocentre.
+        /// </summary>
+        internal static string String132 {
+            get {
+                return ResourceManager.GetString("String132", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à Gating is enabled.
+        /// </summary>
+        internal static string String133 {
+            get {
+                return ResourceManager.GetString("String133", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à Gating is disabled.
+        /// </summary>
+        internal static string String134 {
+            get {
+                return ResourceManager.GetString("String134", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à Yes.
+        /// </summary>
+        internal static string String135 {
+            get {
+                return ResourceManager.GetString("String135", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à Gating is enabled.
+        /// </summary>
+        internal static string String136 {
+            get {
+                return ResourceManager.GetString("String136", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à Gating is disabled.
+        /// </summary>
+        internal static string String137 {
+            get {
+                return ResourceManager.GetString("String137", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à The checkbox Enable Gating must be as specified in the check protocol.
+        /// </summary>
+        internal static string String138 {
+            get {
+                return ResourceManager.GetString("String138", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à Direction of the arcs.
+        /// </summary>
+        internal static string String139 {
+            get {
+                return ResourceManager.GetString("String139", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à has no MUs.
+        /// </summary>
+        internal static string String14 {
+            get {
+                return ResourceManager.GetString("String14", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à The arcs must be alternatively clockwise (CW) and counterclockwise (CCW).
+        /// </summary>
+        internal static string String140 {
+            get {
+                return ResourceManager.GetString("String140", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à Collimator for RA.
+        /// </summary>
+        internal static string String141 {
+            get {
+                return ResourceManager.GetString("String141", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à No collimator angle at 0° for the.
+        /// </summary>
+        internal static string String142 {
+            get {
+                return ResourceManager.GetString("String142", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à RA fields.
+        /// </summary>
+        internal static string String143 {
+            get {
+                return ResourceManager.GetString("String143", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à At least one CP has an angle at 0°.
+        /// </summary>
+        internal static string String144 {
+            get {
+                return ResourceManager.GetString("String144", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à Collimator angle must not be at 0° for the RA fields.
+        /// </summary>
+        internal static string String145 {
+            get {
+                return ResourceManager.GetString("String145", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à Extended fluence: modification of the MLC.
+        /// </summary>
+        internal static string String146 {
+            get {
+                return ResourceManager.GetString("String146", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à Modified beams.
+        /// </summary>
+        internal static string String147 {
+            get {
+                return ResourceManager.GetString("String147", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à Check if the MLC is modified between FE plan and original plan.
+        /// </summary>
+        internal static string String148 {
+            get {
+                return ResourceManager.GetString("String148", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à Non.
+        /// </summary>
+        internal static string String149 {
+            get {
+                return ResourceManager.GetString("String149", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à MUs and dose to reference point are well entered.
+        /// </summary>
+        internal static string String15 {
+            get {
+                return ResourceManager.GetString("String15", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à Approved.
+        /// </summary>
+        internal static string String150 {
+            get {
+                return ResourceManager.GetString("String150", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à Non approved.
+        /// </summary>
+        internal static string String151 {
+            get {
+                return ResourceManager.GetString("String151", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à information: list of the targets of the prescription.
+        /// </summary>
+        internal static string String152 {
+            get {
+                return ResourceManager.GetString("String152", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à Approbation of the prescription for.
+        /// </summary>
+        internal static string String153 {
+            get {
+                return ResourceManager.GetString("String153", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à target(s).
+        /// </summary>
+        internal static string String154 {
+            get {
+                return ResourceManager.GetString("String154", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à Data are found in the Tomotherapy report.
+        /// </summary>
+        internal static string String155 {
+            get {
+                return ResourceManager.GetString("String155", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à Gy - Prescribed.
+        /// </summary>
+        internal static string String156 {
+            get {
+                return ResourceManager.GetString("String156", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à The number of fraction and the dose per fraction must be.
+        /// </summary>
+        internal static string String157 {
+            get {
+                return ResourceManager.GetString("String157", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à as specified in the prescription of the highest dose.
+        /// </summary>
+        internal static string String158 {
+            get {
+                return ResourceManager.GetString("String158", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à No Tomotherapy plan report in Aria Documents.
+        /// </summary>
+        internal static string String159 {
+            get {
+                return ResourceManager.GetString("String159", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à TOMO : no SEA plan.
+        /// </summary>
+        internal static string String16 {
+            get {
+                return ResourceManager.GetString("String16", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à Fractionation of the main target.
+        /// </summary>
+        internal static string String160 {
+            get {
+                return ResourceManager.GetString("String160", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à Percentage of the treatment.
+        /// </summary>
+        internal static string String161 {
+            get {
+                return ResourceManager.GetString("String161", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à Percentage of treatment must be as specified in.
+        /// </summary>
+        internal static string String162 {
+            get {
+                return ResourceManager.GetString("String162", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à percentage value in the check protocol.
+        /// </summary>
+        internal static string String163 {
+            get {
+                return ResourceManager.GetString("String163", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à Normalisation mode of the plan.
+        /// </summary>
+        internal static string String164 {
+            get {
+                return ResourceManager.GetString("String164", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à 100% at the reference point.
+        /// </summary>
+        internal static string String165 {
+            get {
+                return ResourceManager.GetString("String165", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à No plan normalisation.
+        /// </summary>
+        internal static string String166 {
+            get {
+                return ResourceManager.GetString("String166", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à The normalisation mode must be as specified in the check protocol. Warning if no normalisation is applied .
+        /// </summary>
+        internal static string String167 {
+            get {
+                return ResourceManager.GetString("String167", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à expected: Median.
+        /// </summary>
+        internal static string String168 {
+            get {
+                return ResourceManager.GetString("String168", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à No Tomotherapy plan report in Aria Documents.
+        /// </summary>
+        internal static string String169 {
+            get {
+                return ResourceManager.GetString("String169", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à For TOMO plan a SEA plan must exist and be approved.
+        /// </summary>
+        internal static string String17 {
+            get {
+                return ResourceManager.GetString("String17", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à Name of the prescription.
+        /// </summary>
+        internal static string String170 {
+            get {
+                return ResourceManager.GetString("String170", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à (not equal to the plan name).
+        /// </summary>
+        internal static string String171 {
+            get {
+                return ResourceManager.GetString("String171", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à Prescription and plan should have the same name.
+        /// </summary>
+        internal static string String172 {
+            get {
+                return ResourceManager.GetString("String172", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à It is recommanded to use this name in the course comment.
+        /// </summary>
+        internal static string String173 {
+            get {
+                return ResourceManager.GetString("String173", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à It is true for this course.
+        /// </summary>
+        internal static string String174 {
+            get {
+                return ResourceManager.GetString("String174", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à principal.
+        /// </summary>
+        internal static string String175 {
+            get {
+                return ResourceManager.GetString("String175", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à Previous treatments.
+        /// </summary>
+        internal static string String176 {
+            get {
+                return ResourceManager.GetString("String176", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à Old corrupted plan, please check.
+        /// </summary>
+        internal static string String177 {
+            get {
+                return ResourceManager.GetString("String177", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à plan(s) TreatApproved.
+        /// </summary>
+        internal static string String178 {
+            get {
+                return ResourceManager.GetString("String178", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à external document(s).
+        /// </summary>
+        internal static string String179 {
+            get {
+                return ResourceManager.GetString("String179", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à n&apos;a pas de dose au point de référence prinicpal.
+        /// </summary>
+        internal static string String18 {
+            get {
+                return ResourceManager.GetString("String18", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à external plan(s).
+        /// </summary>
+        internal static string String180 {
+            get {
+                return ResourceManager.GetString("String180", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à Following plans are TreatApproved.
+        /// </summary>
+        internal static string String181 {
+            get {
+                return ResourceManager.GetString("String181", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à It coul be somme previous plans or concomitant plans.
+        /// </summary>
+        internal static string String182 {
+            get {
+                return ResourceManager.GetString("String182", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à external documents in Aria Documents.
+        /// </summary>
+        internal static string String183 {
+            get {
+                return ResourceManager.GetString("String183", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à At least one plan contains the word.
+        /// </summary>
+        internal static string String184 {
+            get {
+                return ResourceManager.GetString("String184", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à external documents present in Aria Documents.
+        /// </summary>
+        internal static string String185 {
+            get {
+                return ResourceManager.GetString("String185", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à No other Treeatapproved plans or external documents.
+        /// </summary>
+        internal static string String186 {
+            get {
+                return ResourceManager.GetString("String186", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à No other Treeatapproved plans or external documents.
+        /// </summary>
+        internal static string String187 {
+            get {
+                return ResourceManager.GetString("String187", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à For VMAT/IMRT warning if &gt; 3.5, &gt; 4.5 for Halcyon, &gt; 5 for vertebral SBRT and ERROR if &gt; 6.
+        /// </summary>
+        internal static string String188 {
+            get {
+                return ResourceManager.GetString("String188", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à For RTC/DCA  warning if &gt; 1.5 and ERROR if &gt; 2..
+        /// </summary>
+        internal static string String189 {
+            get {
+                return ResourceManager.GetString("String189", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à Status of the other courses.
+        /// </summary>
+        internal static string String19 {
+            get {
+                return ResourceManager.GetString("String19", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à Expected &lt; 700 s.
+        /// </summary>
+        internal static string String190 {
+            get {
+                return ResourceManager.GetString("String190", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à No Tomotherapy report in Aria.
+        /// </summary>
+        internal static string String191 {
+            get {
+                return ResourceManager.GetString("String191", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à Extended fluence.
+        /// </summary>
+        internal static string String192 {
+            get {
+                return ResourceManager.GetString("String192", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à MU difference for.
+        /// </summary>
+        internal static string String193 {
+            get {
+                return ResourceManager.GetString("String193", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à At least one field has  &gt; 10% MU compared to the non EF plan.
+        /// </summary>
+        internal static string String194 {
+            get {
+                return ResourceManager.GetString("String194", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à All fields have a similar number of MUs compared to the non EF plan.
+        /// </summary>
+        internal static string String195 {
+            get {
+                return ResourceManager.GetString("String195", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à Wedged fields.
+        /// </summary>
+        internal static string String196 {
+            get {
+                return ResourceManager.GetString("String196", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à wedge fields with &lt; 20 MU.
+        /// </summary>
+        internal static string String197 {
+            get {
+                return ResourceManager.GetString("String197", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à wedge fields with &lt; 20 MU.
+        /// </summary>
+        internal static string String198 {
+            get {
+                return ResourceManager.GetString("String198", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à no wedge fields with &lt; 20 MU.
+        /// </summary>
+        internal static string String199 {
+            get {
+                return ResourceManager.GetString("String199", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à (current course).
+        /// </summary>
+        internal static string String2 {
+            get {
+                return ResourceManager.GetString("String2", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à Courses must be closed.
+        /// </summary>
+        internal static string String20 {
+            get {
+                return ResourceManager.GetString("String20", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à TOMO ou HALCYON: not checked.
+        /// </summary>
+        internal static string String200 {
+            get {
+                return ResourceManager.GetString("String200", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à MU number.
+        /// </summary>
+        internal static string String201 {
+            get {
+                return ResourceManager.GetString("String201", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à fields with  &lt; 10 UM.
+        /// </summary>
+        internal static string String202 {
+            get {
+                return ResourceManager.GetString("String202", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à fields with  &lt; 10 UM.
+        /// </summary>
+        internal static string String203 {
+            get {
+                return ResourceManager.GetString("String203", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à fields with more than MU max .
+        /// </summary>
+        internal static string String204 {
+            get {
+                return ResourceManager.GetString("String204", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à All MU values are ok (10 &lt; MU &lt; max).
+        /// </summary>
+        internal static string String205 {
+            get {
+                return ResourceManager.GetString("String205", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à TOMO : not checked.
+        /// </summary>
+        internal static string String206 {
+            get {
+                return ResourceManager.GetString("String206", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à Computation algorithm.
+        /// </summary>
+        internal static string String207 {
+            get {
+                return ResourceManager.GetString("String207", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à Expected algorithm for the check-protocol.
+        /// </summary>
+        internal static string String208 {
+            get {
+                return ResourceManager.GetString("String208", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à Computation options are not check if the algo. is not the expected one according to the check protocol.
+        /// </summary>
+        internal static string String209 {
+            get {
+                return ResourceManager.GetString("String209", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à days.
+        /// </summary>
+        internal static string String21 {
+            get {
+                return ResourceManager.GetString("String21", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à For Tomotherapy, expected algo. is Volo Ultra.
+        /// </summary>
+        internal static string String210 {
+            get {
+                return ResourceManager.GetString("String210", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à Grid size (mm).
+        /// </summary>
+        internal static string String211 {
+            get {
+                return ResourceManager.GetString("String211", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à Expected grid size for the check-protocol.
+        /// </summary>
+        internal static string String212 {
+            get {
+                return ResourceManager.GetString("String212", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à For Tomo, grid size must be 1.17 mm (from DTO plan).
+        /// </summary>
+        internal static string String213 {
+            get {
+                return ResourceManager.GetString("String213", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à No Tomotherapy report in Aria Documents.
+        /// </summary>
+        internal static string String214 {
+            get {
+                return ResourceManager.GetString("String214", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à Other algoOptions of computation model.
+        /// </summary>
+        internal static string String215 {
+            get {
+                return ResourceManager.GetString("String215", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à Computation option is different than check protocol.
+        /// </summary>
+        internal static string String216 {
+            get {
+                return ResourceManager.GetString("String216", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à Protocol.
+        /// </summary>
+        internal static string String217 {
+            get {
+                return ResourceManager.GetString("String217", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à Plan.
+        /// </summary>
+        internal static string String218 {
+            get {
+                return ResourceManager.GetString("String218", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à Wrong computation options (see info).
+        /// </summary>
+        internal static string String219 {
+            get {
+                return ResourceManager.GetString("String219", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à closed on.
+        /// </summary>
+        internal static string String22 {
+            get {
+                return ResourceManager.GetString("String22", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à computation options are the ok according to the check-protocol.
+        /// </summary>
+        internal static string String220 {
+            get {
+                return ResourceManager.GetString("String220", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à NTO disabled.
+        /// </summary>
+        internal static string String221 {
+            get {
+                return ResourceManager.GetString("String221", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à NTO disabled.
+        /// </summary>
+        internal static string String222 {
+            get {
+                return ResourceManager.GetString("String222", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à Correct NTO parameters, according to the protocol.
+        /// </summary>
+        internal static string String223 {
+            get {
+                return ResourceManager.GetString("String223", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à Correct NTO parameters, according to the protocol.
+        /// </summary>
+        internal static string String224 {
+            get {
+                return ResourceManager.GetString("String224", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à Wrong NTO parameters, according to the protocol.
+        /// </summary>
+        internal static string String225 {
+            get {
+                return ResourceManager.GetString("String225", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à Wrong NTO parameters, according to the protocol.
+        /// </summary>
+        internal static string String226 {
+            get {
+                return ResourceManager.GetString("String226", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à NTO Parameters NTO: plan vs. protocol.
+        /// </summary>
+        internal static string String227 {
+            get {
+                return ResourceManager.GetString("String227", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à No NTO.
+        /// </summary>
+        internal static string String228 {
+            get {
+                return ResourceManager.GetString("String228", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à Jaw Track.
+        /// </summary>
+        internal static string String229 {
+            get {
+                return ResourceManager.GetString("String229", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à Old but still open.
+        /// </summary>
+        internal static string String23 {
+            get {
+                return ResourceManager.GetString("String23", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à Jaw Track disabled.
+        /// </summary>
+        internal static string String230 {
+            get {
+                return ResourceManager.GetString("String230", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à Jaw Track enabled.
+        /// </summary>
+        internal static string String231 {
+            get {
+                return ResourceManager.GetString("String231", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à PO options.
+        /// </summary>
+        internal static string String232 {
+            get {
+                return ResourceManager.GetString("String232", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à Wrong PO options according to the protocol (see infol).
+        /// </summary>
+        internal static string String233 {
+            get {
+                return ResourceManager.GetString("String233", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à One PO options is different than the protocol.
+        /// </summary>
+        internal static string String234 {
+            get {
+                return ResourceManager.GetString("String234", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à The.
+        /// </summary>
+        internal static string String235 {
+            get {
+                return ResourceManager.GetString("String235", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à PO algoOptions are correct according to the check-protocol.
+        /// </summary>
+        internal static string String236 {
+            get {
+                return ResourceManager.GetString("String236", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à Computation model.
+        /// </summary>
+        internal static string String237 {
+            get {
+                return ResourceManager.GetString("String237", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à and the final dose grid size must be Fine (read in Tomo report if available).
+        /// </summary>
+        internal static string String238 {
+            get {
+                return ResourceManager.GetString("String238", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à Open but recent (non QA).
+        /// </summary>
+        internal static string String24 {
+            get {
+                return ResourceManager.GetString("String24", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à Open but recent (QA).
+        /// </summary>
+        internal static string String25 {
+            get {
+                return ResourceManager.GetString("String25", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à Closed.
+        /// </summary>
+        internal static string String26 {
+            get {
+                return ResourceManager.GetString("String26", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à At least one course is old and open (see info).
+        /// </summary>
+        internal static string String27 {
+            get {
+                return ResourceManager.GetString("String27", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à At least one course is recent (not QA) and open (see info).
+        /// </summary>
+        internal static string String28 {
+            get {
+                return ResourceManager.GetString("String28", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à No open courses (see info).
+        /// </summary>
+        internal static string String29 {
+            get {
+                return ResourceManager.GetString("String29", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à CLOSED.
+        /// </summary>
+        internal static string String3 {
+            get {
+                return ResourceManager.GetString("String3", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à Approbation of the tomo report.
+        /// </summary>
+        internal static string String30 {
+            get {
+                return ResourceManager.GetString("String30", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à Tomo report approved by Dr.
+        /// </summary>
+        internal static string String31 {
+            get {
+                return ResourceManager.GetString("String31", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à Tomo report is not approved.
+        /// </summary>
+        internal static string String32 {
+            get {
+                return ResourceManager.GetString("String32", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à No Tomo report in Aria Documents.
+        /// </summary>
+        internal static string String33 {
+            get {
+                return ResourceManager.GetString("String33", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à Tomo report must be approved.
+        /// </summary>
+        internal static string String34 {
+            get {
+                return ResourceManager.GetString("String34", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à Number of days since CT.
+        /// </summary>
+        internal static string String35 {
+            get {
+                return ResourceManager.GetString("String35", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à CT must be max. 12 days old. Warning if &gt; 12 days. Error if &gt; 30..
+        /// </summary>
+        internal static string String36 {
+            get {
+                return ResourceManager.GetString("String36", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à Origine position is modified.
+        /// </summary>
+        internal static string String37 {
+            get {
+                return ResourceManager.GetString("String37", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à Origine position is not modified.
+        /// </summary>
+        internal static string String38 {
+            get {
+                return ResourceManager.GetString("String38", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à Origin is at DICOM origin. It has not been positioned. Please check..
+        /// </summary>
+        internal static string String39 {
+            get {
+                return ResourceManager.GetString("String39", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à Couse status is OPEN.
+        /// </summary>
+        internal static string String4 {
+            get {
+                return ResourceManager.GetString("String4", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à Origin is not at DICOM origin.
+        /// </summary>
+        internal static string String40 {
+            get {
+                return ResourceManager.GetString("String40", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à CT slice width (mm).
+        /// </summary>
+        internal static string String41 {
+            get {
+                return ResourceManager.GetString("String41", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à Slice width must be.
+        /// </summary>
+        internal static string String42 {
+            get {
+                return ResourceManager.GetString("String42", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à mm according to the check-protocol.
+        /// </summary>
+        internal static string String43 {
+            get {
+                return ResourceManager.GetString("String43", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à HU curve.
+        /// </summary>
+        internal static string String44 {
+            get {
+                return ResourceManager.GetString("String44", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à If the age of the patient is &gt; 14, curve must be.
+        /// </summary>
+        internal static string String45 {
+            get {
+                return ResourceManager.GetString("String45", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à For Tomotherapy, curve must be.
+        /// </summary>
+        internal static string String46 {
+            get {
+                return ResourceManager.GetString("String46", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à No Tomotherapy report, please check the curve..
+        /// </summary>
+        internal static string String47 {
+            get {
+                return ResourceManager.GetString("String47", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à CT series and model.
+        /// </summary>
+        internal static string String48 {
+            get {
+                return ResourceManager.GetString("String48", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à Name of the image 3D.
+        /// </summary>
+        internal static string String49 {
+            get {
+                return ResourceManager.GetString("String49", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à Plan status.
+        /// </summary>
+        internal static string String5 {
+            get {
+                return ResourceManager.GetString("String5", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à The name of the Image 3D must contains the CT date (jjmmaa).
+        /// </summary>
+        internal static string String50 {
+            get {
+                return ResourceManager.GetString("String50", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à or jjmmaaaa.
+        /// </summary>
+        internal static string String51 {
+            get {
+                return ResourceManager.GetString("String51", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à Composition of Average series (AVE3 or AVE6).
+        /// </summary>
+        internal static string String52 {
+            get {
+                return ResourceManager.GetString("String52", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à The composition is checked by computing the average of 2 pixels A and B.
+        /// </summary>
+        internal static string String53 {
+            get {
+                return ResourceManager.GetString("String53", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à is not the average of phases.
+        /// </summary>
+        internal static string String54 {
+            get {
+                return ResourceManager.GetString("String54", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à is the average of phases.
+        /// </summary>
+        internal static string String55 {
+            get {
+                return ResourceManager.GetString("String55", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à CT date in Tomotherapy report.
+        /// </summary>
+        internal static string String56 {
+            get {
+                return ResourceManager.GetString("String56", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à Comparison of the CT date.
+        /// </summary>
+        internal static string String57 {
+            get {
+                return ResourceManager.GetString("String57", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à with the date in the Tomotherapy report.
+        /// </summary>
+        internal static string String58 {
+            get {
+                return ResourceManager.GetString("String58", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à No Tomotherapy report, check the date.
+        /// </summary>
+        internal static string String59 {
+            get {
+                return ResourceManager.GetString("String59", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à Plan status must be Planning approved.
+        /// </summary>
+        internal static string String6 {
+            get {
+                return ResourceManager.GetString("String6", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à Other needed series.
+        /// </summary>
+        internal static string String60 {
+            get {
+                return ResourceManager.GetString("String60", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à needed series.
+        /// </summary>
+        internal static string String61 {
+            get {
+                return ResourceManager.GetString("String61", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à missing series (see info).
+        /// </summary>
+        internal static string String62 {
+            get {
+                return ResourceManager.GetString("String62", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à Additional image series (e.g. MRI). See check-protocol line 53.
+        /// </summary>
+        internal static string String63 {
+            get {
+                return ResourceManager.GetString("String63", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à Missing series.
+        /// </summary>
+        internal static string String64 {
+            get {
+                return ResourceManager.GetString("String64", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à ERROR DOSE DISTRIBUTION. This objective should contain &lt; or &gt; :.
+        /// </summary>
+        internal static string String65 {
+            get {
+                return ResourceManager.GetString("String65", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à The turquoise isodose must have a value equal to 95% or 100% of one of the prescriptions.
+        /// </summary>
+        internal static string String66 {
+            get {
+                return ResourceManager.GetString("String66", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à No turquoise isodose.
+        /// </summary>
+        internal static string String67 {
+            get {
+                return ResourceManager.GetString("String67", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à Turquoise isodose is not correlated to a prescription.
+        /// </summary>
+        internal static string String68 {
+            get {
+                return ResourceManager.GetString("String68", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à Turqoise isodose.
+        /// </summary>
+        internal static string String69 {
+            get {
+                return ResourceManager.GetString("String69", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à Approved by Dr.
+        /// </summary>
+        internal static string String7 {
+            get {
+                return ResourceManager.GetString("String7", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à No prescription --&gt; No PTV dose checks.
+        /// </summary>
+        internal static string String70 {
+            get {
+                return ResourceManager.GetString("String70", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à Dose of the PTVs.
+        /// </summary>
+        internal static string String71 {
+            get {
+                return ResourceManager.GetString("String71", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à ERROR Check_DoseDistribution : inconsistant number of prescriptions.
+        /// </summary>
+        internal static string String72 {
+            get {
+                return ResourceManager.GetString("String72", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à Missing structure.
+        /// </summary>
+        internal static string String73 {
+            get {
+                return ResourceManager.GetString("String73", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à Median dose* (Gy).
+        /// </summary>
+        internal static string String74 {
+            get {
+                return ResourceManager.GetString("String74", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à achieved objectives.
+        /// </summary>
+        internal static string String75 {
+            get {
+                return ResourceManager.GetString("String75", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à No PTV objectives in the check-protocol. Only default tests are performed.
+        /// </summary>
+        internal static string String76 {
+            get {
+                return ResourceManager.GetString("String76", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à Median dose is interpolated for low dose PTV (not computed for SBRT).
+        /// </summary>
+        internal static string String77 {
+            get {
+                return ResourceManager.GetString("String77", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à Dose to OARs (check-protocol).
+        /// </summary>
+        internal static string String78 {
+            get {
+                return ResourceManager.GetString("String78", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à No test is performed.
+        /// </summary>
+        internal static string String79 {
+            get {
+                return ResourceManager.GetString("String79", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à Plan status is Treat approved.
+        /// </summary>
+        internal static string String8 {
+            get {
+                return ResourceManager.GetString("String8", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à No dose test is performed (either none are specified in the check protocol, or structures are missing.).
+        /// </summary>
+        internal static string String80 {
+            get {
+                return ResourceManager.GetString("String80", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à Finalisation.
+        /// </summary>
+        internal static string String81 {
+            get {
+                return ResourceManager.GetString("String81", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à ARIA Documents.
+        /// </summary>
+        internal static string String82 {
+            get {
+                return ResourceManager.GetString("String82", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à The systeme checks the presence of three recent documents (&lt;30 d.).
+        /// </summary>
+        internal static string String83 {
+            get {
+                return ResourceManager.GetString("String83", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à Dosecheck : a recent document must be present.
+        /// </summary>
+        internal static string String84 {
+            get {
+                return ResourceManager.GetString("String84", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à Patient Position form: a recent document must be present.
+        /// </summary>
+        internal static string String85 {
+            get {
+                return ResourceManager.GetString("String85", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à Tomotherapy report: a recent document must be present with the same dose max. than the open plan.
+        /// </summary>
+        internal static string String86 {
+            get {
+                return ResourceManager.GetString("String86", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à Plan report: a recent document must be present with the same approbation date than the open plan.
+        /// </summary>
+        internal static string String87 {
+            get {
+                return ResourceManager.GetString("String87", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à ARIA Documents.
+        /// </summary>
+        internal static string String88 {
+            get {
+                return ResourceManager.GetString("String88", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à The systeme checks the presence of three recent documents (&lt;30 d.).
+        /// </summary>
+        internal static string String89 {
+            get {
+                return ResourceManager.GetString("String89", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à approved by Dr.
+        /// </summary>
+        internal static string String9 {
+            get {
+                return ResourceManager.GetString("String9", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à Dosecheck : a recent document must be present.
+        /// </summary>
+        internal static string String90 {
+            get {
+                return ResourceManager.GetString("String90", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à Tomotherapy report: a recent document must be present with the same dose max. than the open plan.
+        /// </summary>
+        internal static string String91 {
+            get {
+                return ResourceManager.GetString("String91", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à Plan report: a recent document must be present with the same approbation date than the open plan.
+        /// </summary>
+        internal static string String92 {
+            get {
+                return ResourceManager.GetString("String92", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à Missing Dosecheck.
+        /// </summary>
+        internal static string String93 {
+            get {
+                return ResourceManager.GetString("String93", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à Missing Patient Position form.
+        /// </summary>
+        internal static string String94 {
+            get {
+                return ResourceManager.GetString("String94", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à Missing plan report.
+        /// </summary>
+        internal static string String95 {
+            get {
+                return ResourceManager.GetString("String95", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à Presence of documents: ok.
+        /// </summary>
+        internal static string String96 {
+            get {
+                return ResourceManager.GetString("String96", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à At least one missing QA (or wrong algorithm).
+        /// </summary>
+        internal static string String97 {
+            get {
+                return ResourceManager.GetString("String97", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à At least one missing QA according to the check protocol.
+        /// </summary>
+        internal static string String98 {
+            get {
+                return ResourceManager.GetString("String98", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à Wrong algo. for the following QA plans.
+        /// </summary>
+        internal static string String99 {
+            get {
+                return ResourceManager.GetString("String99", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à Structures must be approved.
+        /// </summary>
+        internal static string structMustBeApproved {
+            get {
+                return ResourceManager.GetString("structMustBeApproved", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à Volume of the structures.
+        /// </summary>
+        internal static string structVolume1 {
+            get {
+                return ResourceManager.GetString("structVolume1", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à No analysis of the volumes.
+        /// </summary>
+        internal static string structVolume10 {
+            get {
+                return ResourceManager.GetString("structVolume10", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à Existing structures have an unusual volume.
+        /// </summary>
+        internal static string structVolume11 {
+            get {
+                return ResourceManager.GetString("structVolume11", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à Expected.
+        /// </summary>
+        internal static string structVolume2 {
+            get {
+                return ResourceManager.GetString("structVolume2", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à No structure with unusual volume.
+        /// </summary>
+        internal static string structVolume3 {
+            get {
+                return ResourceManager.GetString("structVolume3", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à 1 unusual volume.
+        /// </summary>
+        internal static string structVolume4 {
+            get {
+                return ResourceManager.GetString("structVolume4", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à unusual volumes.
+        /// </summary>
+        internal static string structVolume5 {
+            get {
+                return ResourceManager.GetString("structVolume5", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à Volumes of these.
+        /// </summary>
+        internal static string structVolume6 {
+            get {
+                return ResourceManager.GetString("structVolume6", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à structures are unusual.
+        /// </summary>
+        internal static string structVolume7 {
+            get {
+                return ResourceManager.GetString("structVolume7", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à volumes checked.
+        /// </summary>
+        internal static string structVolume8 {
+            get {
+                return ResourceManager.GetString("structVolume8", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à structures are normal.
+        /// </summary>
+        internal static string structVolume9 {
+            get {
+                return ResourceManager.GetString("structVolume9", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à Table of tolerances.
+        /// </summary>
+        internal static string TableOfTolerances {
+            get {
+                return ResourceManager.GetString("TableOfTolerances", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à This plan : X or Y &lt; 7 cm --&gt; NOVA SBRT.
+        /// </summary>
+        internal static string ThisPlanLess7 {
+            get {
+                return ResourceManager.GetString("ThisPlanLess7", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à This plan : X or Y &gt; 7 cm --&gt; NOVA.
+        /// </summary>
+        internal static string ThisPlanMore7 {
+            get {
+                return ResourceManager.GetString("ThisPlanMore7", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à This plan : Prostate low grade --&gt; NOVA SBRT.
+        /// </summary>
+        internal static string thisPlanProstateNoGG {
+            get {
+                return ResourceManager.GetString("thisPlanProstateNoGG", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à Not checked for Tomotherapy or if there is no target volume.
+        /// </summary>
+        internal static string thisTestNotForTomo {
+            get {
+                return ResourceManager.GetString("thisTestNotForTomo", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à Tomotherapy (no tolerance table).
+        /// </summary>
+        internal static string TomoNoToleranceTable {
+            get {
+                return ResourceManager.GetString("TomoNoToleranceTable", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à Slow CPs (&lt;1 deg/s).
+        /// </summary>
+        internal static string tooSlowCps {
+            get {
+                return ResourceManager.GetString("tooSlowCps", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à Size of fields.
+        /// </summary>
+        internal static string tooSmallFields {
+            get {
+                return ResourceManager.GetString("tooSmallFields", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à Not checked for Tomo.
+        /// </summary>
+        internal static string unchekForTomo {
+            get {
+                return ResourceManager.GetString("unchekForTomo", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à Not checked.
+        /// </summary>
+        internal static string undotest {
+            get {
+                return ResourceManager.GetString("undotest", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à Unique tolerance table (see detail).
+        /// </summary>
+        internal static string uniqueTableDetail {
+            get {
+                return ResourceManager.GetString("uniqueTableDetail", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à There is a unique table of tolerance.
+        /// </summary>
+        internal static string uniqueToleranceTable {
+            get {
+                return ResourceManager.GetString("uniqueToleranceTable", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à Wrong table of tolerance for some fields.
+        /// </summary>
+        internal static string wrongTolerancesForSomeFields {
+            get {
+                return ResourceManager.GetString("wrongTolerancesForSomeFields", resourceCulture);
             }
         }
     }

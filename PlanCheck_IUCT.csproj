@@ -7,7 +7,7 @@
     <OutputType>library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>PlanCheck</RootNamespace>
-    <AssemblyName>PlanCheck_99_0032.esapi</AssemblyName>
+    <AssemblyName>PlanCheck_99_0065.esapi</AssemblyName>
     <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
     <TargetFrameworkProfile>
     </TargetFrameworkProfile>
@@ -240,6 +240,11 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Messages.resx</DependentUpon>
     </Compile>
+    <Compile Include="Messages.fr1.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Messages.fr.resx</DependentUpon>
+    </Compile>
     <Compile Include="pdfReader\eclipseReportData.cs" />
     <Compile Include="pdfReader\tomoReportData.cs" />
     <Compile Include="pdfReader\planningPdfReportReader.cs" />
@@ -357,7 +362,7 @@
   <ItemGroup>
     <EmbeddedResource Include="Messages.fr.resx">
       <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>Messages.fr.Designer.cs</LastGenOutput>
+      <LastGenOutput>Messages.fr1.Designer.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="Messages.resx">
       <Generator>ResXFileCodeGenerator</Generator>

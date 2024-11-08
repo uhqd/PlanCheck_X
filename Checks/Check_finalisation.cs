@@ -6,7 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using VMS.TPS.Common.Model.API;
 using System.Windows;
-
+using PlanCheck.Languages;
 
 namespace PlanCheck
 {
@@ -55,7 +55,7 @@ namespace PlanCheck
         private bool isCalibrationFieldOK(string QAtype, Course c)
         {
             bool calibok = true;
-
+            /*
             if (QAtype == "RUBY")
             { // calibation plan must be 6xFFF + 200MU + tolerance table ok and plan approved
                 calibok = false;
@@ -75,8 +75,9 @@ namespace PlanCheck
 
 
             }
-
+            */
             // no more calib field for octa
+            // no more calib field check for ruby
 
 
             return calibok;
@@ -90,15 +91,15 @@ namespace PlanCheck
             {
                 #region aria documents
                 Item_Result ariaDocuments = new Item_Result();
-                ariaDocuments.Label = "Documents Aria";
-                ariaDocuments.Infobulle = "Le système vérifie la présence dans Aria Documents de trois documents récents (< 30 j)  : \n";
-                ariaDocuments.Infobulle += "  -  Dosecheck : un document récent doit être présent\n";
-                ariaDocuments.Infobulle += "  -  Fiche de position : un document récent doit être présent\n";
+                ariaDocuments.Label = ResourceHelper.GetMessage("String88");
+                ariaDocuments.Infobulle = ResourceHelper.GetMessage("String89") + "  : \n";
+                ariaDocuments.Infobulle += "  -  " + ResourceHelper.GetMessage("String90") + "\n";
+                ariaDocuments.Infobulle += "  -  " + ResourceHelper.GetMessage("String110") + "\n";
 
                 if (_pinfo.isTOMO)
-                    ariaDocuments.Infobulle += "  -  Dosimétrie (Tomo) : un document récent doit être présent avec la même dose max que le plan DTO\n\n";
+                    ariaDocuments.Infobulle += "  -  " + ResourceHelper.GetMessage("String91") + "\n\n";
                 else
-                    ariaDocuments.Infobulle += "  -  Dosimétrie : un document récent doit être présent avec la même date d'approbation que le plan\n\n";
+                    ariaDocuments.Infobulle += "  -  " + ResourceHelper.GetMessage("String92") + "\n\n";
 
                 //ariaDocuments.Infobulle += "Le système peut détecter une absence de ces documents mais ne peut pas vérifier qu'ils sont corrects\n";
                 //ariaDocuments.Infobulle += "(sauf la dosimétrie Tomotherapy, pour lequel la dose max du plan est comparée à la dose max indiquée dans le rapport pdf\n";
@@ -112,26 +113,26 @@ namespace PlanCheck
                     if (_pinfo.doseCheckIsNeeded)
                     {
                         allisgood = false;
-                        ariaDocuments.MeasuredValue += "Absence de Dosecheck, ";
+                        ariaDocuments.MeasuredValue += ResourceHelper.GetMessage("String93") + ", ";
                     }
                 }
                 if (!_pinfo.positionReportIsFound)
                 {
                     allisgood = false;
-                    ariaDocuments.MeasuredValue += "Absence de Fiche de pos., ";
+                    ariaDocuments.MeasuredValue += ResourceHelper.GetMessage("String94") + ", ";
                 }
                 //MessageBox.Show("planreportfound " + _pinfo.planReportIsFound + "\n " + _pinfo.isTOMO + " \n" + _pinfo.EclipseReportMessage);
-                
+
                 if ((!_pinfo.planReportIsFound))
                 {
 
-                    ariaDocuments.MeasuredValue += "Absence de Dosimétrie ";
+                    ariaDocuments.MeasuredValue += ResourceHelper.GetMessage("String95");
 
                     allisgood = false;
                 }
                 else if ((!_pinfo.isTOMO) && (_pinfo.EclipseReportMessage != "ok"))
                 {
-                    ariaDocuments.MeasuredValue += "Absence de Dosimétrie ";
+                    ariaDocuments.MeasuredValue += ResourceHelper.GetMessage("String95");
                     allisgood = false;
 
 
@@ -146,7 +147,7 @@ namespace PlanCheck
                 else
                 {
                     ariaDocuments.setToTRUE();
-                    ariaDocuments.MeasuredValue = "Présence des documents: ok";
+                    ariaDocuments.MeasuredValue = ResourceHelper.GetMessage("String96");
                 }
                 this._result.Add(ariaDocuments);
 
@@ -243,6 +244,7 @@ namespace PlanCheck
                                                     unapprovedQAplans.Add(p.Id);
 
                                                 bool calibrationFieldisOK = isCalibrationFieldOK("RUBY", p.Course);
+                                                //MessageBox.Show("calibration field " + calibrationFieldisOK);
                                                 if (!calibrationFieldisOK)
                                                     wrongCalibrationQAplans.Add(p.Id);
 
@@ -285,12 +287,12 @@ namespace PlanCheck
                         if ((qaPlansMissing.Count > 0) || (wrongAlgoQAplans.Count() > 0))
                         {
                             preparedQA.setToFALSE();
-                            preparedQA.MeasuredValue = "Au moins un CQ absent ou mauvais algorithme";// "Différent de Planning Approved";
+                            preparedQA.MeasuredValue = ResourceHelper.GetMessage("String97");// "Différent de Planning Approved";
                             if (qaPlansMissing.Count > 0)
-                                preparedQA.Infobulle = "Au moins un plan CQ absent alors qu'il est requis selon le check-protocole " + _rcp.protocolName;
+                                preparedQA.Infobulle = ResourceHelper.GetMessage("String98") + " " + _rcp.protocolName;
                             if (wrongAlgoQAplans.Count() > 0)
                             {
-                                preparedQA.Infobulle += "\n\nMauvais algorithme pour les plans QA suivants";
+                                preparedQA.Infobulle += "\n\n"+ ResourceHelper.GetMessage("String99");
                                 foreach (String s in wrongAlgoQAplans)
                                     preparedQA.Infobulle += "\n - " + s;
                             }
@@ -298,8 +300,8 @@ namespace PlanCheck
                         }
                         else if (unapprovedQAplans.Count > 0)
                         {
-                            preparedQA.MeasuredValue = "Plan CQ présents mais non planning approuved";
-                            preparedQA.Infobulle = "Tous les plans CQ requis sont présents mais au moins un n'est pas approuvé :\n";
+                            preparedQA.MeasuredValue = ResourceHelper.GetMessage("String100");
+                            preparedQA.Infobulle = ResourceHelper.GetMessage("String101") + " :\n";
                             foreach (String s in unapprovedQAplans)
                                 preparedQA.Infobulle += "\n - " + s;
                             preparedQA.setToWARNING();
@@ -307,16 +309,16 @@ namespace PlanCheck
                         else
                         {
                             preparedQA.setToTRUE();
-                            preparedQA.MeasuredValue = "Tous les CQ sont présents";// "Différent de Planning Approved";
-                            preparedQA.Infobulle = "Les plans CQ requis selon le check-protocole " + _rcp.protocolName + " sont présents, Planning Approved et calculés avec le bon algorithme";
+                            preparedQA.MeasuredValue = ResourceHelper.GetMessage("String102");// "Différent de Planning Approved";
+                            preparedQA.Infobulle = ResourceHelper.GetMessage("String103") + " " + _rcp.protocolName + " "+ ResourceHelper.GetMessage("String104");
 
 
                             if (wrongCalibrationQAplans.Count > 0)
                             {
                                 preparedQA.setToWARNING();
-                                preparedQA.MeasuredValue = "Au moins un CQ a un champ de calibration incorrect";// "Différent de Planning Approved";
+                                preparedQA.MeasuredValue = ResourceHelper.GetMessage("String105");// "Différent de Planning Approved";
 
-                                preparedQA.Infobulle += "\n\nVerifier UM, Table de tolérance, Energie, et statut d'approbation pour :";
+                                preparedQA.Infobulle += "\n\n"+ ResourceHelper.GetMessage("String106") + " :";
                                 foreach (String s in wrongCalibrationQAplans)
                                     preparedQA.Infobulle += "\n - " + s;
                             }
@@ -324,14 +326,14 @@ namespace PlanCheck
                         }
                         if (qaPlansPresent.Count() > 0)
                         {
-                            preparedQA.Infobulle += "\n\nListe des plans CQ requis et présents :";
+                            preparedQA.Infobulle += "\n\n"+ ResourceHelper.GetMessage("String107") + " :";
                             foreach (String s in qaPlansPresent)
                                 preparedQA.Infobulle += "\n - " + s;
                         }
 
                         if (qaPlansMissing.Count() > 0)
                         {
-                            preparedQA.Infobulle += "\n\nListe des plans CQ requis mais absents  :";
+                            preparedQA.Infobulle += "\n\n"+ ResourceHelper.GetMessage("String108") + "  :";
                             foreach (String s in qaPlansMissing)
                                 preparedQA.Infobulle += "\n - " + s;
                         }
@@ -341,8 +343,8 @@ namespace PlanCheck
                     else // no QA in protocol
                     {
                         preparedQA.setToINFO();
-                        preparedQA.MeasuredValue = "Aucun CQ attendu selon le protocole";// "Différent de Planning Approved";
-                        preparedQA.Infobulle = "Aucun CQ attendu selon le protocole: " + _rcp.protocolName;
+                        preparedQA.MeasuredValue = ResourceHelper.GetMessage("String109");// "Différent de Planning Approved";
+                        preparedQA.Infobulle = ResourceHelper.GetMessage("String109")+": " + _rcp.protocolName;
                     }
 
 

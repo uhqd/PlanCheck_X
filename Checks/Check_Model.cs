@@ -15,7 +15,7 @@ using System.Net.NetworkInformation;
 using System.Runtime.InteropServices;
 using System.Windows.Navigation;
 using System.Drawing;
-
+using PlanCheck.Languages;
 
 
 
@@ -28,7 +28,7 @@ namespace PlanCheck
         private List<Item_Result> _result = new List<Item_Result>();
         private PreliminaryInformation _pinfo;
         private ScriptContext _pcontext;
-        private string _title = "Modèle de calcul";
+        private string _title = ResourceHelper.GetMessage("String237");
         private read_check_protocol _rcp;
 
         public Check_Model(PreliminaryInformation pinfo, ScriptContext context, read_check_protocol rcp)  //Constructor
@@ -110,7 +110,7 @@ namespace PlanCheck
             {
                 #region Nom de l'algo
                 Item_Result algo_name = new Item_Result();
-                algo_name.Label = "Algorithme de calcul";
+                algo_name.Label = ResourceHelper.GetMessage("String207");
                 if (!_pinfo.isTOMO)
                 {
 
@@ -119,8 +119,8 @@ namespace PlanCheck
                     algo_name.ExpectedValue = _rcp.algoName;
                     algo_name.MeasuredValue = _pinfo.AlgoName;
                     algo_name.Comparator = "=";
-                    algo_name.Infobulle = "Algorithme attendu pour le check-protocol " + _rcp.protocolName + " : " + algo_name.ExpectedValue;
-                    algo_name.Infobulle += "\nLes options de calcul ne sont pas vérifiées si l'algorithme n'est pas celui attendu";
+                    algo_name.Infobulle = ResourceHelper.GetMessage("String208") + " " + _rcp.protocolName + " : " + algo_name.ExpectedValue;
+                    algo_name.Infobulle += "\n" + ResourceHelper.GetMessage("String209");
                     algo_name.ResultStatus = testing.CompareDatas(algo_name.ExpectedValue, algo_name.MeasuredValue, algo_name.Comparator);
 
                 }
@@ -136,14 +136,14 @@ namespace PlanCheck
                             algo_name.setToTRUE();
                         else
                             algo_name.setToFALSE();
-                        algo_name.Infobulle = "Pour les plans Tomotherapy l'algorithme doit être Volo ULTRA. ";
+                        algo_name.Infobulle = ResourceHelper.GetMessage("String210")+" ";
 
 
                     }
                     else
                     {
                         algo_name.setToINFO();
-                        algo_name.MeasuredValue = "Pas de rapport de Dosimetrie Tomotherapy dans ARIA Documents";
+                        algo_name.MeasuredValue = ResourceHelper.GetMessage("String191");
 
                     }
 
@@ -156,11 +156,11 @@ namespace PlanCheck
             {
                 #region Grille de resolution
                 Item_Result algo_grid = new Item_Result();
-                algo_grid.Label = "Taille grille de calcul (mm)";
+                algo_grid.Label = ResourceHelper.GetMessage("String211");
                 algo_grid.ExpectedValue = _rcp.gridSize.ToString();//"1.25";// TO GET IN PRTOCOLE
                 algo_grid.MeasuredValue = _pcontext.PlanSetup.Dose.XRes.ToString("0.00");
                 //algo_grid.Comparator = "=";
-                algo_grid.Infobulle = "Grille de calcul attendue pour le check-protocol " + _rcp.protocolName + " " + algo_grid.ExpectedValue + " mm";
+                algo_grid.Infobulle = ResourceHelper.GetMessage("String212") + " " + _rcp.protocolName + " " + algo_grid.ExpectedValue + " mm";
 
                 //algo_grid.ResultStatus = testing.CompareDatas(algo_grid.ExpectedValue, algo_grid.MeasuredValue, algo_grid.Comparator);
                 if (_rcp.gridSize == _pcontext.PlanSetup.Dose.XRes)
@@ -173,7 +173,7 @@ namespace PlanCheck
                 }
                 if (_pinfo.isTOMO)
                 {
-                    algo_grid.Infobulle = "Pour les tomos, la grille doit être 1.17 mm (obtenu dans le plan DTO\net la grille de Final Dose doit être High (obtenu dans le rapport de Dosimétrie si disponible)";
+                    algo_grid.Infobulle = ResourceHelper.GetMessage("String213") +"\n"+ ResourceHelper.GetMessage("String238");
                     if (_pcontext.PlanSetup.Dose.XRes - 1.2695 < 0.01)
                     {
                         algo_grid.setToTRUE();
@@ -189,7 +189,7 @@ namespace PlanCheck
 
                     }
                     else
-                        algo_grid.Infobulle = "Pas de rapport de Dosimétrie Tomotherapy dans Aria Documents";
+                        algo_grid.Infobulle = ResourceHelper.GetMessage("String214");
 
                 }
 
@@ -223,7 +223,7 @@ namespace PlanCheck
                     if (algoNameStatus != "X")// algoOptions are not checked if the algo is not the same
                     {
                         Item_Result algoOptions = new Item_Result();
-                        algoOptions.Label = "Autres algoOptions du modèle de calcul";
+                        algoOptions.Label = ResourceHelper.GetMessage("String215");
 
                         int optionsAreOK = 1;
                         int myOpt = 0;
@@ -236,14 +236,15 @@ namespace PlanCheck
                         foreach (KeyValuePair<String, String> kvp in map)
                         {
 
-//                            MessageBox.Show(_rcp.optionComp[myOpt] + " ?? ");
+                            //                            MessageBox.Show(_rcp.optionComp[myOpt] + " ?? ");
 
                             if (kvp.Value != _rcp.optionComp[myOpt]) // if one computation option is different test is error
                             {
-                                
 
-                                algoOptions.Infobulle += "\nOption de calcul est différente du check-protocol: " + kvp.Key + "\n Protocole: " + _rcp.optionComp[myOpt] + "\n Plan: " + kvp.Value;
-                                algoOptions.MeasuredValue = "Options de calcul erronées (voir détail)";
+
+                                algoOptions.Infobulle += "\n" + ResourceHelper.GetMessage("String216") + ": " + kvp.Key + "\n ";
+                                algoOptions.Infobulle +=  ResourceHelper.GetMessage("String217") + ": " + _rcp.optionComp[myOpt] + "\n " + ResourceHelper.GetMessage("String218") + ": " + kvp.Value;
+                                algoOptions.MeasuredValue = ResourceHelper.GetMessage("String219");
                                 optionsAreOK = 0;
                             }
                             myOpt++;
@@ -258,7 +259,7 @@ namespace PlanCheck
                         {
                             algoOptions.setToTRUE();
                             algoOptions.MeasuredValue = "OK";
-                            algoOptions.Infobulle = "Les " + myOpt + " options du modèle calcul sont en accord avec le check-protocol: " + _rcp.protocolName + "\n";
+                            algoOptions.Infobulle = ResourceHelper.GetMessage("String235") + " " + myOpt + " " + ResourceHelper.GetMessage("String217") + ": " + _rcp.protocolName + "\n";
                             foreach (KeyValuePair<String, String> kvp in map)
                                 algoOptions.Infobulle += " - " + kvp.Key + " : " + kvp.Value + "\n";
 
@@ -298,28 +299,28 @@ namespace PlanCheck
                         NTO.Label = "NTO";
                         if (noNTOuse)
                         {
-                            NTO.MeasuredValue = "NTO désactivé";
-                            NTO.Infobulle = "NTO désactivé";
+                            NTO.MeasuredValue = ResourceHelper.GetMessage("String221");
+                            NTO.Infobulle = ResourceHelper.GetMessage("String222");
                             NTO.setToWARNING();
                         }
                         else if (NTOparamsOk)
                         {
-                            NTO.MeasuredValue = "Paramètres NTO conformes au protocole";
-                            NTO.Infobulle = "Paramètres NTO conformes au protocole " + _rcp.protocolName;
+                            NTO.MeasuredValue = ResourceHelper.GetMessage("String223");
+                            NTO.Infobulle = ResourceHelper.GetMessage("String224") + " " + _rcp.protocolName;
                             NTO.setToTRUE();
                         }
                         else
                         {
-                            NTO.MeasuredValue = "Paramètres NTO non conformes au protocole";
-                            NTO.Infobulle = "Paramètres NTO non conformes au protocole " + _rcp.protocolName;
+                            NTO.MeasuredValue = ResourceHelper.GetMessage("String225");
+                            NTO.Infobulle = ResourceHelper.GetMessage("String226") + " " + _rcp.protocolName;
                             NTO.setToFALSE();
                         }
 
 
-                        NTO.Infobulle += "\n Paramètres NTO du plan vs. protocole :";
+                        NTO.Infobulle += "\n " + ResourceHelper.GetMessage("String227") + " :";
                         if (noNTOuse)
                         {
-                            NTO.Infobulle += "\n Pas de NTO";
+                            NTO.Infobulle += "\n " + ResourceHelper.GetMessage("String228");
                         }
                         else
                         {
@@ -377,7 +378,7 @@ namespace PlanCheck
                     if (_pcontext.PlanSetup.OptimizationSetup.Parameters.Count() > 0) // if there is an optim. pararam
                     {
                         Item_Result jawTrack = new Item_Result();
-                        jawTrack.Label = "Jaw Track";
+                        jawTrack.Label = ResourceHelper.GetMessage("String229");
                         //OptimizationJawTrackingUsedParameter ojtup = _ctx.PlanSetup.OptimizationSetup.Parameters.FirstOrDefault(x => x.GetType().Name == "OptimizationJawTrackingUsedParameter") as OptimizationJawTrackingUsedParameter;
                         // jawTrack.Infobulle = "Selon le protocole " + _rcp.protocolName + " le jaw tracking doit être " + _rcp.JawTracking;
 
@@ -394,7 +395,7 @@ namespace PlanCheck
                             else
                             {*/
                             jawTrack.setToFALSE();
-                            jawTrack.Infobulle += "\nJaw Track désactivé";
+                            jawTrack.Infobulle += "\n" + ResourceHelper.GetMessage("String230");
 
                         }
                         else if (isJawTrackingOn) // != _rcp.JawTracking)
@@ -407,7 +408,7 @@ namespace PlanCheck
                                                     }
                                                     else
                                                     {*/
-                            jawTrack.Infobulle += "\nJawTrack activé ";
+                            jawTrack.Infobulle += "\n" + ResourceHelper.GetMessage("String231");
 
                         }
                         this._result.Add(jawTrack);
@@ -423,7 +424,7 @@ namespace PlanCheck
                     if (algoNameStatus != "X")// algoOptions are not checked if the algo is not the same
                     {
                         Item_Result POoptions = new Item_Result();
-                        POoptions.Label = "Options du PO";
+                        POoptions.Label = ResourceHelper.GetMessage("String232");
 
                         POoptions.ExpectedValue = "N/A";// TO GET IN PRTOCOLE
 
@@ -444,8 +445,8 @@ namespace PlanCheck
                         if (!optionsPOareOK)
                         {
                             POoptions.setToWARNING();
-                            POoptions.MeasuredValue = "Option(s) du PO non conforme au protocole (voir détail)";
-                            POoptions.Infobulle = "Une option du PO est différente du check-protocol " + _rcp.protocolName + "\n";
+                            POoptions.MeasuredValue = ResourceHelper.GetMessage("String233");
+                            POoptions.Infobulle = ResourceHelper.GetMessage("String234") + " " + _rcp.protocolName + "\n";
                             myOpt = 0;
                             foreach (string s in _rcp.POoptions)
                             {
@@ -456,7 +457,7 @@ namespace PlanCheck
                         else
                         {
                             POoptions.setToTRUE();
-                            POoptions.Infobulle = "Les " + myOpt + " algoOptions du modèle PO sont en accord avec le check-protocol: " + _rcp.protocolName;
+                            POoptions.Infobulle = "Les"+" " + myOpt + " "+ResourceHelper.GetMessage("String236")+": " + _rcp.protocolName;
                             POoptions.MeasuredValue = "OK";
 
                         }

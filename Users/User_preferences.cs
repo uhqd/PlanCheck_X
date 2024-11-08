@@ -200,7 +200,7 @@ namespace PlanCheck.Users
                     }
                 }
 
-                MessageBox.Show("Votre fichier de préférences a été sauvegardé");
+//                MessageBox.Show("Votre fichier de préférences a été sauvegardé");
             }
             catch
             {

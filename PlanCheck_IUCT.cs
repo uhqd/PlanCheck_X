@@ -26,7 +26,7 @@ namespace VMS.TPS
 {
     public class Script
     {
-      // 
+        // 
         public Script()
         {
         }
@@ -36,32 +36,38 @@ namespace VMS.TPS
 
             getUserLanguage.init(context.CurrentUser.Id);
             ResourceHelper.SetLanguage(getUserLanguage.myLang);
+            // Example of multilingual message 
+            // MessageBox.Show(ResourceHelper.GetMessage("generalError"));
 
             #region check if a plan with dose is loaded, no verification plan allowed
 
             bool aPlanIsLoaded = true;
-
-            if (context == null)
+            try
             {
-                MessageBox.Show("Merci de charger un patient et un plan");
+                string s = context.Patient.Id; // check if a patient is loaded
+            }
+            catch
+            {
+               ResourceHelper.displayMessage("Pleaseloadapatient");
                 return;
             }
 
             if (context.PlanSetup == null)
             {
-                MessageBox.Show("Aucun plan chargé, les tests de plans et de dose ne seront pas effectués");
+
+                MessageBox.Show(ResourceHelper.GetMessage("Noplanisloaded"));               
                 aPlanIsLoaded = false;
             }
             if (aPlanIsLoaded)
             {
                 if (context.PlanSetup.PlanIntent == "VERIFICATION")
                 {
-                    MessageBox.Show("Aucun plan de traitement chargé, les tests de plans et de dose ne seront pas effectués");
+                    MessageBox.Show(ResourceHelper.GetMessage("Noplanisloaded"));
                     aPlanIsLoaded = false;
                 }
                 if (!context.PlanSetup.IsDoseValid)
                 {
-                    MessageBox.Show("Aucune dose dans le plan, les tests de plans et de dose ne seront pas effectués");
+                    MessageBox.Show(ResourceHelper.GetMessage("NoValidDose"));                   
                     aPlanIsLoaded = false;
                 }
             }
@@ -72,23 +78,15 @@ namespace VMS.TPS
             string theDirectory = Path.GetDirectoryName(fullPath);//get the folder that's in                                                                  
             Directory.SetCurrentDirectory(theDirectory);// set current directory as the .dll directory
 
-            Perform(context,aPlanIsLoaded);
+            Perform(context, aPlanIsLoaded);
         }
 
 
-        public static void Perform(ScriptContext context,bool planIsLoaded)
+        public static void Perform(ScriptContext context, bool planIsLoaded)
         {
-            
-            PreliminaryInformation pinfo = new PreliminaryInformation(context,planIsLoaded);    //Get Plan information...      
-
-            
-           // Example of multilingual message 
-           // MessageBox.Show(ResourceHelper.GetMessage("generalError"));
-
-            var window = new MainWindow(pinfo, context,planIsLoaded); // create window
-            
+            PreliminaryInformation pinfo = new PreliminaryInformation(context, planIsLoaded);    //Get Plan information...      
+            var window = new MainWindow(pinfo, context, planIsLoaded); // create window
             window.ShowDialog(); // display window, next lines not executed until it is closed
-            
         }
     }
 }

@@ -9,7 +9,7 @@ using System.Windows;
 using System.Windows.Navigation;
 using System.Drawing;
 using System.Globalization;
-
+using PlanCheck.Languages;
 
 
 
@@ -26,7 +26,7 @@ namespace PlanCheck
             _ctx = ctx;
             _pinfo = pinfo;
             nameOfOtherCenters = new List<string>();
-            
+
             // list of cancer centers
             nameOfOtherCenters.Add("CARCA");
             nameOfOtherCenters.Add("PASTEUR");
@@ -44,7 +44,7 @@ namespace PlanCheck
 
         private List<Item_Result> _result = new List<Item_Result>();
         // private PreliminaryInformation _pinfo;
-        private string _title = "Traitements antérieurs";
+        private string _title = ResourceHelper.GetMessage("String176");
 
         public void Check()
         {
@@ -55,7 +55,7 @@ namespace PlanCheck
             {
                 Item_Result anteriorTraitement = new Item_Result();
                 List<string> anteriorTraitementList = new List<string>();
-                anteriorTraitement.Label = "Traitements antérieurs";
+                anteriorTraitement.Label = ResourceHelper.GetMessage("String176");
                 anteriorTraitement.ExpectedValue = "...";
                 var cultureInfo = new CultureInfo("fr-FR");
                 String msg = String.Empty;
@@ -89,7 +89,7 @@ namespace PlanCheck
                             }
                             else
                             {
-                                anteriorTraitementList.Add("Ancien plan corompu, vérifier " + p.Id);
+                                anteriorTraitementList.Add(ResourceHelper.GetMessage("String177") + " " + p.Id);
 
                             }
 
@@ -98,7 +98,7 @@ namespace PlanCheck
                                 if (c.Id.ToUpper().Contains(s.ToUpper()) || p.Id.ToUpper().Contains(s.ToUpper()))
                                 {
                                     nOtherCenterDetectedPlan++;
-                                    msg = s ;
+                                    msg = s;
                                 }
 
                             }
@@ -118,33 +118,33 @@ namespace PlanCheck
                     anteriorTraitement.setToWARNING();
 
                     if (nPlanTA > 0)
-                        anteriorTraitement.MeasuredValue += nPlanTA.ToString() + " plan(s) TreatApproved ";
+                        anteriorTraitement.MeasuredValue += nPlanTA.ToString() + " "+ ResourceHelper.GetMessage("String178") + " ";
                     if (nExtDoc > 0)
-                        anteriorTraitement.MeasuredValue += nExtDoc + " document(s) extérieur(s) ";
+                        anteriorTraitement.MeasuredValue += nExtDoc + " " + ResourceHelper.GetMessage("String179") + " ";
                     if (nOtherCenterDetectedPlan > 0)
-                        anteriorTraitement.MeasuredValue += nOtherCenterDetectedPlan + " plan(s) extérieur(s)"; ;
+                        anteriorTraitement.MeasuredValue += nOtherCenterDetectedPlan + " " + ResourceHelper.GetMessage("String180") ;
                     if (nPlanTA > 0)
                     {
-                        anteriorTraitement.Infobulle = "Les plans suivants sont à l'état TreatmentApproved";
-                        anteriorTraitement.Infobulle += "\nIl peut s'agir de traitements concomitants ou de traitements antérieurs :\n";
+                        anteriorTraitement.Infobulle = ResourceHelper.GetMessage("String181");
+                        anteriorTraitement.Infobulle += "\n"+ ResourceHelper.GetMessage("String182") + " :\n";
                         foreach (string s in anteriorTraitementList)
                             anteriorTraitement.Infobulle += "\n - " + s;
                     }
                     if (nExtDoc == 1)
                     {
-                        anteriorTraitement.Infobulle += "\n" + _pinfo.nAriaDocumentExterieur + " document extérieur présent dans Aria Documents";
+                        anteriorTraitement.Infobulle += "\n" + _pinfo.nAriaDocumentExterieur + " "+ ResourceHelper.GetMessage("String183");
                     }
                     if (nOtherCenterDetectedPlan > 0)
-                        anteriorTraitement.Infobulle += "\n" + "Un plan au moins contient le mot : " + msg;
+                        anteriorTraitement.Infobulle += "\n" + ResourceHelper.GetMessage("String184") + " : " + msg;
                     else
-                        anteriorTraitement.Infobulle += "\n" + _pinfo.nAriaDocumentExterieur + " documents extérieurs présents dans Aria Documents";
+                        anteriorTraitement.Infobulle += "\n" + _pinfo.nAriaDocumentExterieur + " "+ ResourceHelper.GetMessage("String185");
 
                 }
                 else
                 {
                     anteriorTraitement.setToTRUE();
-                    anteriorTraitement.MeasuredValue = "Aucun autre plan au status TreatApproved ni de documents exterieurs";
-                    anteriorTraitement.Infobulle = "Aucun autre plan au status TreatApproved ni de documents exterieurs";
+                    anteriorTraitement.MeasuredValue = ResourceHelper.GetMessage("String186");
+                    anteriorTraitement.Infobulle = ResourceHelper.GetMessage("String187");
                 }
 
                 this._result.Add(anteriorTraitement);
